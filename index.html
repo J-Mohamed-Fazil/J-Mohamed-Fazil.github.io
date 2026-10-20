@@ -268,7 +268,30 @@
           </div>
         </article>
 
-        <!-- Certification -->
+        <!-- SQL Certification (LinkedIn Verified) -->
+        <article class="cred-row">
+          <div class="cred-aside">
+            <span class="cred-period">Aug 2026</span>
+            <span class="cred-type">Certification</span>
+          </div>
+          <div class="cred-content">
+            <div class="cred-header-row">
+              <h3 class="cred-name">SQL Course Certification</h3>
+              <span class="cred-id-badge">ID: ITV6ad4844237225</span>
+            </div>
+            <span class="cred-org">I.T. Vedant Education</span>
+            <p class="cred-text">
+              Comprehensive certification in relational databases, SQL queries, schema design, and data management. Verified core proficiency in multi-table JOINs, GROUP BY aggregations, subqueries, and database referential integrity.
+            </p>
+            <div class="cred-links">
+              <button class="btn btn-secondary btn-sm btn-open-cert" data-cert="sql">View Certificate</button>
+              <a href="assets/sql_itvedant_certificate.jpg" target="_blank" rel="noopener noreferrer" class="link-inline">Direct Image ↗</a>
+              <a href="https://lnkd.in/p/g-ZwGaZp" target="_blank" rel="noopener noreferrer" class="link-inline">LinkedIn Post ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Advanced Excel Certification -->
         <article class="cred-row">
           <div class="cred-aside">
             <span class="cred-period">Verified</span>
@@ -281,7 +304,7 @@
               Practical training covering Power Query (ETL), multi-table consolidation, complex lookup functions (XLOOKUP, INDEX/MATCH), dynamic arrays, and executive dashboard development.
             </p>
             <div class="cred-links">
-              <button class="btn btn-secondary btn-sm" id="btnPreviewCert">View Certificate</button>
+              <button class="btn btn-secondary btn-sm btn-open-cert" data-cert="excel">View Certificate</button>
               <a href="assets/advanceexcel.jpg" target="_blank" rel="noopener noreferrer" class="link-inline">Direct Image ↗</a>
             </div>
           </div>
@@ -618,20 +641,21 @@
   </div>
 
   <!-- ==============================================================
-       CERTIFICATE PREVIEW MODAL
+       CERTIFICATE PREVIEW MODAL (SQL & EXCEL)
        ============================================================== -->
   <div class="modal-backdrop" id="certModal" aria-hidden="true">
-    <div class="modal-dialog cert-dialog" role="dialog" aria-modal="true">
+    <div class="modal-dialog cert-dialog" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
       <button class="modal-close" id="btnCloseCertModal" aria-label="Close certificate">✕</button>
       <div class="cert-header">
-        <h3 class="cert-title">Advanced Excel Certification</h3>
-        <span class="cert-meta">Issued by I.T. Vedant Education to Mohamed Fazil</span>
+        <h3 class="cert-title" id="certModalTitle">SQL Course Certification</h3>
+        <span class="cert-meta" id="certModalMeta">Issued by I.T. Vedant Education to Mohamed Fazil · ID: ITV6ad4844237225</span>
       </div>
       <div class="cert-img-box">
-        <img src="assets/advanceexcel.jpg" alt="Advanced Excel Certification from IT Vedant awarded to Mohamed Fazil" class="cert-img">
+        <img id="certModalImg" src="assets/sql_itvedant_certificate.jpg" alt="Certificate awarded to Mohamed Fazil by I.T. Vedant" class="cert-img">
       </div>
       <div class="cert-footer">
-        <a href="assets/advanceexcel.jpg" download="MohamedFazil_AdvancedExcel_ITVedant.jpg" class="btn btn-primary btn-sm">Download Image</a>
+        <a id="certModalDownload" href="assets/sql_itvedant_certificate.jpg" download="MohamedFazil_SQL_Certificate_ITVedant.jpg" class="btn btn-primary btn-sm">Download Image</a>
+        <a id="certModalVerify" href="https://lnkd.in/p/g-ZwGaZp" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">LinkedIn Verification ↗</a>
         <button class="btn btn-secondary btn-sm" id="btnCloseCertModalBtm">Close</button>
       </div>
     </div>
@@ -669,7 +693,7 @@
         <div class="resume-section">
           <h3>PROFESSIONAL SUMMARY</h3>
           <p>
-            Information Technology graduate with a strong interest in Data Analytics and Business Intelligence. Skilled in taking raw, multi-table datasets and executing data cleaning, SQL relational analysis, spreadsheet reporting, and interactive dashboard development. Completed formal Advanced Excel certification from I.T. Vedant. Demonstrated analytics experience across e-commerce logistics (99K+ transactions), workforce attrition modeling (1,470 personnel), and retail relational database analysis.
+            Information Technology graduate with a strong interest in Data Analytics and Business Intelligence. Skilled in taking raw, multi-table datasets and executing data cleaning, SQL relational analysis, spreadsheet reporting, and interactive dashboard development. Holds verified certifications in SQL and Advanced Excel from I.T. Vedant Education. Demonstrated analytics experience across e-commerce logistics (99K+ transactions), workforce attrition modeling (1,470 personnel), and retail relational database analysis.
           </p>
         </div>
 
@@ -740,6 +764,14 @@
               <span>2022 – 2026</span>
             </div>
             <p style="font-size: 0.85rem; color: #4b5563;">Sri Krishna College of Engineering and Technology</p>
+          </div>
+          <div class="resume-item">
+            <div class="ri-head">
+              <strong>SQL Course Certification</strong>
+              <span>Aug 2026</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #4b5563;">I.T. Vedant Education · Credential ID: ITV6ad4844237225</p>
+            <p style="font-size: 0.85rem; color: #4b5563;">Verified proficiency in RDBMS architecture, 1NF–3NF schema normalization, multi-table JOINs, subqueries, and database administration.</p>
           </div>
           <div class="resume-item">
             <div class="ri-head">

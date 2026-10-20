@@ -240,15 +240,58 @@ function openCaseStudyModal(project) {
 }
 
 /* ===================================================================
-   4. CERTIFICATE PREVIEW MODAL
+   4. CERTIFICATE PREVIEW MODAL (SQL & EXCEL)
    =================================================================== */
+const certificateConfigs = {
+  sql: {
+    title: "SQL Course Certification",
+    meta: "Issued by I.T. Vedant Education to Mohamed Fazil · Credential ID: ITV6ad4844237225 · Date: 10th Aug, 2026",
+    imgSrc: "assets/sql_itvedant_certificate.jpg",
+    imgAlt: "SQL Course Certificate awarded to Mohamed Fazil by I.T. Vedant",
+    downloadName: "MohamedFazil_SQL_Certificate_ITVedant.jpg",
+    verifyUrl: "https://lnkd.in/p/g-ZwGaZp"
+  },
+  excel: {
+    title: "Advanced Excel Certification",
+    meta: "Issued by I.T. Vedant Education to Mohamed Fazil · Verified Advanced Excel Curriculum",
+    imgSrc: "assets/advanceexcel.jpg",
+    imgAlt: "Advanced Excel Certification awarded to Mohamed Fazil by I.T. Vedant",
+    downloadName: "MohamedFazil_AdvancedExcel_ITVedant.jpg",
+    verifyUrl: null
+  }
+};
+
 function initCertificateModal() {
   const certModal = document.getElementById('certModal');
-  const btnPreviewCert = document.getElementById('btnPreviewCert');
+  const certModalTitle = document.getElementById('certModalTitle');
+  const certModalMeta = document.getElementById('certModalMeta');
+  const certModalImg = document.getElementById('certModalImg');
+  const certModalDownload = document.getElementById('certModalDownload');
+  const certModalVerify = document.getElementById('certModalVerify');
   const btnCloseCert = document.getElementById('btnCloseCertModal');
   const btnCloseCertBtm = document.getElementById('btnCloseCertModalBtm');
 
-  function openCertModal() {
+  function openCertModal(certKey = 'sql') {
+    const config = certificateConfigs[certKey] || certificateConfigs.sql;
+    if (certModalTitle) certModalTitle.textContent = config.title;
+    if (certModalMeta) certModalMeta.textContent = config.meta;
+    if (certModalImg) {
+      certModalImg.src = config.imgSrc;
+      certModalImg.alt = config.imgAlt;
+    }
+    if (certModalDownload) {
+      certModalDownload.href = config.imgSrc;
+      certModalDownload.download = config.downloadName;
+    }
+    if (certModalVerify) {
+      if (config.verifyUrl) {
+        certModalVerify.href = config.verifyUrl;
+        certModalVerify.style.display = 'inline-flex';
+      } else {
+        certModalVerify.style.display = 'none';
+      }
+    }
+
     if (certModal) {
       certModal.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -262,7 +305,15 @@ function initCertificateModal() {
     }
   }
 
-  if (btnPreviewCert) btnPreviewCert.addEventListener('click', openCertModal);
+  document.querySelectorAll('.btn-open-cert').forEach(btn => {
+    btn.addEventListener('click', () => {
+      openCertModal(btn.dataset.cert);
+    });
+  });
+
+  const btnPreviewCert = document.getElementById('btnPreviewCert');
+  if (btnPreviewCert) btnPreviewCert.addEventListener('click', () => openCertModal('excel'));
+
   if (btnCloseCert) btnCloseCert.addEventListener('click', closeCertModal);
   if (btnCloseCertBtm) btnCloseCertBtm.addEventListener('click', closeCertModal);
 

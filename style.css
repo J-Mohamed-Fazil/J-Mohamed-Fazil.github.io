@@ -761,6 +761,26 @@ p {
   text-transform: uppercase;
 }
 
+.cred-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-1);
+  flex-wrap: wrap;
+}
+
+.cred-id-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-accent);
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  padding: 2px 8px;
+  letter-spacing: 0.02em;
+}
+
 .cred-name {
   font-size: 18px;
   font-weight: 600;
