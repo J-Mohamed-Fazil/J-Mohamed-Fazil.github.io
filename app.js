@@ -1,6 +1,6 @@
 /**
  * Mohamed Fazil J — Professional Data Analyst Portfolio
- * Client-Side Controller & Interactive Showcase
+ * Minimal Editorial UI/UX & Interactive Showcase
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,39 +11,42 @@ document.addEventListener('DOMContentLoaded', () => {
   initDatanovaStudio();
   initModals();
   initContactForm();
+  initDynamicYear();
+  initScrollAnimations();
 });
 
 /* ===================================================================
-   1. THEME TOGGLE: DARK MODERN (DEFAULT) / CLEAN CORPORATE LIGHT
+   1. THEME TOGGLE: CLEAN EDITORIAL LIGHT (DEFAULT) / DARK
    =================================================================== */
 function initThemeToggle() {
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const themeIcon = document.getElementById('themeIcon');
   const htmlEl = document.documentElement;
 
-  const savedTheme = localStorage.getItem('fazil_portfolio_theme') || 'dark';
+  // Retrieve saved preference or default to light mode
+  const savedTheme = localStorage.getItem('fazil_editorial_theme') || 'light';
   applyTheme(savedTheme);
 
   function applyTheme(theme) {
     htmlEl.setAttribute('data-theme', theme);
-    localStorage.setItem('fazil_portfolio_theme', theme);
+    localStorage.setItem('fazil_editorial_theme', theme);
     if (themeIcon) {
-      themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+      themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
     }
   }
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
-      const current = htmlEl.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
+      const current = htmlEl.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
       applyTheme(next);
-      showToast(`Switched to ${next === 'dark' ? 'Dark Modern Navy' : 'Clean Corporate Light'} theme`);
+      showToast(`Switched to ${next === 'light' ? 'Editorial Light' : 'Muted Dark'} theme`);
     });
   }
 }
 
 /* ===================================================================
-   2. NAVBAR & NAVIGATION
+   2. SLIM NAVIGATION BAR
    =================================================================== */
 function initNavbar() {
   const navToggle = document.getElementById('navToggle');
@@ -64,7 +67,7 @@ function initNavbar() {
 }
 
 /* ===================================================================
-   3. FEATURED PROJECTS: REUSABLE COMPONENT RENDERER
+   3. FEATURED PROJECTS: EDITORIAL CARDS RENDERER
    =================================================================== */
 function initProjectShowcase() {
   const container = document.getElementById('projectsListContainer');
@@ -72,67 +75,52 @@ function initProjectShowcase() {
 
   container.innerHTML = portfolioProjects.map(p => {
     const isFlagship = p.category === 'flagship' || p.id === 'datanova-ai';
-    const workItems = p.workPerformed || [];
+    const metrics = p.verifiedMetrics || [];
 
     return `
-      <article class="project-feature-card ${isFlagship ? 'flagship-highlight' : ''}" data-id="${p.id}">
-        <div class="p-left-content">
-          <div class="p-meta-top">
-            <span class="p-badge">${p.badge || 'Analytical Project'}</span>
+      <article class="editorial-project-card" data-id="${p.id}">
+        <div class="ep-left">
+          <div class="ep-tools-row">
+            <span class="tag-neutral">${p.badge || 'Analytics Project'}</span>
+            ${p.tools.slice(0, 3).map(t => `<span class="tag-neutral">${t}</span>`).join('')}
           </div>
 
-          <h3 class="p-title">${p.title}</h3>
+          <h3 class="ep-title">${p.title}</h3>
 
-          <p class="p-business-problem">
+          <p class="ep-objective">${p.summary}</p>
+
+          <div class="ep-problem-box">
             <strong>Business Problem:</strong> ${p.businessProblem}
-          </p>
-
-          <p class="p-summary">${p.summary}</p>
-
-          ${workItems.length > 0 ? `
-            <div class="p-work-box">
-              <span class="p-work-title">Verified Analytical Work Performed</span>
-              <ul class="p-work-list">
-                ${workItems.map(w => `<li>${w}</li>`).join('')}
-              </ul>
-            </div>
-          ` : ''}
-
-          <div class="p-tools-row">
-            ${p.tools.map(t => `<span class="tag-minimal">${t}</span>`).join('')}
           </div>
 
-          <div class="p-actions">
+          <div class="ep-actions-row">
             ${p.hasWorkingModel ? `
-              <button class="btn btn-solid btn-sm btn-launch-model">
-                ⚡ Open DATOVA Working Model
+              <button class="btn btn-primary btn-sm btn-launch-model">
+                Open Working Model
               </button>
             ` : ''}
-            <button class="btn ${p.hasWorkingModel ? 'btn-outline' : 'btn-solid'} btn-sm btn-view-study" data-id="${p.id}">
-              View Case Study →
+            <button class="btn ${p.hasWorkingModel ? 'btn-secondary' : 'btn-primary'} btn-sm btn-view-study" data-id="${p.id}">
+              View Case Study
             </button>
             ${p.hasRepo ? `
-              <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
-                View GitHub ↗
+              <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                GitHub Repository ↗
               </a>
-            ` : `
-              <span class="btn btn-ghost btn-sm" style="opacity: 0.6; cursor: default;">Repository Verified Locally</span>
-            `}
+            ` : ''}
           </div>
         </div>
 
-        <div class="p-right-kpis">
-          <span class="kpi-title">Verified Project Metrics</span>
-          <div class="kpi-grid">
-            ${(p.verifiedMetrics || []).map(m => `
-              <div class="kpi-tile">
-                <span class="k-val">${m.value}</span>
-                <span class="k-lbl">${m.label}</span>
+        <div class="ep-right">
+          <div class="ep-metrics-grid">
+            ${metrics.map(m => `
+              <div class="ep-metric-unit">
+                <span class="m-val">${m.value}</span>
+                <span class="m-lbl">${m.label}</span>
               </div>
             `).join('')}
           </div>
 
-          <div class="p-placeholder-badge">
+          <div class="ep-screenshot-box">
             <span>📷 ${p.screenshotPlaceholder || 'Verified Project Visual Artifact'}</span>
           </div>
         </div>
@@ -171,15 +159,15 @@ function openCaseStudyModal(project) {
   document.getElementById('modalTitle').textContent = project.title;
 
   document.getElementById('modalTools').innerHTML = project.tools
-    .map(t => `<span class="tag-minimal">${t}</span>`)
+    .map(t => `<span class="tag-neutral">${t}</span>`)
     .join('');
 
   // 01. Overview
   const overviewHtml = `
     <p>${cs.overview ? cs.overview.description : project.summary}</p>
     ${cs.overview ? `
-      <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-tertiary);">
-        <strong>Domain:</strong> ${cs.overview.domain} &nbsp;|&nbsp; <strong>Tools:</strong> ${cs.overview.tools}
+      <p style="margin-top: 0.35rem; font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono);">
+        Domain: ${cs.overview.domain} | Tools: ${cs.overview.tools}
       </p>
     ` : ''}
   `;
@@ -188,16 +176,16 @@ function openCaseStudyModal(project) {
   // 02. Problem & Objectives
   document.getElementById('modalProblem').textContent = cs.businessProblem || project.businessProblem;
 
-  // 03. Dataset
-  document.getElementById('modalDataset').textContent = cs.datasetSource || 'Standard public verified analytical dataset.';
+  // 03. Dataset Source
+  document.getElementById('modalDataset').textContent = cs.datasetSource || 'Verified analytical dataset.';
 
   // 04. Data Prep
   const prepList = cs.dataPreparation || [];
   document.getElementById('modalDataPrep').innerHTML = prepList.length > 0
     ? prepList.map(step => `<li>${step}</li>`).join('')
-    : '<li>Data imported, cleansed, and verified.</li>';
+    : '<li>Data imported, normalized, and validated.</li>';
 
-  // 05. Methodology & SQL / Measure Box
+  // 05. Methodology & Code Box
   document.getElementById('modalMethodology').textContent = cs.analysisMethodology || 'Quantitative relational analysis and modeling.';
   const queryBoxContainer = document.getElementById('modalQueryContainer');
   const queryCodeEl = document.getElementById('modalQueryCode');
@@ -210,9 +198,9 @@ function openCaseStudyModal(project) {
 
   // 06. Verified Metrics
   document.getElementById('modalMetrics').innerHTML = (project.verifiedMetrics || []).map(m => `
-    <div class="kpi-tile">
-      <span class="k-val">${m.value}</span>
-      <span class="k-lbl">${m.label}</span>
+    <div class="metric-item">
+      <span class="metric-num">${m.value}</span>
+      <span class="metric-lbl">${m.label}</span>
     </div>
   `).join('');
 
@@ -229,9 +217,9 @@ function openCaseStudyModal(project) {
     : '<li>Deploy recommendations according to business constraints.</li>';
 
   // 09. Limitations & Files
-  document.getElementById('modalLimitations').innerHTML = `<strong>Limitations & Improvements:</strong> ${cs.limitations || 'None documented.'}`;
+  document.getElementById('modalLimitations').innerHTML = `<strong>Limitations:</strong> ${cs.limitations || 'None documented.'}`;
   const filesInfo = cs.projectFiles
-    ? `${cs.projectFiles.type} available in public GitHub repository.`
+    ? `${cs.projectFiles.type} available in the linked GitHub repository.`
     : 'Public repository documentation and reproduction scripts.';
   document.getElementById('modalFilesInfo').textContent = filesInfo;
 
@@ -286,7 +274,7 @@ const studioDatasets = {
   retail: {
     domain: "Retail & E-Commerce",
     healthScore: 94,
-    statusText: "Excellent · Production Ready",
+    statusText: "Optimal · Production Ready",
     tables: [
       {
         name: "CUSTOMERS",
@@ -387,7 +375,7 @@ const studioDatasets = {
   banking: {
     domain: "Commercial Banking & Fraud",
     healthScore: 96,
-    statusText: "Audited · PCI Compliant Schema",
+    statusText: "Optimal · Audited Schema",
     tables: [
       {
         name: "CLIENTS",
@@ -455,7 +443,7 @@ function initDatanovaStudio() {
       <div class="eer-table-node" data-table="${tbl.name}">
         <div class="table-node-head">
           <span>${tbl.name}</span>
-          <span style="font-size:0.65rem; color:#94a3b8;">${tbl.rowCount}</span>
+          <span style="font-size:0.65rem; color:var(--text-muted);">${tbl.rowCount}</span>
         </div>
         <div class="table-node-cols">
           ${tbl.cols.map(c => `
@@ -514,7 +502,7 @@ function initDatanovaStudio() {
         btnRunJoin.disabled = false;
         btnRunJoin.textContent = "▶ Run Join Simulation";
         showToast("Relational join executed deterministically in 16ms.");
-      }, 250);
+      }, 200);
     });
   }
 
@@ -544,7 +532,7 @@ function initAskDatovaChat() {
   const form = document.getElementById('askChatForm');
   const input = document.getElementById('askInput');
   const messagesList = document.getElementById('askMessagesList');
-  const suggestions = document.querySelectorAll('#askSuggestions .prompt-chip');
+  const suggestions = document.querySelectorAll('#askSuggestions .chip');
 
   if (!form || !input || !messagesList) return;
 
@@ -558,34 +546,32 @@ function initAskDatovaChat() {
     if (!text.trim()) return;
 
     const userMsg = document.createElement('div');
-    userMsg.className = 'chat-msg user';
+    userMsg.className = 'chat-row user';
     userMsg.innerHTML = `
-      <div class="msg-avatar">You</div>
-      <div class="msg-bubble"><p>${escapeHtml(text)}</p></div>
+      <div class="chat-bubble"><p>${escapeHtml(text)}</p></div>
     `;
     messagesList.appendChild(userMsg);
     input.value = '';
     messagesList.scrollTop = messagesList.scrollHeight;
 
     setTimeout(() => {
-      let replyText = "I queried the relational model. Verified figures: Total Gross GMV is $15.8M across 99,441 transactions with a 94/100 data health rating and zero detected duplicate records.";
+      let replyText = "Verified figures from model: Total Gross GMV is $15.8M across 99,441 transactions with a 94/100 data health rating and zero duplicate records.";
       const q = text.toLowerCase();
       if (q.includes('region') || q.includes('volume')) replyText = cannedAnswers.region;
       else if (q.includes('delay') || q.includes('shipping')) replyText = cannedAnswers.delay;
       else if (q.includes('payment') || q.includes('method')) replyText = cannedAnswers.payment;
 
       const aiMsg = document.createElement('div');
-      aiMsg.className = 'chat-msg';
+      aiMsg.className = 'chat-row assistant';
       aiMsg.innerHTML = `
-        <div class="msg-avatar">AI</div>
-        <div class="msg-bubble">
+        <div class="chat-bubble">
           <strong>DATOVA Deterministic Engine</strong>
           <p>${replyText}</p>
         </div>
       `;
       messagesList.appendChild(aiMsg);
       messagesList.scrollTop = messagesList.scrollHeight;
-    }, 300);
+    }, 250);
   }
 
   form.addEventListener('submit', (e) => {
@@ -616,7 +602,6 @@ function initModals() {
   const btnNavResume = document.getElementById('btnNavResume');
   const btnHeroResume = document.getElementById('btnHeroResume');
   const btnOpenResumeModal = document.getElementById('btnOpenResumeModal');
-  const btnFooterResume = document.getElementById('btnFooterResume');
   const btnCloseResume = document.getElementById('btnCloseResume');
   const btnPrintResume = document.getElementById('btnPrintResume');
 
@@ -637,7 +622,7 @@ function initModals() {
 
   if (btnCloseResume) btnCloseResume.addEventListener('click', closeAllModals);
 
-  [btnNavResume, btnHeroResume, btnOpenResumeModal, btnFooterResume].forEach(btn => {
+  [btnNavResume, btnHeroResume, btnOpenResumeModal].forEach(btn => {
     if (btn) {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -689,7 +674,7 @@ function initContactForm() {
       const mailto = `mailto:mf20159126@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${msg}`)}`;
       window.location.href = mailto;
 
-      showToast("Email draft prepared. Thank you!");
+      showToast("Email draft opened. Thank you!");
       form.reset();
     });
   }
@@ -697,10 +682,41 @@ function initContactForm() {
   if (btnCopy && emailVal) {
     btnCopy.addEventListener('click', () => {
       navigator.clipboard.writeText(emailVal.textContent.trim()).then(() => {
-        showToast("Email address copied to clipboard!");
+        showToast("Email address copied to clipboard");
       });
     });
   }
+}
+
+function initDynamicYear() {
+  const yearEl = document.getElementById('footerYear');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+}
+
+function initScrollAnimations() {
+  // Check if reduced motion is preferred
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const sections = document.querySelectorAll('.content-section, .editorial-project-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(sec => {
+    sec.style.opacity = '0';
+    sec.style.transform = 'translateY(8px)';
+    sec.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    observer.observe(sec);
+  });
 }
 
 function showToast(msg) {
@@ -711,7 +727,7 @@ function showToast(msg) {
   toast.classList.add('show');
   setTimeout(() => {
     toast.classList.remove('show');
-  }, 3200);
+  }, 2800);
 }
 
 function escapeHtml(str) {
