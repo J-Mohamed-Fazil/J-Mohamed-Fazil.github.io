@@ -74,55 +74,52 @@ function initProjectShowcase() {
   if (!container || typeof portfolioProjects === 'undefined') return;
 
   container.innerHTML = portfolioProjects.map(p => {
-    const isFlagship = p.category === 'flagship' || p.id === 'datanova-ai';
     const metrics = p.verifiedMetrics || [];
 
     return `
-      <article class="editorial-project-card" data-id="${p.id}">
-        <div class="ep-left">
-          <div class="ep-tools-row">
-            <span class="tag-neutral">${p.badge || 'Analytics Project'}</span>
-            ${p.tools.slice(0, 3).map(t => `<span class="tag-neutral">${t}</span>`).join('')}
-          </div>
-
-          <h3 class="ep-title">${p.title}</h3>
-
-          <p class="ep-objective">${p.summary}</p>
-
-          <div class="ep-problem-box">
-            <strong>Business Problem:</strong> ${p.businessProblem}
-          </div>
-
-          <div class="ep-actions-row">
-            ${p.hasWorkingModel ? `
-              <button class="btn btn-primary btn-sm btn-launch-model">
-                Open Working Model
-              </button>
-            ` : ''}
-            <button class="btn ${p.hasWorkingModel ? 'btn-secondary' : 'btn-primary'} btn-sm btn-view-study" data-id="${p.id}">
-              View Case Study
-            </button>
-            ${p.hasRepo ? `
-              <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-                GitHub Repository ↗
-              </a>
-            ` : ''}
-          </div>
+      <article class="project-card" data-id="${escapeHtml(p.id)}">
+        <div class="card-tags">
+          <span class="tag-neutral">${escapeHtml(p.badge || 'Analytics Project')}</span>
+          ${p.tools.slice(0, 3).map(t => `<span class="tag-neutral">${escapeHtml(t)}</span>`).join('')}
         </div>
 
-        <div class="ep-right">
-          <div class="ep-metrics-grid">
+        <h3 class="card-title">${escapeHtml(p.title)}</h3>
+
+        <p class="card-objective">${escapeHtml(p.summary)}</p>
+
+        <div class="card-problem">
+          <strong>Business Problem:</strong> ${escapeHtml(p.businessProblem)}
+        </div>
+
+        ${metrics.length > 0 ? `
+          <div class="card-metrics">
             ${metrics.map(m => `
-              <div class="ep-metric-unit">
-                <span class="m-val">${m.value}</span>
-                <span class="m-lbl">${m.label}</span>
+              <div class="card-metric">
+                <span class="m-val">${escapeHtml(m.value)}</span>
+                <span class="m-lbl">${escapeHtml(m.label)}</span>
               </div>
             `).join('')}
           </div>
+        ` : ''}
 
-          <div class="ep-screenshot-box">
-            <span>📷 ${p.screenshotPlaceholder || 'Verified Project Visual Artifact'}</span>
-          </div>
+        <div class="card-screenshot-holder">
+          <span>📊 ${escapeHtml(p.screenshotPlaceholder || 'Verified Analytical Deliverable')}</span>
+        </div>
+
+        <div class="card-actions">
+          ${p.hasWorkingModel ? `
+            <button type="button" class="btn btn-primary btn-sm btn-launch-model" id="launchModel-${escapeHtml(p.id)}">
+              Open Working Model
+            </button>
+          ` : ''}
+          <button type="button" class="btn ${p.hasWorkingModel ? 'btn-secondary' : 'btn-primary'} btn-sm btn-view-study" data-id="${escapeHtml(p.id)}" id="viewStudy-${escapeHtml(p.id)}">
+            View Case Study
+          </button>
+          ${p.hasRepo ? `
+            <a href="${escapeHtml(p.github)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="View ${escapeHtml(p.title)} on GitHub">
+              GitHub ↗
+            </a>
+          ` : ''}
         </div>
       </article>
     `;
@@ -155,19 +152,28 @@ function openCaseStudyModal(project) {
 
   const cs = project.caseStudy || {};
 
-  document.getElementById('modalBadge').textContent = project.badge || 'Case Study';
-  document.getElementById('modalTitle').textContent = project.title;
+  const breadcrumbCurrent = document.getElementById('modalBreadcrumbCurrent');
+  if (breadcrumbCurrent) breadcrumbCurrent.textContent = project.title;
 
-  document.getElementById('modalTools').innerHTML = project.tools
-    .map(t => `<span class="tag-neutral">${t}</span>`)
-    .join('');
+  const badgeEl = document.getElementById('modalBadge');
+  if (badgeEl) badgeEl.textContent = project.badge || 'Case Study';
+
+  const titleEl = document.getElementById('modalTitle');
+  if (titleEl) titleEl.textContent = project.title;
+
+  const toolsEl = document.getElementById('modalTools');
+  if (toolsEl) {
+    toolsEl.innerHTML = project.tools
+      .map(t => `<span class="tag-neutral">${escapeHtml(t)}</span>`)
+      .join('');
+  }
 
   // 01. Overview
   const overviewHtml = `
-    <p>${cs.overview ? cs.overview.description : project.summary}</p>
+    <p>${escapeHtml(cs.overview ? cs.overview.description : project.summary)}</p>
     ${cs.overview ? `
-      <p style="margin-top: 0.35rem; font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono);">
-        Domain: ${cs.overview.domain} | Tools: ${cs.overview.tools}
+      <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--color-text-muted); font-family: var(--font-mono);">
+        Domain: ${escapeHtml(cs.overview.domain)} | Tools: ${escapeHtml(cs.overview.tools)}
       </p>
     ` : ''}
   `;
@@ -182,7 +188,7 @@ function openCaseStudyModal(project) {
   // 04. Data Prep
   const prepList = cs.dataPreparation || [];
   document.getElementById('modalDataPrep').innerHTML = prepList.length > 0
-    ? prepList.map(step => `<li>${step}</li>`).join('')
+    ? prepList.map(step => `<li>${escapeHtml(step)}</li>`).join('')
     : '<li>Data imported, normalized, and validated.</li>';
 
   // 05. Methodology & Code Box
@@ -198,28 +204,28 @@ function openCaseStudyModal(project) {
 
   // 06. Verified Metrics
   document.getElementById('modalMetrics').innerHTML = (project.verifiedMetrics || []).map(m => `
-    <div class="metric-item">
-      <span class="metric-num">${m.value}</span>
-      <span class="metric-lbl">${m.label}</span>
+    <div class="case-metric-item">
+      <span class="m-val">${escapeHtml(m.value)}</span>
+      <span class="m-lbl">${escapeHtml(m.label)}</span>
     </div>
   `).join('');
 
   // 07. Findings
   const findingsList = cs.keyFindings || [];
   document.getElementById('modalFindings').innerHTML = findingsList.length > 0
-    ? findingsList.map(f => `<li>${f}</li>`).join('')
+    ? findingsList.map(f => `<li>${escapeHtml(f)}</li>`).join('')
     : '<li>Analysis completed with verified statistical figures.</li>';
 
   // 08. Recommendations
   const recsList = cs.businessRecommendations || [];
   document.getElementById('modalRecommendations').innerHTML = recsList.length > 0
-    ? recsList.map(r => `<li>${r}</li>`).join('')
+    ? recsList.map(r => `<li>${escapeHtml(r)}</li>`).join('')
     : '<li>Deploy recommendations according to business constraints.</li>';
 
   // 09. Limitations & Files
-  document.getElementById('modalLimitations').innerHTML = `<strong>Limitations:</strong> ${cs.limitations || 'None documented.'}`;
+  document.getElementById('modalLimitations').innerHTML = `<strong>Limitations:</strong> ${escapeHtml(cs.limitations || 'None documented.')}`;
   const filesInfo = cs.projectFiles
-    ? `${cs.projectFiles.type} available in the linked GitHub repository.`
+    ? `${escapeHtml(cs.projectFiles.type)} available in the linked GitHub repository.`
     : 'Public repository documentation and reproduction scripts.';
   document.getElementById('modalFilesInfo').textContent = filesInfo;
 
@@ -640,7 +646,16 @@ function initModals() {
     });
   }
 
-  [caseModal, datanovaModal, resumeModal].forEach(m => {
+  const breadcrumbLink = document.getElementById('modalBreadcrumbLink');
+  if (breadcrumbLink) {
+    breadcrumbLink.addEventListener('click', () => {
+      closeAllModals();
+    });
+  }
+
+  const certModal = document.getElementById('certModal');
+
+  [caseModal, datanovaModal, resumeModal, certModal].forEach(m => {
     if (m) {
       m.addEventListener('click', (e) => {
         if (e.target === m) closeAllModals();
