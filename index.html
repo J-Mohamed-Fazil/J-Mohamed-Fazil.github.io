@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Fazil J | Data Analyst & Data Science Portfolio</title>
+  <meta name="description" content="Professional minimal portfolio of Mohamed Fazil J - Data Analyst & Data Scientist specializing in Power BI, SQL, Python, Excel BI Modeling, and Predictive Analytics.">
+  <meta name="author" content="Mohamed Fazil J">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mohamed Fazil J | Data Analyst & Data Science Portfolio">
+  <meta property="og:description" content="Translating complex datasets into executive dashboards, optimized SQL models, and measurable business growth.">
+
+  <!-- Google Fonts: Inter & JetBrains Mono for clean minimalist typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Three.js for 3D Data Visualizer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Chart.js for Live Data Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-minimal">
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-monogram">MF</span>
+        <span class="brand-name">Mohamed Fazil<span class="brand-tag"> / Data</span></span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#recruiter-summary" class="nav-link">Overview</a>
+        <a href="#workflow" class="nav-link">Analytics Flow</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#datalab" class="nav-link">Live Data Lab</a>
+        <a href="#code-lab" class="nav-link">SQL Lab</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <button class="btn btn-outline btn-sm" id="btnNavResume">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span>Resume</span>
+        </button>
+        <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="btn btn-solid btn-sm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section with Smooth 3D Canvas -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-layout">
+        <div class="hero-text">
+          <div class="badge-status">
+            <span class="status-dot"></span>
+            <span>Open to Data Analyst & Data Science Roles</span>
+          </div>
+
+          <h1 class="hero-headline">
+            MOHAMED FAZIL J
+            <span class="hero-subhead">Data Analyst & Aspiring Data Scientist</span>
+          </h1>
+
+          <p class="hero-summary">
+            Specializing in translating noisy enterprise data into clear executive decisions. Experienced across the full data lifecycle: <strong>Power BI & DAX dashboards, complex SQL modeling, automated Excel ETL pipelines, and Python exploratory data analysis</strong>.
+          </p>
+
+          <div class="hero-action-row">
+            <a href="#projects" class="btn btn-solid">
+              <span>View Case Studies</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <button class="btn btn-outline" id="btnHeroResume">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              <span>View Resume (PDF)</span>
+            </button>
+            <a href="#contact" class="btn btn-ghost">
+              <span>Contact Directly →</span>
+            </a>
+          </div>
+
+          <div class="hero-stats-strip">
+            <div class="stat-box">
+              <span class="stat-number">19</span>
+              <span class="stat-caption">GitHub Repos</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">100K+</span>
+              <span class="stat-caption">Data Records Cleaned</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">16.1%</span>
+              <span class="stat-caption">Attrition Isolated</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">&lt;24ms</span>
+              <span class="stat-caption">SQL Query Latency</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Interactive Canvas Container -->
+        <div class="hero-3d-wrapper">
+          <div class="canvas-card">
+            <div class="canvas-header">
+              <span class="canvas-title">Interactive 3D Data Lattice</span>
+              <span class="canvas-hint">Drag / Move mouse to rotate in 3D</span>
+            </div>
+            <div id="threeContainer" class="three-container"></div>
+            <div class="canvas-footer">
+              <span class="tech-item">Three.js</span>
+              <span class="tech-item">WebGL 60 FPS</span>
+              <span class="tech-item">64 Data Nodes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recruiter Quick Summary Card -->
+    <section class="recruiter-section" id="recruiter-summary">
+      <div class="container">
+        <div class="recruiter-card">
+          <div class="recruiter-header">
+            <div>
+              <span class="section-badge">At a Glance</span>
+              <h2 class="card-heading">Executive Recruiter Snapshot</h2>
+            </div>
+            <button class="btn btn-outline btn-sm" id="btnRecruiterResume">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              <span>1-Click Print Resume</span>
+            </button>
+          </div>
+
+          <div class="recruiter-grid">
+            <div class="recruiter-col">
+              <span class="col-label">Target Positions</span>
+              <p class="col-value">Data Analyst, Business Intelligence Analyst, Junior Data Scientist, SQL Analyst</p>
+            </div>
+            <div class="recruiter-col">
+              <span class="col-label">Education & Training</span>
+              <p class="col-value">Itvedant Education — Data Science & Analytics Specialization</p>
+            </div>
+            <div class="recruiter-col">
+              <span class="col-label">Primary Toolset</span>
+              <div class="pill-group">
+                <span class="pill">Power BI (DAX)</span>
+                <span class="pill">SQL (MySQL / CTEs)</span>
+                <span class="pill">Python (Pandas / Scikit)</span>
+                <span class="pill">Advanced Excel</span>
+                <span class="pill">Tableau</span>
+              </div>
+            </div>
+            <div class="recruiter-col">
+              <span class="col-label">Core Business Value</span>
+              <p class="col-value">End-to-end data modeling, automated ETL transformation, identifying turnover drivers, and customer cohort retention analytics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GoogleFlow: Interactive End-to-End Analytics Workflow -->
+    <section class="workflow-section" id="workflow">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge">GoogleFlow</span>
+          <h2 class="section-heading">End-to-End Analytics Workflow</h2>
+          <p class="section-desc">How I take raw, messy enterprise data and turn it into actionable executive revenue and retention strategies.</p>
+        </div>
+
+        <div class="flow-steps-grid">
+          <!-- Step 1 -->
+          <div class="flow-step-card active" data-step="1">
+            <div class="step-num">01</div>
+            <h3 class="step-title">Ingest & Query</h3>
+            <p class="step-desc">Extracting raw transactional records from relational stores using SQL (joins, subqueries, CTEs) and raw CSV/API sources.</p>
+            <div class="step-tags"><span>SQL</span><span>MySQL</span><span>Schema 3NF</span></div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flow-step-card" data-step="2">
+            <div class="step-num">02</div>
+            <h3 class="step-title">Clean & Transform</h3>
+            <p class="step-desc">Power Query ETL & Pandas scripts: missing value imputation, outlier detection via IQR, data type standardization, and normalization.</p>
+            <div class="step-tags"><span>Power Query</span><span>Pandas</span><span>M-Code</span></div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flow-step-card" data-step="3">
+            <div class="step-num">03</div>
+            <h3 class="step-title">Model & Calculate</h3>
+            <p class="step-desc">Building star-schema dimensional models. Crafting custom DAX time-intelligence measures, window ranking functions, and cohort matrices.</p>
+            <div class="step-tags"><span>Star Schema</span><span>DAX Measures</span><span>Window Fns</span></div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="flow-step-card" data-step="4">
+            <div class="step-num">04</div>
+            <h3 class="step-title">Visualize & Storytell</h3>
+            <p class="step-desc">Designing executive dashboards in Power BI and Tableau with dynamic drilldowns, cross-filtering slicers, and KPI status cards.</p>
+            <div class="step-tags"><span>Power BI</span><span>Tableau</span><span>Executive UI</span></div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="flow-step-card" data-step="5">
+            <div class="step-num">05</div>
+            <h3 class="step-title">Drive Business ROI</h3>
+            <p class="step-desc">Delivering actionable recommendations that isolate employee flight risk, reduce shipping delay penalties, and increase customer LTV.</p>
+            <div class="step-tags"><span>Root-Cause</span><span>Attrition Plan</span><span>Revenue Growth</span></div>
+          </div>
+        </div>
+
+        <!-- Interactive Step Detail Card -->
+        <div class="flow-detail-box" id="flowDetailBox">
+          <div class="detail-badge" id="flowDetailBadge">Step 01 Deep-Dive: Ingestion & Relational Architecture</div>
+          <h4 class="detail-title" id="flowDetailTitle">Extracting Multi-Table Data with Production SQL</h4>
+          <p class="detail-body" id="flowDetailBody">In the Chinook project, I joined across 11 normalized relational entities using CTEs and window partition functions. This eliminated redundant subqueries and ensured sub-25ms query execution times across over 2,200 transactional records.</p>
+          <div class="detail-metric" id="flowDetailMetric">
+            <span>Demonstrated in Project:</span> <strong>SQL Business Case Studies (Chinook)</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Grid -->
+    <section class="projects-section" id="projects">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge">Portfolio Repositories</span>
+          <h2 class="section-heading">Featured Projects & Case Studies</h2>
+          <p class="section-desc">Real business datasets analyzed with measurable business outcomes. Click any project to inspect the full case study.</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-bar">
+          <div class="filter-pills" id="projectFilters">
+            <button class="filter-btn active" data-filter="all">All (<span id="totalProjCount">0</span>)</button>
+            <button class="filter-btn" data-filter="powerbi">Power BI</button>
+            <button class="filter-btn" data-filter="excel">Advanced Excel</button>
+            <button class="filter-btn" data-filter="sql">SQL Cases</button>
+            <button class="filter-btn" data-filter="python">Python & ML</button>
+            <button class="filter-btn" data-filter="tableau">Tableau</button>
+          </div>
+          <div class="filter-search">
+            <input type="text" id="projectSearchInput" placeholder="Filter by keyword (e.g. DAX, ETL, SQL)..." aria-label="Search projects">
+          </div>
+        </div>
+
+        <!-- 3D Tilt Project Cards Grid -->
+        <div class="projects-grid" id="projectsContainer">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Interactive Analytics Lab -->
+    <section class="datalab-section" id="datalab">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge">Live Demonstration</span>
+          <h2 class="section-heading">Interactive Data Analytics Lab</h2>
+          <p class="section-desc">Switch between real project datasets to inspect live interactive charts, KPI metrics, and business recommendations.</p>
+        </div>
+
+        <div class="datalab-card">
+          <div class="dataset-tabs">
+            <button class="ds-tab active" data-dataset="attrition">
+              <span class="tab-title">HR Attrition Analysis</span>
+              <span class="tab-sub">1,470 Employees · Power BI Model</span>
+            </button>
+            <button class="ds-tab" data-dataset="olist">
+              <span class="tab-title">Olist E-Commerce GMV</span>
+              <span class="tab-sub">100K+ Orders · Excel ETL Model</span>
+            </button>
+            <button class="ds-tab" data-dataset="chinook">
+              <span class="tab-title">Chinook Digital Music</span>
+              <span class="tab-sub">11 Relational Tables · SQL Model</span>
+            </button>
+          </div>
+
+          <div class="datalab-content">
+            <div class="kpi-strip" id="labMetricsBar">
+              <!-- KPI cards injected via JS -->
+            </div>
+
+            <div class="charts-row">
+              <div class="chart-box">
+                <div class="chart-head">
+                  <h4 id="chart1Title">Attrition Rate by Department (%)</h4>
+                  <span class="tag-minimal" id="chart1Tag">Power BI</span>
+                </div>
+                <div class="chart-canvas-container">
+                  <canvas id="primaryChart"></canvas>
+                </div>
+              </div>
+
+              <div class="chart-box">
+                <div class="chart-head">
+                  <h4 id="chart2Title">Overtime vs Attrition Across Tenure (Years)</h4>
+                  <span class="tag-minimal" id="chart2Tag">Correlation</span>
+                </div>
+                <div class="chart-canvas-container">
+                  <canvas id="secondaryChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="insight-strip" id="labInsightBox">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SQL & Python Code Sandbox -->
+    <section class="code-section" id="code-lab">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge">Code Craftsmanship</span>
+          <h2 class="section-heading">SQL & Python Code Sandbox</h2>
+          <p class="section-desc">Inspect and run production queries and analytical scripts written for case studies. Click "Run Simulation" to see live output.</p>
+        </div>
+
+        <div class="code-card">
+          <div class="code-top-bar">
+            <div class="code-tab-list" id="codeSandboxTabs">
+              <button class="code-tab active" data-query="clv">customer_lifetime_value.sql</button>
+              <button class="code-tab" data-query="sales_rank">sales_rep_ranking.sql</button>
+              <button class="code-tab" data-query="python_eda">outlier_iqr_analysis.py</button>
+            </div>
+            <button class="btn btn-solid btn-sm" id="btnRunQuery">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Run Simulation</span>
+            </button>
+          </div>
+
+          <div class="code-meta-bar">
+            <span class="code-badge" id="editorLangBadge">SQL (MySQL 8.0+)</span>
+            <span class="code-description" id="editorFileDesc">Calculates customer lifetime spend, running totals, and cohort classification using CTEs & Window Functions.</span>
+          </div>
+
+          <pre class="code-pre"><code id="codeDisplayArea" class="code-block"></code></pre>
+
+          <!-- Result output -->
+          <div class="code-result-wrap">
+            <div class="result-bar">
+              <span class="status-success">● Execution Succeeded</span>
+              <span>Latency: <strong id="execTime">18ms</strong></span>
+              <span>Scanned: <strong id="rowsCount">5 rows</strong></span>
+            </div>
+            <div class="table-scroll" id="resultTableWrap"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Matrix Section -->
+    <section class="skills-section" id="skills">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge">Skill Hierarchy</span>
+          <h2 class="section-heading">Technical Competencies</h2>
+          <p class="section-desc">Focused toolkit honed through continuous hands-on analytics and data engineering.</p>
+        </div>
+
+        <div class="skills-layout">
+          <div class="skill-card">
+            <h3 class="skill-category">Business Intelligence</h3>
+            <ul class="skill-items">
+              <li>
+                <div class="skill-item-header"><span>Power BI & DAX</span><span class="skill-pct">92%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 92%;"></div></div>
+                <p class="skill-note">Star Schema Data Modeling, Calculated Measures, Dynamic Slicers</p>
+              </li>
+              <li>
+                <div class="skill-item-header"><span>Advanced Excel & Power Query</span><span class="skill-pct">95%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
+                <p class="skill-note">ETL, M-Code, Pivot Charts, XLOOKUP, Dynamic Arrays</p>
+              </li>
+              <li>
+                <div class="skill-item-header"><span>Tableau</span><span class="skill-pct">84%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 84%;"></div></div>
+                <p class="skill-note">Storyboards, Parameters, Dual-Axis Visualizations</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <h3 class="skill-category">Database & Querying</h3>
+            <ul class="skill-items">
+              <li>
+                <div class="skill-item-header"><span>Complex SQL</span><span class="skill-pct">90%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                <p class="skill-note">Common Table Expressions (CTEs), Subqueries, Multi-Joins</p>
+              </li>
+              <li>
+                <div class="skill-item-header"><span>Window Functions</span><span class="skill-pct">88%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+                <p class="skill-note">DENSE_RANK, ROW_NUMBER, LAG/LEAD, Running Totals</p>
+              </li>
+              <li>
+                <div class="skill-item-header"><span>Relational Design</span><span class="skill-pct">86%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 86%;"></div></div>
+                <p class="skill-note">1NF-3NF Normalization, Primary/Foreign Keys, Indexing</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <h3 class="skill-category">Python & Data Science</h3>
+            <ul class="skill-items">
+              <li>
+                <div class="skill-item-header"><span>Pandas & NumPy</span><span class="skill-pct">88%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+                <p class="skill-note">Data Wrangling, GroupBy, Imputation, Vectorized Operations</p>
+              </li>
+              <li>
+                <div class="skill-item-header"><span>Exploratory Data Analysis</span><span class="skill-pct">90%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                <p class="skill-note">Matplotlib, Seaborn, Correlation Heatmaps, IQR Outlier Capping</p>
+              </li>
+              <li>
+                <div class="skill-item-header"><span>Machine Learning & NLP</span><span class="skill-pct">80%</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+                <p class="skill-note">Scikit-Learn, Text Vectorization, Cosine Similarity Scoring</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div class="contact-text-col">
+            <span class="section-badge">Let's Connect</span>
+            <h2 class="contact-heading">Looking for an analytical mind to drive business clarity?</h2>
+            <p class="contact-desc">
+              I am actively interviewing for <strong>Data Analyst, BI Analyst, and Junior Data Scientist</strong> roles. Feel free to send a message or copy my direct contact details below.
+            </p>
+
+            <div class="contact-info-list">
+              <div class="info-row">
+                <span class="info-label">Email</span>
+                <a href="mailto:mf20159126@gmail.com" class="info-val" id="emailVal">mf20159126@gmail.com</a>
+                <button class="btn btn-ghost btn-xs" id="btnCopyEmail" title="Copy email">Copy</button>
+              </div>
+              <div class="info-row">
+                <span class="info-label">GitHub</span>
+                <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="info-val">github.com/J-Mohamed-Fazil</a>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Location</span>
+                <span class="info-val">India (Available for Remote / Hybrid / Relocation)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-col">
+            <form class="minimal-form" id="contactForm">
+              <div class="form-field">
+                <label for="cName">Your Name</label>
+                <input type="text" id="cName" required placeholder="Jane Doe">
+              </div>
+              <div class="form-field">
+                <label for="cEmail">Your Email</label>
+                <input type="email" id="cEmail" required placeholder="jane@company.com">
+              </div>
+              <div class="form-field">
+                <label for="cSubject">Subject / Opportunity</label>
+                <input type="text" id="cSubject" required placeholder="Data Analyst Role Discussion">
+              </div>
+              <div class="form-field">
+                <label for="cMsg">Message</label>
+                <textarea id="cMsg" rows="3" required placeholder="Hello Mohamed, I reviewed your Power BI and SQL case studies..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-solid btn-block">Send Message →</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="footer">
+    <div class="container footer-layout">
+      <span>© 2026 Mohamed Fazil J · Minimalist Data Portfolio</span>
+      <div class="footer-links">
+        <a href="#hero">Top ↑</a>
+        <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <button class="footer-btn" id="btnFooterResume">Resume</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Case Study Modal -->
+  <div class="modal-backdrop" id="caseStudyModal" aria-hidden="true">
+    <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="btnCloseModal" aria-label="Close modal">✕</button>
+      <div class="modal-header">
+        <span class="tag-minimal" id="modalBadge">Case Study</span>
+        <h2 class="modal-title" id="modalTitle">Project Title</h2>
+        <div class="modal-tools" id="modalTools"></div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-metrics" id="modalMetrics"></div>
+        <div class="modal-block">
+          <h4>Business Problem</h4>
+          <p id="modalProblem"></p>
+        </div>
+        <div class="modal-block">
+          <h4>Analytical Architecture & Methodology</h4>
+          <p id="modalMethodology"></p>
+        </div>
+        <div class="modal-block">
+          <h4>Key Insights & Business Outcome</h4>
+          <p id="modalOutcome"></p>
+        </div>
+        <div class="modal-block">
+          <h4>Key Highlights</h4>
+          <ul id="modalHighlights" class="modal-list"></ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-solid" id="modalRepoLink">
+          <span>View Repository on GitHub →</span>
+        </a>
+        <button class="btn btn-outline" id="btnCloseModalBtm">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATS-Friendly Resume Modal -->
+  <div class="modal-backdrop" id="resumeModal" aria-hidden="true">
+    <div class="modal-window resume-window" role="dialog" aria-modal="true">
+      <button class="modal-close" id="btnCloseResume" aria-label="Close resume">✕</button>
+
+      <div class="resume-bar no-print">
+        <button class="btn btn-solid btn-sm" id="btnPrintResume">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>Print / Save as PDF</span>
+        </button>
+        <span class="resume-note">Standard ATS-formatted document ready for download</span>
+      </div>
+
+      <div class="resume-sheet" id="resumePaper">
+        <div class="resume-head">
+          <h1>MOHAMED FAZIL J</h1>
+          <div class="resume-role">DATA ANALYST & ASPIRING DATA SCIENTIST</div>
+          <div class="resume-contact-line">
+            <span>Email: mf20159126@gmail.com</span>
+            <span>GitHub: github.com/J-Mohamed-Fazil</span>
+            <span>Location: India</span>
+          </div>
+        </div>
+
+        <hr class="resume-hr">
+
+        <div class="resume-sec">
+          <h3>EXECUTIVE SUMMARY</h3>
+          <p>
+            Analytical and results-driven Data Analyst and aspiring Data Scientist with deep hands-on experience in business intelligence dashboard design, relational database querying, and statistical modeling. Proven ability to transform massive, messy datasets into executive clarity using <strong>Power BI, SQL, Python, and Advanced Excel</strong>. Demonstrates track record of identifying turnover hotspots (16.1% isolated) and diagnosing supply chain bottlenecks across 19 public GitHub repositories.
+          </p>
+        </div>
+
+        <div class="resume-sec">
+          <h3>TECHNICAL SKILLS</h3>
+          <p><strong>Business Intelligence & Visualization:</strong> Microsoft Power BI, DAX Measures, Power Query (M), Tableau, Advanced Excel (Pivot Tables, Slicers, XLOOKUP, Dynamic Arrays), Matplotlib, Seaborn</p>
+          <p><strong>Database & SQL:</strong> SQL (MySQL, PostgreSQL, SQLite), Window Functions (ROW_NUMBER, DENSE_RANK), Common Table Expressions (CTEs), Multi-Table Joins, 1NF–3NF Schema Normalization, Star Schema Modeling</p>
+          <p><strong>Programming & Data Science:</strong> Python (Pandas, NumPy, Scikit-Learn), Exploratory Data Analysis (EDA), Statistical Hypothesis Testing, Text Processing (NLP), Outlier Detection (IQR)</p>
+          <p><strong>Engineering & Tools:</strong> Git, GitHub, Jupyter Notebooks, VS Code</p>
+        </div>
+
+        <div class="resume-sec">
+          <h3>KEY ANALYTICAL PROJECTS</h3>
+
+          <div class="resume-item">
+            <div class="resume-item-top">
+              <strong>HR Employee Attrition Analytics (Power BI & DAX)</strong>
+              <span>github.com/J-Mohamed-Fazil/HR-Employee-Attrition-Analytics-PowerBI</span>
+            </div>
+            <ul>
+              <li>Developed an interactive executive Power BI dashboard analyzing workforce demographics, compensation, job satisfaction, and turnover patterns across 1,470+ employees.</li>
+              <li>Engineered custom DAX measures for dynamic attrition rates, tenure cohorts, and salary tier classifications within a star-schema data model.</li>
+              <li>Identified critical turnover concentration (39%+) in early-tenure sales roles, formulating actionable HR retention recommendations.</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-top">
+              <strong>Olist E-Commerce Sales & Supply Chain Analytics (Excel & Power Query)</strong>
+              <span>github.com/J-Mohamed-Fazil/olist-sales-analytics-excel</span>
+            </div>
+            <ul>
+              <li>Executed comprehensive ETL transformations on 100k+ customer transactions, fulfillment orders, and payment records from the Brazilian Olist marketplace.</li>
+              <li>Built an executive dashboard featuring dynamic KPI cards, conditional formatting alerts, and freight delay root-cause analysis.</li>
+              <li>Uncovered interstate freight delay clusters directly correlated with steep drops in customer review ratings.</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-top">
+              <strong>SQL Business Case Studies (Chinook Relational DB)</strong>
+              <span>github.com/J-Mohamed-Fazil/SQL_Business_Case_Studies_Chinook</span>
+            </div>
+            <ul>
+              <li>Solved high-level stakeholder analytical queries utilizing multi-table joins across 11 relational entities.</li>
+              <li>Implemented Window Functions (ROW_NUMBER, DENSE_RANK, LAG/LEAD) to construct customer lifetime value (CLV) matrices and MoM growth trajectories.</li>
+              <li>Optimized query performance through Common Table Expressions (CTEs) and strategic filtering with sub-25ms execution times.</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-top">
+              <strong>AI Resume Analyzer & NLP Scoring Engine (Python)</strong>
+              <span>github.com/J-Mohamed-Fazil/ai-resume-analyzer</span>
+            </div>
+            <ul>
+              <li>Built an automated candidate resume screening script in Python utilizing text tokenization and TF-IDF vectorization.</li>
+              <li>Achieved 94% accuracy in parsing key skills and computing cosine similarity against target job descriptions.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-sec">
+          <h3>EDUCATION & PROFESSIONAL TRAINING</h3>
+          <div class="resume-item">
+            <div class="resume-item-top">
+              <strong>Data Science & Analytics Specialization</strong>
+              <span>Itvedant Education</span>
+            </div>
+            <p>Hands-on training covering Data Analysis, Python, SQL, Power BI, Tableau, Advanced Excel, Statistics, and Applied Machine Learning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- Scripts -->
+  <script src="projects-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
