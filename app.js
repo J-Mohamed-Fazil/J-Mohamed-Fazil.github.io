@@ -114,17 +114,27 @@ function initProjectShowcase() {
           </div>
         ` : ''}
 
-        <div class="card-screenshot-holder">
-          <span>📊 ${escapeHtml(p.screenshotPlaceholder || 'Verified Analytical Deliverable')}</span>
-        </div>
+        ${p.image ? `
+          <div class="card-media-wrap">
+            <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)} Dashboard Preview" class="card-media-img" loading="lazy">
+          </div>
+        ` : `
+          <div class="card-screenshot-holder">
+            <span>📊 ${escapeHtml(p.screenshotPlaceholder || 'Analytical Deliverable')}</span>
+          </div>
+        `}
 
         <div class="card-actions">
-          ${p.hasWorkingModel || p.liveUrl ? `
-            <a href="${escapeHtml(p.liveUrl || 'https://shoulder-mandatory-cycle-eating.trycloudflare.com/')}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="launchModel-${escapeHtml(p.id)}" aria-label="Working model for ${escapeHtml(p.title)}">
-              Working Model ↗
+          ${p.isSimulator || p.hasWorkingModel ? `
+            <button type="button" class="btn btn-primary btn-sm btn-launch-model" id="launchModel-${escapeHtml(p.id)}" aria-label="Open Interactive Schema Studio for ${escapeHtml(p.title)}">
+              Interactive Studio ↗
+            </button>
+          ` : p.liveUrl ? `
+            <a href="${escapeHtml(p.liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="launchModel-${escapeHtml(p.id)}" aria-label="Live Demo for ${escapeHtml(p.title)}">
+              Live Demo ↗
             </a>
           ` : ''}
-          <button type="button" class="btn ${p.hasWorkingModel || p.liveUrl ? 'btn-secondary' : 'btn-primary'} btn-sm btn-view-study" data-id="${escapeHtml(p.id)}" id="viewStudy-${escapeHtml(p.id)}">
+          <button type="button" class="btn ${p.isSimulator || p.hasWorkingModel || p.liveUrl ? 'btn-secondary' : 'btn-primary'} btn-sm btn-view-study" data-id="${escapeHtml(p.id)}" id="viewStudy-${escapeHtml(p.id)}">
             View Case Study
           </button>
           ${p.hasRepo ? `
@@ -266,6 +276,19 @@ function openCaseStudyModal(project) {
       .join('');
   }
 
+  // Visual Deliverable Preview
+  const visualWrap = document.getElementById('modalVisualWrap');
+  const visualImg = document.getElementById('modalVisualImg');
+  if (visualWrap && visualImg) {
+    if (project.image) {
+      visualImg.src = project.image;
+      visualImg.alt = `${project.title} Visual Deliverable`;
+      visualWrap.style.display = 'block';
+    } else {
+      visualWrap.style.display = 'none';
+    }
+  }
+
   // 01. Overview
   const overviewHtml = `
     <p>${escapeHtml(cs.overview ? cs.overview.description : project.summary)}</p>
@@ -281,7 +304,7 @@ function openCaseStudyModal(project) {
   document.getElementById('modalProblem').textContent = cs.businessProblem || project.businessProblem;
 
   // 03. Dataset Source
-  document.getElementById('modalDataset').textContent = cs.datasetSource || 'Verified analytical dataset.';
+  document.getElementById('modalDataset').textContent = cs.datasetSource || 'Analytical dataset.';
 
   // 04. Data Prep
   const prepList = cs.dataPreparation || [];
@@ -312,7 +335,7 @@ function openCaseStudyModal(project) {
   const findingsList = cs.keyFindings || [];
   document.getElementById('modalFindings').innerHTML = findingsList.length > 0
     ? findingsList.map(f => `<li>${escapeHtml(f)}</li>`).join('')
-    : '<li>Analysis completed with verified statistical figures.</li>';
+    : '<li>Analysis completed with statistical figures.</li>';
 
   // 08. Recommendations
   const recsList = cs.businessRecommendations || [];
@@ -329,19 +352,34 @@ function openCaseStudyModal(project) {
 
   const liveLink = document.getElementById('modalLiveLink');
   if (liveLink) {
-    if (project.liveUrl) {
+    if (project.isSimulator || project.id === 'datanova-ai') {
+      liveLink.innerHTML = '<span>Interactive Studio ↗</span>';
+      liveLink.style.display = 'inline-flex';
+      liveLink.onclick = (e) => {
+        e.preventDefault();
+        modal.classList.remove('active');
+        const dModal = document.getElementById('datanovaModal');
+        if (dModal) {
+          dModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+    } else if (project.liveUrl) {
       liveLink.href = project.liveUrl;
-      liveLink.innerHTML = '<span>Working Model ↗</span>';
+      liveLink.onclick = null;
+      liveLink.innerHTML = '<span>Live Demo ↗</span>';
       liveLink.style.display = 'inline-flex';
     } else {
       liveLink.style.display = 'none';
+      liveLink.onclick = null;
     }
   }
 
   const repoLink = document.getElementById('modalRepoLink');
   if (repoLink) {
-    repoLink.href = project.github;
-    repoLink.style.display = project.hasRepo ? 'inline-flex' : 'none';
+    const targetRepo = project.github || project.caseStudy?.projectFiles?.repo || 'https://github.com/J-Mohamed-Fazil';
+    repoLink.href = targetRepo;
+    repoLink.style.display = 'inline-flex';
   }
 
   modal.classList.add('active');
@@ -440,7 +478,7 @@ const studioDatasets = {
   retail: {
     domain: "Retail & E-Commerce",
     healthScore: 94,
-    statusText: "Optimal · Production Ready",
+    statusText: "Optimal · Clean Schemas",
     tables: [
       {
         name: "CUSTOMERS",
@@ -703,8 +741,8 @@ function initAskDatovaChat() {
   if (!form || !input || !messagesList) return;
 
   const cannedAnswers = {
-    region: "Based on 99,441 records, São Paulo (SP) represents 42.1% of gross order volume ($6.65M GMV), followed by Rio de Janeiro (RJ) at 12.8% and Minas Gerais (MG) at 11.6%.",
-    delay: "Anomalous freight delays (>3 days past SLA) cluster heavily in interstate routes to Rio de Janeiro and the North-East corridor, causing customer review ratings to drop by 2.8 stars on average.",
+    region: "Based on 99,441 records, São Paulo (SP) represents 42.1% of gross order volume (R$ 6.65M BRL GMV), followed by Rio de Janeiro (RJ) at 12.8% and Minas Gerais (MG) at 11.6%.",
+    delay: "Anomalous freight delays (>3 days past SLA) cluster heavily in interstate routes to Rio de Janeiro and the North-East corridor, causing customer review ratings to plunge from 4.65★ to 2.75★ (-41% decline in satisfaction).",
     payment: "Credit cards dominate with 73.6% of gross marketplace volume, followed by Boleto bancário (19.4%), Vouchers (5.2%), and Debit cards (1.8%)."
   };
 
@@ -721,7 +759,7 @@ function initAskDatovaChat() {
     messagesList.scrollTop = messagesList.scrollHeight;
 
     setTimeout(() => {
-      let replyText = "Verified figures from model: Total Gross GMV is $15.8M across 99,441 transactions with a 94/100 data health rating and zero duplicate records.";
+      let replyText = "Verified figures from model: Total Gross GMV is R$ 15.8M (Brazilian Real) across 99,441 transactions with a 94/100 data health rating and zero duplicate records.";
       const q = text.toLowerCase();
       if (q.includes('region') || q.includes('volume')) replyText = cannedAnswers.region;
       else if (q.includes('delay') || q.includes('shipping')) replyText = cannedAnswers.delay;
@@ -731,7 +769,7 @@ function initAskDatovaChat() {
       aiMsg.className = 'chat-row assistant';
       aiMsg.innerHTML = `
         <div class="chat-bubble">
-          <strong>DATOVA Deterministic Engine</strong>
+          <strong>Ask DATOVA Analytical Assistant</strong>
           <p>${replyText}</p>
         </div>
       `;
@@ -837,20 +875,32 @@ function initContactForm() {
   const form = document.getElementById('contactForm');
   const btnCopy = document.getElementById('btnCopyEmail');
   const emailVal = document.getElementById('emailVal');
+  const statusEl = document.getElementById('contactStatus');
 
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('cName').value;
-      const email = document.getElementById('cEmail').value;
-      const subject = document.getElementById('cSubject').value;
-      const msg = document.getElementById('cMsg').value;
+      const name = document.getElementById('cName').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      const subject = document.getElementById('cSubject').value.trim();
+      const msg = document.getElementById('cMsg').value.trim();
 
       const mailto = `mailto:mf20159126@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${msg}`)}`;
+      
+      // Attempt opening mail client
       window.location.href = mailto;
 
-      showToast("Email draft opened. Thank you!");
-      form.reset();
+      if (statusEl) {
+        statusEl.innerHTML = `
+          <div style="padding: 10px 12px; background: rgba(37,99,235,0.08); border: 1px solid var(--color-border); border-radius: var(--radius-xs); color: var(--color-text-primary);">
+            ✓ Opening email client draft...<br>
+            If your email app didn't open automatically, <a href="${escapeHtml(mailto)}" style="color: var(--color-accent); text-decoration: underline;">click here to send</a>, or reach out directly at <strong style="color: var(--color-accent);">mf20159126@gmail.com</strong> or via <a href="https://www.linkedin.com/in/mohamed-fazil-j-22ds/" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); text-decoration: underline;">LinkedIn ↗</a>.
+          </div>
+        `;
+        statusEl.style.display = 'block';
+      }
+
+      showToast("Email draft prepared!");
     });
   }
 
