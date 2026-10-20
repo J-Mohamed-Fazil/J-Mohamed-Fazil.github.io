@@ -120,7 +120,7 @@ function initProjectShowcase() {
 
         <div class="card-actions">
           ${p.hasWorkingModel || p.liveUrl ? `
-            <a href="${escapeHtml(p.liveUrl || 'https://shoulder-mandatory-cycle-eating.trycloudflare.com/')}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="launchModel-${escapeHtml(p.id)}" aria-label="Demo working model for ${escapeHtml(p.title)}">
+            <a href="${escapeHtml(p.liveUrl || 'https://shoulder-mandatory-cycle-eating.trycloudflare.com/')}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="launchModel-${escapeHtml(p.id)}" aria-label="Working model for ${escapeHtml(p.title)}">
               Working Model ↗
             </a>
           ` : ''}
