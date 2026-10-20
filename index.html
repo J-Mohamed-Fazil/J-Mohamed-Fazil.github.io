@@ -1,57 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohamed Fazil J | Data Analyst & Data Science Portfolio</title>
-  <meta name="description" content="Professional minimal portfolio of Mohamed Fazil J - Creator of DATOVA AI. Data Analyst & Data Scientist specializing in Power BI, SQL, Python, Excel BI Modeling, and Interactive EER Modeling.">
-  <meta name="author" content="Mohamed Fazil J">
+  <title>Mohamed Fazil | Aspiring Data Analyst Portfolio</title>
+  <meta name="description" content="Portfolio of Mohamed Fazil - Aspiring Data Analyst specializing in Excel, SQL, Power BI, Python, and interactive business intelligence.">
+  <meta name="author" content="Mohamed Fazil">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Mohamed Fazil J | Data Analyst & Data Science Portfolio">
-  <meta property="og:description" content="Creator of DATOVA AI. Translating complex data into executive decisions, production SQL models, and interactive BI dashboards.">
+  <meta property="og:title" content="Mohamed Fazil | Aspiring Data Analyst Portfolio">
+  <meta property="og:description" content="Transforming raw data into meaningful insights through data cleaning, SQL analysis, Excel reporting, and interactive dashboards.">
+  <meta property="og:url" content="https://j-mohamed-fazil.github.io/">
 
-  <!-- Google Fonts: Inter & JetBrains Mono for clean minimalist typography -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Chart.js for Live Data Analytics -->
+  <!-- Chart.js for Live Data Analytics Demonstrations -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme-minimal">
+<body>
 
-  <!-- Navigation -->
+  <!-- Navigation Bar -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="nav-brand">
+      <a href="#home" class="nav-brand">
         <span class="brand-monogram">MF</span>
-        <span class="brand-name">Mohamed Fazil<span class="brand-tag"> / Data</span></span>
+        <span class="brand-name">Mohamed Fazil<span class="brand-role"> · Data Analyst</span></span>
       </a>
 
       <nav class="nav-menu" id="navMenu">
-        <a href="#datanova-spotlight" class="nav-link">DATOVA AI</a>
-        <a href="#workflow" class="nav-link">Analytics Flow</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#datalab" class="nav-link">Live Data Lab</a>
-        <a href="#code-lab" class="nav-link">SQL Lab</a>
-        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About Me</a>
+        <a href="#skills" class="nav-link">Technical Skills</a>
+        <a href="#projects" class="nav-link">Featured Projects</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#resume" class="nav-link">Resume</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
-      <div class="nav-cta">
+      <div class="nav-actions">
+        <!-- Theme Toggle: Dark Modern / Clean Corporate Light -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" title="Switch Theme (Dark / Light)" aria-label="Toggle theme">
+          <span class="theme-icon" id="themeIcon">☀️</span>
+        </button>
+
         <button class="btn btn-outline btn-sm" id="btnNavResume">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           <span>Resume</span>
         </button>
         <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="btn btn-solid btn-sm">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           <span>GitHub</span>
         </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
           <span></span><span></span>
         </button>
       </div>
@@ -59,98 +65,99 @@
   </header>
 
   <main>
-    <!-- Professional Hero Section (No unnecessary gimmicks) -->
-    <section class="hero-section" id="hero">
-      <div class="container hero-layout">
-        <div class="hero-text">
-          <div class="badge-status">
-            <span class="status-dot"></span>
-            <span>Available for Data Analyst & Data Science Roles</span>
+    <!-- ==============================================================
+         01. HOME SECTION — THE FIRST IMPRESSION (10-15s READ)
+         ============================================================== -->
+    <section class="section home-section" id="home">
+      <div class="container home-layout">
+        <div class="home-content">
+          <div class="role-badge">
+            <span class="status-indicator"></span>
+            <span>Seeking Data Analyst Internships & Junior Roles</span>
           </div>
 
-          <h1 class="hero-headline">
-            MOHAMED FAZIL J
-            <span class="hero-subhead">Data Analyst · BI Specialist · Creator of DATOVA AI</span>
-          </h1>
+          <h1 class="home-title">Mohamed Fazil</h1>
+          <h2 class="home-headline">Aspiring Data Analyst | Excel • SQL • Power BI • Python</h2>
 
-          <p class="hero-summary">
-            Translating complex enterprise data into high-clarity executive decisions. Experienced across the full data lifecycle: <strong>Full-Stack AI Analytics Platforms, Interactive EER Database Modeling, Power BI & DAX dashboards, SQL modeling, and Python EDA</strong>.
+          <p class="home-intro">
+            I am an <strong>Information Technology graduate</strong> interested in Data Analytics and Business Intelligence. I enjoy transforming raw data into meaningful insights through data cleaning, SQL analysis, Excel reporting, and interactive dashboards.
+          </p>
+          <p class="home-intro-sub">
+            I have worked on practical projects involving <strong>e-commerce sales analysis, workforce attrition, and database analytics</strong>. I am continuously strengthening my analytical and technical skills while seeking opportunities to contribute to data-driven decision-making.
           </p>
 
-          <div class="hero-action-row">
-            <button class="btn btn-solid btn-launch-model" id="btnHeroLaunchModel">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              <span>Open DATOVA Working Model</span>
-            </button>
-            <a href="#projects" class="btn btn-outline">
-              <span>View 19+ Projects</span>
+          <div class="home-actions">
+            <a href="#projects" class="btn btn-solid">
+              <span>Explore My Projects</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <button class="btn btn-ghost" id="btnHeroResume">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <button class="btn btn-outline" id="btnHomeResume">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
               <span>View Resume (PDF)</span>
             </button>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+              <span>Connect on LinkedIn →</span>
+            </a>
           </div>
 
-          <div class="hero-stats-strip">
-            <div class="stat-box">
-              <span class="stat-number">19</span>
-              <span class="stat-caption">GitHub Repositories</span>
+          <div class="home-highlights-grid">
+            <div class="hl-card">
+              <span class="hl-num">4</span>
+              <span class="hl-label">Flagship Analytical Projects</span>
             </div>
-            <div class="stat-box">
-              <span class="stat-number">100K+</span>
-              <span class="stat-caption">Data Records Modeled</span>
+            <div class="hl-card">
+              <span class="hl-num">100K+</span>
+              <span class="hl-label">Data Records Cleaned & Modeled</span>
             </div>
-            <div class="stat-box">
-              <span class="stat-number">94/100</span>
-              <span class="stat-caption">DATOVA Data Health</span>
+            <div class="hl-card">
+              <span class="hl-num">19</span>
+              <span class="hl-label">Public GitHub Repositories</span>
             </div>
-            <div class="stat-box">
-              <span class="stat-number">&lt;24ms</span>
-              <span class="stat-caption">SQL Query Latency</span>
+            <div class="hl-card">
+              <span class="hl-num">B.Tech</span>
+              <span class="hl-label">Information Technology Degree</span>
             </div>
           </div>
         </div>
 
-        <!-- DATOVA Spotlight Hero Preview Box -->
-        <div class="hero-spotlight-box">
-          <div class="spotlight-card">
-            <div class="spotlight-badge-row">
-              <span class="spotlight-pill">⭐ Flagship Application</span>
-              <span class="spotlight-status">Ready to Interact</span>
+        <!-- Featured Project Preview Spotlight Card (DATOVA AI / Working Model) -->
+        <div class="home-preview-col">
+          <div class="preview-box">
+            <div class="preview-box-head">
+              <span class="preview-tag">Featured Full-Stack Platform</span>
+              <span class="preview-status">Interactive Preview</span>
             </div>
-            <h3 class="spotlight-title">DATOVA AI</h3>
-            <p class="spotlight-sub">"Upload. Ask. Discover. Decide." — Universal AI Data Analyst & EER Model Studio</p>
-
-            <div class="spotlight-preview-diagram">
-              <div class="diagram-entity">
-                <span class="entity-name">CUSTOMERS</span>
-                <span class="entity-col pk">PK customer_id</span>
-                <span class="entity-col">customer_state</span>
-              </div>
-              <div class="diagram-connector">1 ──&lt; N</div>
-              <div class="diagram-entity">
-                <span class="entity-name">ORDERS</span>
-                <span class="entity-col pk">PK order_id</span>
-                <span class="entity-col fk">FK customer_id</span>
-              </div>
-              <div class="diagram-connector">1 ──&lt; N</div>
-              <div class="diagram-entity">
-                <span class="entity-name">PAYMENTS</span>
-                <span class="entity-col pk">PK payment_id</span>
-                <span class="entity-col fk">FK order_id</span>
-              </div>
-            </div>
-
-            <p class="spotlight-caption">
-              Features interactive CAD-style EER relational schema modeling, 0–100 data health auditing, statistical anomaly detection, and conversational analytics.
+            <h3 class="preview-title">DATOVA AI</h3>
+            <p class="preview-desc">
+              "Upload. Ask. Discover. Decide." — Universal AI data analytics platform with an interactive in-browser EER Model Studio, 0–100 data health audits, and deterministic statistical calculations.
             </p>
 
-            <div class="spotlight-btn-group">
+            <div class="preview-schema-mini">
+              <div class="mini-entity">
+                <strong>CUSTOMERS</strong>
+                <span>PK customer_id</span>
+                <span>customer_state</span>
+              </div>
+              <span class="mini-rel">1 ──&lt; N</span>
+              <div class="mini-entity">
+                <strong>ORDERS</strong>
+                <span>PK order_id</span>
+                <span>FK customer_id</span>
+              </div>
+              <span class="mini-rel">1 ──&lt; N</span>
+              <div class="mini-entity">
+                <strong>PAYMENTS</strong>
+                <span>PK payment_id</span>
+                <span>payment_value</span>
+              </div>
+            </div>
+
+            <div class="preview-actions">
               <button class="btn btn-solid btn-block btn-launch-model">
-                <span>⚡ Click to Open Working Model Studio →</span>
+                <span>⚡ Open DATOVA Working Model →</span>
               </button>
               <a href="https://github.com/J-Mohamed-Fazil/dataova" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block btn-sm">
-                <span>View Full Source Code on GitHub</span>
+                <span>View Repository on GitHub</span>
               </a>
             </div>
           </div>
@@ -158,361 +165,288 @@
       </div>
     </section>
 
-    <!-- Recruiter Quick Summary Card -->
-    <section class="recruiter-section" id="recruiter-summary">
+    <!-- ==============================================================
+         02. ABOUT ME — TELL YOUR PROFESSIONAL STORY (4 PARTS)
+         ============================================================== -->
+    <section class="section about-section" id="about">
       <div class="container">
-        <div class="recruiter-card">
-          <div class="recruiter-header">
-            <div>
-              <span class="section-badge">At a Glance</span>
-              <h2 class="card-heading">Executive Recruiter Snapshot</h2>
-            </div>
-            <button class="btn btn-outline btn-sm" id="btnRecruiterResume">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-              <span>1-Click Print Resume</span>
-            </button>
+        <div class="section-title-wrap">
+          <span class="section-badge">Professional Background</span>
+          <h2 class="section-heading">About Me</h2>
+          <p class="section-desc">My journey from an Information Technology graduate into practical data analytics and business intelligence.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-card-num">Part 01</div>
+            <h3 class="about-card-title">Education</h3>
+            <p class="about-card-text">
+              Completed my <strong>B.Tech in Information Technology</strong>. Built a strong foundational understanding of database systems, computer science principles, algorithms, and analytical problem-solving.
+            </p>
           </div>
 
-          <div class="recruiter-grid">
-            <div class="recruiter-col">
-              <span class="col-label">Target Positions</span>
-              <p class="col-value">Data Analyst, Business Intelligence Analyst, Junior Data Scientist, Full-Stack Data Engineer</p>
-            </div>
-            <div class="recruiter-col">
-              <span class="col-label">Education & Training</span>
-              <p class="col-value">Itvedant Education — Data Science & Analytics Specialization</p>
-            </div>
-            <div class="recruiter-col">
-              <span class="col-label">Primary Toolset</span>
-              <div class="pill-group">
-                <span class="pill">DATOVA AI Platform</span>
-                <span class="pill">Power BI (DAX)</span>
-                <span class="pill">SQL (MySQL / CTEs)</span>
-                <span class="pill">Python (Pandas / Scikit)</span>
-                <span class="pill">Advanced Excel</span>
-                <span class="pill">Tableau</span>
+          <div class="about-card">
+            <div class="about-card-num">Part 02</div>
+            <h3 class="about-card-title">Technical Journey</h3>
+            <p class="about-card-text">
+              Dedicated intensive learning and practical training in <strong>Microsoft Excel, SQL, Power BI, and Python</strong>. Completed formal Advanced Excel and Data Analytics specialization through <strong>IT Vedant</strong>, focusing on real business application.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <div class="about-card-num">Part 03</div>
+            <h3 class="about-card-title">Practical Work</h3>
+            <p class="about-card-text">
+              Delivered complete, verified analytical case studies: Brazilian E-Commerce sales performance (100k+ records in Excel), HR employee attrition patterns (Power BI star schemas and DAX), and retail database querying (MySQL CTEs & window functions).
+            </p>
+          </div>
+
+          <div class="about-card">
+            <div class="about-card-num">Part 04</div>
+            <h3 class="about-card-title">Career Objective</h3>
+            <p class="about-card-text">
+              Actively seeking a <strong>Data Analyst / Business Intelligence internship or entry-level role</strong> where I can contribute to data cleaning, automated dashboarding, and actionable business reporting while learning from senior analysts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         03. TECHNICAL SKILLS — DEMONSTRATE, DON'T JUST LIST
+         ============================================================== -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge">Competency Matrix</span>
+          <h2 class="section-heading">Technical Skills & Evidence</h2>
+          <p class="section-desc">Skills organized by capability and directly supported by project evidence. No arbitrary percentages.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill 1: Excel -->
+          <div class="skill-category-card">
+            <div class="skill-head">
+              <span class="skill-icon">📊</span>
+              <div>
+                <h3 class="skill-title">Microsoft Excel</h3>
+                <span class="skill-sub">Power Query & Business Reporting</span>
               </div>
             </div>
-            <div class="recruiter-col">
-              <span class="col-label">Core Business Value</span>
-              <p class="col-value">Automated data profiling, interactive EER schema modeling, turnover root-cause isolation, and predictive analytics.</p>
+            <p class="skill-desc">
+              Power Query (M-code), multi-table merges, data cleaning, lookup functions (XLOOKUP, INDEX/MATCH), logical formulas, PivotTables, PivotCharts, interactive slicers, and executive reporting.
+            </p>
+            <div class="skill-evidence">
+              <span class="evidence-tag">Evidence:</span>
+              <a href="#projects" class="evidence-link">Brazilian E-Commerce Analysis (Olist) →</a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- GoogleFlow: Interactive End-to-End Analytics Workflow -->
-    <section class="workflow-section" id="workflow">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-badge">GoogleFlow</span>
-          <h2 class="section-heading">End-to-End Analytics Workflow</h2>
-          <p class="section-desc">How I take raw, noisy enterprise datasets and turn them into actionable revenue, retention, and model clarity.</p>
-        </div>
-
-        <div class="flow-steps-grid">
-          <div class="flow-step-card active" data-step="1">
-            <div class="step-num">01</div>
-            <h3 class="step-title">Ingest & Profile</h3>
-            <p class="step-desc">Extracting multi-table databases using SQL, CSV/XLSX file ingestion, and automated semantic type detection in DATOVA AI.</p>
-            <div class="step-tags"><span>SQL</span><span>DATOVA</span><span>Schema Profiler</span></div>
-          </div>
-
-          <div class="flow-step-card" data-step="2">
-            <div class="step-num">02</div>
-            <h3 class="step-title">Clean & Health Audit</h3>
-            <p class="step-desc">Auditing data health (0–100 score), missing value imputation, and statistical anomaly detection using IQR and Z-scores.</p>
-            <div class="step-tags"><span>Power Query</span><span>Pandas</span><span>IQR Outliers</span></div>
-          </div>
-
-          <div class="flow-step-card" data-step="3">
-            <div class="step-num">03</div>
-            <h3 class="step-title">Model & EER Studio</h3>
-            <p class="step-desc">Designing relational schemas in the interactive EER Model Studio with 1:N cardinality, foreign keys, and DAX star schemas.</p>
-            <div class="step-tags"><span>EER Studio</span><span>Star Schema</span><span>DAX Measures</span></div>
-          </div>
-
-          <div class="flow-step-card" data-step="4">
-            <div class="step-num">04</div>
-            <h3 class="step-title">Visualize & Storytell</h3>
-            <p class="step-desc">Interactive executive dashboards in Power BI, Tableau, and DATOVA with dynamic cross-filtering and explainable KPIs.</p>
-            <div class="step-tags"><span>Power BI</span><span>Tableau</span><span>Recharts</span></div>
-          </div>
-
-          <div class="flow-step-card" data-step="5">
-            <div class="step-num">05</div>
-            <h3 class="step-title">Actionable Business ROI</h3>
-            <p class="step-desc">Quantifying employee turnover drivers (16.1% isolated) and pinpointing freight logistics delays to cut operational churn.</p>
-            <div class="step-tags"><span>HR Strategy</span><span>Logistics SLA</span><span>Revenue Lift</span></div>
-          </div>
-        </div>
-
-        <div class="flow-detail-box" id="flowDetailBox">
-          <div class="detail-badge" id="flowDetailBadge">Step 01 Deep-Dive: Ingestion & Relational Architecture</div>
-          <h4 class="detail-title" id="flowDetailTitle">Extracting Multi-Table Data with Production SQL & DATOVA AI</h4>
-          <p class="detail-body" id="flowDetailBody">In DATOVA AI and the Chinook project, I engineered automated relational schema profiling across multi-table stores using SQL CTEs and deterministic type inference, achieving sub-25ms response times across thousands of records.</p>
-          <div class="detail-metric" id="flowDetailMetric">
-            <span>Demonstrated in Project:</span> <strong>DATOVA AI & SQL Business Case Studies</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Projects Section -->
-    <section class="projects-section" id="projects">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-badge">Portfolio Repositories</span>
-          <h2 class="section-heading">Featured Projects & Working Models</h2>
-          <p class="section-desc">Projects built with production code. Click "Open Working Model" on DATOVA AI to interact with the live platform directly.</p>
-        </div>
-
-        <!-- Filter Controls -->
-        <div class="filter-bar">
-          <div class="filter-pills" id="projectFilters">
-            <button class="filter-btn active" data-filter="all">All (<span id="totalProjCount">0</span>)</button>
-            <button class="filter-btn" data-filter="flagship">⭐ Flagship (DATOVA)</button>
-            <button class="filter-btn" data-filter="powerbi">Power BI</button>
-            <button class="filter-btn" data-filter="excel">Advanced Excel</button>
-            <button class="filter-btn" data-filter="sql">SQL Cases</button>
-            <button class="filter-btn" data-filter="python">Python & ML</button>
-            <button class="filter-btn" data-filter="tableau">Tableau</button>
-          </div>
-          <div class="filter-search">
-            <input type="text" id="projectSearchInput" placeholder="Filter by keyword (e.g. DATOVA, DAX, SQL)..." aria-label="Search projects">
-          </div>
-        </div>
-
-        <!-- Projects Grid -->
-        <div class="projects-grid" id="projectsContainer">
-          <!-- Injected via JavaScript -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Live Interactive Analytics Lab -->
-    <section class="datalab-section" id="datalab">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-badge">Live Demonstration</span>
-          <h2 class="section-heading">Interactive Data Analytics Lab</h2>
-          <p class="section-desc">Switch between real project datasets to inspect live interactive charts, KPI metrics, and business recommendations.</p>
-        </div>
-
-        <div class="datalab-card">
-          <div class="dataset-tabs">
-            <button class="ds-tab active" data-dataset="attrition">
-              <span class="tab-title">HR Attrition Analysis</span>
-              <span class="tab-sub">1,470 Employees · Power BI Model</span>
-            </button>
-            <button class="ds-tab" data-dataset="olist">
-              <span class="tab-title">Olist E-Commerce GMV</span>
-              <span class="tab-sub">100K+ Orders · Excel ETL Model</span>
-            </button>
-            <button class="ds-tab" data-dataset="chinook">
-              <span class="tab-title">Chinook Digital Music</span>
-              <span class="tab-sub">11 Relational Tables · SQL Model</span>
-            </button>
-          </div>
-
-          <div class="datalab-content">
-            <div class="kpi-strip" id="labMetricsBar"></div>
-
-            <div class="charts-row">
-              <div class="chart-box">
-                <div class="chart-head">
-                  <h4 id="chart1Title">Attrition Rate by Department (%)</h4>
-                  <span class="tag-minimal" id="chart1Tag">Power BI</span>
-                </div>
-                <div class="chart-canvas-container">
-                  <canvas id="primaryChart"></canvas>
-                </div>
-              </div>
-
-              <div class="chart-box">
-                <div class="chart-head">
-                  <h4 id="chart2Title">Overtime vs Attrition Across Tenure (Years)</h4>
-                  <span class="tag-minimal" id="chart2Tag">Correlation</span>
-                </div>
-                <div class="chart-canvas-container">
-                  <canvas id="secondaryChart"></canvas>
-                </div>
+          <!-- Skill 2: SQL -->
+          <div class="skill-category-card">
+            <div class="skill-head">
+              <span class="skill-icon">🗄️</span>
+              <div>
+                <h3 class="skill-title">SQL / MySQL</h3>
+                <span class="skill-sub">Relational Querying & Database Design</span>
               </div>
             </div>
+            <p class="skill-desc">
+              SELECT, complex filtering, multi-table JOINs, GROUP BY, aggregations, subqueries, Common Table Expressions (CTEs), Window Functions (ROW_NUMBER, DENSE_RANK), and 1NF–3NF relational normalization.
+            </p>
+            <div class="skill-evidence">
+              <span class="evidence-tag">Evidence:</span>
+              <a href="#projects" class="evidence-link">Retail Analytics & Database Design (MySQL) →</a>
+            </div>
+          </div>
 
-            <div class="insight-strip" id="labInsightBox"></div>
+          <!-- Skill 3: Power BI -->
+          <div class="skill-category-card">
+            <div class="skill-head">
+              <span class="skill-icon">📈</span>
+              <div>
+                <h3 class="skill-title">Microsoft Power BI</h3>
+                <span class="skill-sub">Data Modeling & DAX Measures</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Power Query data transformation, star-schema data modeling, 1-to-many relationship design, custom DAX measures, KPI status cards, cross-filtering, dynamic slicers, and drill-through navigation.
+            </p>
+            <div class="skill-evidence">
+              <span class="evidence-tag">Evidence:</span>
+              <a href="#projects" class="evidence-link">HR Employee Attrition Analytics →</a>
+            </div>
+          </div>
+
+          <!-- Skill 4: Python -->
+          <div class="skill-category-card">
+            <div class="skill-head">
+              <span class="skill-icon">🐍</span>
+              <div>
+                <h3 class="skill-title">Python for Analytics</h3>
+                <span class="skill-sub">Data Wrangling & Statistical EDA</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Python fundamentals, functions, Pandas (DataFrames, GroupBy, missing value imputation), NumPy, statistical exploratory data analysis, outlier detection (IQR & Z-score), and text similarity algorithms.
+            </p>
+            <div class="skill-evidence">
+              <span class="evidence-tag">Evidence:</span>
+              <a href="#projects" class="evidence-link">DATOVA AI Platform & Retail EDA →</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SQL & Python Code Sandbox -->
-    <section class="code-section" id="code-lab">
+    <!-- ==============================================================
+         04. FEATURED PROJECTS — THE 3–5 BEST PROJECTS (9-PART FORMAT)
+         ============================================================== -->
+    <section class="section projects-section" id="projects">
       <div class="container">
         <div class="section-title-wrap">
-          <span class="section-badge">Code Craftsmanship</span>
-          <h2 class="section-heading">SQL & Python Code Sandbox</h2>
-          <p class="section-desc">Inspect and run production queries and analytical scripts written for case studies. Click "Run Simulation" to see live output.</p>
+          <span class="section-badge">Case Studies</span>
+          <h2 class="section-heading">Featured Projects</h2>
+          <p class="section-desc">Each project documents the business problem, data preparation, analytical methodology, verified findings, and practical recommendations.</p>
         </div>
 
-        <div class="code-card">
-          <div class="code-top-bar">
-            <div class="code-tab-list" id="codeSandboxTabs">
-              <button class="code-tab active" data-query="clv">customer_lifetime_value.sql</button>
-              <button class="code-tab" data-query="sales_rank">sales_rep_ranking.sql</button>
-              <button class="code-tab" data-query="python_eda">outlier_iqr_analysis.py</button>
+        <div class="projects-list" id="projectsListContainer">
+          <!-- Injected via JavaScript from projects-data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         05. CERTIFICATIONS & EDUCATION
+         ============================================================== -->
+    <section class="section cert-section" id="certifications">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge">Credentials</span>
+          <h2 class="section-heading">Certifications & Education</h2>
+          <p class="section-desc">Formal credentials supporting practical project work.</p>
+        </div>
+
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-type">Professional Certification</div>
+            <h3 class="cert-title">Advanced Excel Certification</h3>
+            <span class="cert-issuer">IT Vedant Education</span>
+            <p class="cert-desc">
+              Completed rigorous practical training in Advanced Excel: Power Query ETL, complex lookup functions (XLOOKUP, INDEX/MATCH), dynamic arrays, PivotTables, PivotCharts, and executive KPI dashboard construction.
+            </p>
+            <div class="cert-skills">
+              <span>Power Query</span><span>PivotTables</span><span>Data Modeling</span><span>M-Code</span>
             </div>
-            <button class="btn btn-solid btn-sm" id="btnRunQuery">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              <span>Run Simulation</span>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-type">Professional Training</div>
+            <h3 class="cert-title">Data Science & Analytics Specialization</h3>
+            <span class="cert-issuer">IT Vedant Education</span>
+            <p class="cert-desc">
+              Comprehensive hands-on training covering the full data lifecycle: SQL database querying, Power BI business intelligence, Python data analysis (Pandas & NumPy), statistical exploratory analysis, and predictive modeling.
+            </p>
+            <div class="cert-skills">
+              <span>SQL Queries</span><span>Power BI & DAX</span><span>Python EDA</span><span>Statistics</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-type">Academic Degree</div>
+            <h3 class="cert-title">B.Tech in Information Technology</h3>
+            <span class="cert-issuer">Undergraduate Degree</span>
+            <p class="cert-desc">
+              Academically grounded in computer science fundamentals, relational database management systems (RDBMS), data structures, software engineering principles, and quantitative analytics.
+            </p>
+            <div class="cert-skills">
+              <span>RDBMS</span><span>Algorithms</span><span>Software Engineering</span><span>Data Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         06. RESUME SECTION — CLEAR VIEW & DOWNLOAD
+         ============================================================== -->
+    <section class="section resume-section" id="resume">
+      <div class="container">
+        <div class="resume-cta-card">
+          <div class="resume-cta-text">
+            <span class="section-badge">Curriculum Vitae</span>
+            <h2 class="resume-cta-title">Current Professional Resume</h2>
+            <p class="resume-cta-desc">
+              A structured, ATS-friendly single-page resume outlining my B.Tech degree, IT Vedant certifications, core technical skills (Excel, SQL, Power BI, Python), and documented portfolio projects.
+            </p>
+          </div>
+          <div class="resume-cta-actions">
+            <button class="btn btn-solid btn-lg" id="btnOpenResumeSection">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>View & Print Resume</span>
             </button>
-          </div>
-
-          <div class="code-meta-bar">
-            <span class="code-badge" id="editorLangBadge">SQL (MySQL 8.0+)</span>
-            <span class="code-description" id="editorFileDesc">Calculates customer lifetime spend, running totals, and cohort classification using CTEs & Window Functions.</span>
-          </div>
-
-          <pre class="code-pre"><code id="codeDisplayArea" class="code-block"></code></pre>
-
-          <div class="code-result-wrap">
-            <div class="result-bar">
-              <span class="status-success">● Execution Succeeded</span>
-              <span>Latency: <strong id="execTime">18ms</strong></span>
-              <span>Scanned: <strong id="rowsCount">5 rows</strong></span>
-            </div>
-            <div class="table-scroll" id="resultTableWrap"></div>
+            <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
+              <span>Inspect GitHub Repositories →</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills Matrix Section -->
-    <section class="skills-section" id="skills">
-      <div class="container">
-        <div class="section-title-wrap">
-          <span class="section-badge">Skill Hierarchy</span>
-          <h2 class="section-heading">Technical Competencies</h2>
-          <p class="section-desc">Focused toolkit honed through continuous hands-on analytics and data engineering.</p>
-        </div>
-
-        <div class="skills-layout">
-          <div class="skill-card">
-            <h3 class="skill-category">Full-Stack Data & BI</h3>
-            <ul class="skill-items">
-              <li>
-                <div class="skill-item-header"><span>DATOVA AI Platform & EER Studio</span><span class="skill-pct">96%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 96%;"></div></div>
-                <p class="skill-note">React 18, TypeScript, FastAPI, Interactive EER Schema Designer</p>
-              </li>
-              <li>
-                <div class="skill-item-header"><span>Power BI & DAX</span><span class="skill-pct">92%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 92%;"></div></div>
-                <p class="skill-note">Star Schema Data Modeling, Calculated Measures, Dynamic Slicers</p>
-              </li>
-              <li>
-                <div class="skill-item-header"><span>Advanced Excel & Power Query</span><span class="skill-pct">95%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
-                <p class="skill-note">ETL, M-Code, Pivot Charts, XLOOKUP, Dynamic Arrays</p>
-              </li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <h3 class="skill-category">Database & Querying</h3>
-            <ul class="skill-items">
-              <li>
-                <div class="skill-item-header"><span>Complex SQL</span><span class="skill-pct">90%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
-                <p class="skill-note">Common Table Expressions (CTEs), Subqueries, Multi-Joins</p>
-              </li>
-              <li>
-                <div class="skill-item-header"><span>Window Functions</span><span class="skill-pct">88%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
-                <p class="skill-note">DENSE_RANK, ROW_NUMBER, LAG/LEAD, Running Totals</p>
-              </li>
-              <li>
-                <div class="skill-item-header"><span>Relational Design</span><span class="skill-pct">86%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 86%;"></div></div>
-                <p class="skill-note">1NF-3NF Normalization, Primary/Foreign Keys, Indexing</p>
-              </li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <h3 class="skill-category">Python & Data Science</h3>
-            <ul class="skill-items">
-              <li>
-                <div class="skill-item-header"><span>Pandas & NumPy</span><span class="skill-pct">88%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
-                <p class="skill-note">Data Wrangling, GroupBy, Imputation, Vectorized Operations</p>
-              </li>
-              <li>
-                <div class="skill-item-header"><span>Exploratory Data Analysis</span><span class="skill-pct">90%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
-                <p class="skill-note">Matplotlib, Seaborn, Correlation Heatmaps, IQR Outlier Capping</p>
-              </li>
-              <li>
-                <div class="skill-item-header"><span>Machine Learning & NLP</span><span class="skill-pct">80%</span></div>
-                <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
-                <p class="skill-note">Scikit-Learn, Text Vectorization, Cosine Similarity Scoring</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <!-- ==============================================================
+         07. CONTACT SECTION — GET IN TOUCH
+         ============================================================== -->
+    <section class="section contact-section" id="contact">
       <div class="container">
         <div class="contact-card">
-          <div class="contact-text-col">
-            <span class="section-badge">Let's Connect</span>
-            <h2 class="contact-heading">Looking for an analytical mind to drive business clarity?</h2>
+          <div class="contact-info-col">
+            <span class="section-badge">Connect</span>
+            <h2 class="contact-heading">Get In Touch</h2>
             <p class="contact-desc">
-              I am actively interviewing for <strong>Data Analyst, BI Analyst, and Junior Data Scientist</strong> roles. Feel free to send a message or copy my direct contact details below.
+              I am actively seeking <strong>Data Analyst and Business Intelligence internship opportunities</strong>. Whether you have an open position, feedback on my projects, or would like to discuss my analysis, I would love to connect.
             </p>
 
-            <div class="contact-info-list">
-              <div class="info-row">
-                <span class="info-label">Email</span>
-                <a href="mailto:mf20159126@gmail.com" class="info-val" id="emailVal">mf20159126@gmail.com</a>
-                <button class="btn btn-ghost btn-xs" id="btnCopyEmail" title="Copy email">Copy</button>
+            <div class="contact-channel-list">
+              <div class="channel-row">
+                <span class="channel-label">Email:</span>
+                <a href="mailto:mf20159126@gmail.com" class="channel-val" id="emailVal">mf20159126@gmail.com</a>
+                <button class="btn btn-ghost btn-xs" id="btnCopyEmail" title="Copy email address">Copy</button>
               </div>
-              <div class="info-row">
-                <span class="info-label">GitHub</span>
-                <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="info-val">github.com/J-Mohamed-Fazil</a>
+
+              <div class="channel-row">
+                <span class="channel-label">GitHub:</span>
+                <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="channel-val">github.com/J-Mohamed-Fazil</a>
               </div>
-              <div class="info-row">
-                <span class="info-label">DATOVA Repo</span>
-                <a href="https://github.com/J-Mohamed-Fazil/dataova" target="_blank" rel="noopener noreferrer" class="info-val">github.com/J-Mohamed-Fazil/dataova</a>
+
+              <div class="channel-row">
+                <span class="channel-label">LinkedIn:</span>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="channel-val">Connect on LinkedIn</a>
               </div>
-              <div class="info-row">
-                <span class="info-label">Location</span>
-                <span class="info-val">India (Available for Remote / Hybrid / Relocation)</span>
+
+              <div class="channel-row">
+                <span class="channel-label">Location:</span>
+                <span class="channel-val">India (Open to Remote / Hybrid / On-site Roles)</span>
               </div>
             </div>
           </div>
 
           <div class="contact-form-col">
-            <form class="minimal-form" id="contactForm">
-              <div class="form-field">
+            <form class="clean-form" id="contactForm">
+              <div class="form-group">
                 <label for="cName">Your Name</label>
-                <input type="text" id="cName" required placeholder="Jane Doe">
+                <input type="text" id="cName" required placeholder="Recruiter / Hiring Manager Name">
               </div>
-              <div class="form-field">
+              <div class="form-group">
                 <label for="cEmail">Your Email</label>
-                <input type="email" id="cEmail" required placeholder="jane@company.com">
+                <input type="email" id="cEmail" required placeholder="name@company.com">
               </div>
-              <div class="form-field">
-                <label for="cSubject">Subject / Opportunity</label>
-                <input type="text" id="cSubject" required placeholder="Data Analyst Role Discussion">
+              <div class="form-group">
+                <label for="cSubject">Subject</label>
+                <input type="text" id="cSubject" required placeholder="Data Analyst Internship / Opportunity">
               </div>
-              <div class="form-field">
+              <div class="form-group">
                 <label for="cMsg">Message</label>
-                <textarea id="cMsg" rows="3" required placeholder="Hello Mohamed, I reviewed your DATOVA AI platform and portfolio projects..."></textarea>
+                <textarea id="cMsg" rows="3" required placeholder="Hello Mohamed, I reviewed your Olist Excel and Power BI projects..."></textarea>
               </div>
               <button type="submit" class="btn btn-solid btn-block">Send Message →</button>
             </form>
@@ -522,36 +456,140 @@
     </section>
   </main>
 
-  <!-- Minimal Footer -->
+  <!-- Clean Professional Footer -->
   <footer class="footer">
     <div class="container footer-layout">
-      <span>© 2026 Mohamed Fazil J · Minimalist Data Portfolio & Creator of DATOVA AI</span>
+      <span>© 2026 Mohamed Fazil · Aspiring Data Analyst Portfolio</span>
       <div class="footer-links">
-        <a href="#hero">Top ↑</a>
+        <a href="#home">Back to Top ↑</a>
         <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://github.com/J-Mohamed-Fazil/dataova" target="_blank" rel="noopener noreferrer">DATOVA AI Repo</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <button class="footer-btn" id="btnFooterResume">Resume</button>
       </div>
     </div>
   </footer>
 
-  <!-- ================================================================
-       DATOVA AI: INTERACTIVE WORKING MODEL STUDIO MODAL
-       ================================================================ -->
+  <!-- ==============================================================
+       DETAILED PROJECT MODAL (COMPLETE 9-PART BLUEPRINT FORMAT)
+       ============================================================== -->
+  <div class="modal-backdrop" id="caseStudyModal" aria-hidden="true">
+    <div class="modal-window project-detail-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="btnCloseModal" aria-label="Close project details">✕</button>
+
+      <div class="modal-header">
+        <span class="tag-minimal" id="modalBadge">Case Study</span>
+        <h2 class="modal-title" id="modalTitle">Project Title</h2>
+        <span class="modal-role-subtitle" id="modalRole">Role & Overview</span>
+        <div class="modal-tools" id="modalTools"></div>
+      </div>
+
+      <div class="modal-body">
+        <!-- 01. Overview -->
+        <div class="detail-section">
+          <div class="section-indicator">01</div>
+          <div class="section-content">
+            <h4>Project Overview</h4>
+            <p id="modalOverview"></p>
+          </div>
+        </div>
+
+        <!-- 02. Business Problem -->
+        <div class="detail-section">
+          <div class="section-indicator">02</div>
+          <div class="section-content">
+            <h4>Business Problem</h4>
+            <p id="modalProblem"></p>
+          </div>
+        </div>
+
+        <!-- 03. Dataset & Source -->
+        <div class="detail-section">
+          <div class="section-indicator">03</div>
+          <div class="section-content">
+            <h4>Dataset and Source</h4>
+            <p id="modalDataset"></p>
+          </div>
+        </div>
+
+        <!-- 04. Data Preparation -->
+        <div class="detail-section">
+          <div class="section-indicator">04</div>
+          <div class="section-content">
+            <h4>Data Preparation</h4>
+            <ul id="modalDataPrep" class="detail-bullet-list"></ul>
+          </div>
+        </div>
+
+        <!-- 05. Analysis Methodology -->
+        <div class="detail-section">
+          <div class="section-indicator">05</div>
+          <div class="section-content">
+            <h4>Analysis Methodology</h4>
+            <p id="modalMethodology"></p>
+          </div>
+        </div>
+
+        <!-- 06. Results Preview & KPIs -->
+        <div class="detail-section">
+          <div class="section-indicator">06</div>
+          <div class="section-content">
+            <h4>Key Metrics & Summary</h4>
+            <div class="modal-metrics-grid" id="modalMetrics"></div>
+          </div>
+        </div>
+
+        <!-- 07. Key Findings -->
+        <div class="detail-section">
+          <div class="section-indicator">07</div>
+          <div class="section-content">
+            <h4>Verified Key Findings</h4>
+            <ul id="modalFindings" class="detail-bullet-list"></ul>
+          </div>
+        </div>
+
+        <!-- 08. Business Recommendations -->
+        <div class="detail-section">
+          <div class="section-indicator">08</div>
+          <div class="section-content">
+            <h4>Business Recommendations</h4>
+            <ul id="modalRecommendations" class="detail-bullet-list"></ul>
+          </div>
+        </div>
+
+        <!-- 09. Project Files & GitHub -->
+        <div class="detail-section">
+          <div class="section-indicator">09</div>
+          <div class="section-content">
+            <h4>Project Files & Repository</h4>
+            <p id="modalFilesInfo"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-solid" id="modalRepoLink">
+          <span>Inspect Repository on GitHub →</span>
+        </a>
+        <button class="btn btn-outline" id="btnCloseModalBtm">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================================================
+       DATOVA AI WORKING MODEL STUDIO MODAL
+       ============================================================== -->
   <div class="modal-backdrop" id="datanovaModal" aria-hidden="true">
     <div class="modal-window datanova-modal-window" role="dialog" aria-modal="true" aria-labelledby="datanovaModalTitle">
       <button class="modal-close" id="btnCloseDatanovaModal" aria-label="Close working model">✕</button>
 
-      <!-- Model Studio Top Navigation Bar -->
       <div class="studio-topbar">
         <div class="studio-brand">
           <span class="studio-dot"></span>
           <strong id="datanovaModalTitle">DATOVA AI — Interactive EER Model Studio & Workspace</strong>
-          <span class="studio-version">v1.2.0 Active</span>
+          <span class="studio-version">v1.2 Active</span>
         </div>
 
         <div class="studio-controls">
-          <!-- Dataset Switcher -->
           <div class="studio-dataset-picker">
             <span class="picker-lbl">Dataset:</span>
             <select id="studioDatasetSelect" class="studio-select" aria-label="Select sample dataset">
@@ -561,7 +599,6 @@
             </select>
           </div>
 
-          <!-- View Tabs -->
           <div class="studio-tabs" id="studioViewTabs">
             <button class="s-tab active" data-view="eer">EER Model Studio</button>
             <button class="s-tab" data-view="dashboard">Data Health & KPIs</button>
@@ -584,20 +621,10 @@
           </div>
         </div>
 
-        <!-- Interactive Diagram Layout -->
         <div class="eer-canvas-wrapper" id="eerCanvasWrap">
-          <!-- SVG Relation Connectors Layer -->
-          <svg class="eer-svg-layer" id="eerSvgLayer">
-            <!-- Path lines dynamically generated by JS -->
-          </svg>
-
-          <!-- Interactive Entity Nodes -->
-          <div class="eer-nodes-container" id="eerNodesContainer">
-            <!-- Injected by JS: draggable / clickable database tables -->
-          </div>
+          <div class="eer-nodes-container" id="eerNodesContainer"></div>
         </div>
 
-        <!-- Simulation Output Panel -->
         <div class="eer-sim-output" id="eerSimOutput">
           <div class="sim-output-head">
             <span class="status-success">● Relational Join Succeeded</span>
@@ -605,18 +632,7 @@
             <span>Latency: <strong>16ms</strong></span>
           </div>
           <div class="table-scroll">
-            <table class="sim-table" id="eerSimTable">
-              <thead>
-                <tr><th>customer_id</th><th>customer_state</th><th>order_id</th><th>order_status</th><th>payment_type</th><th>payment_value</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>CUST-9821</td><td>SP</td><td>ORD-10492</td><td>delivered</td><td>credit_card</td><td>$142.50</td></tr>
-                <tr><td>CUST-9821</td><td>SP</td><td>ORD-10512</td><td>delivered</td><td>credit_card</td><td>$89.00</td></tr>
-                <tr><td>CUST-4112</td><td>RJ</td><td>ORD-10493</td><td>delivered</td><td>boleto</td><td>$210.30</td></tr>
-                <tr><td>CUST-7740</td><td>MG</td><td>ORD-10494</td><td>shipped</td><td>credit_card</td><td>$45.80</td></tr>
-                <tr><td>CUST-3209</td><td>PR</td><td>ORD-10495</td><td>delivered</td><td>voucher</td><td>$65.00</td></tr>
-              </tbody>
-            </table>
+            <table class="sim-table" id="eerSimTable"></table>
           </div>
         </div>
       </div>
@@ -673,14 +689,12 @@
             </div>
           </div>
 
-          <!-- Suggested Prompts -->
           <div class="ask-suggestions" id="askSuggestions">
             <button class="prompt-chip" data-q="What is the gross revenue and order volume by region?">What is the gross revenue by region?</button>
             <button class="prompt-chip" data-q="Which product categories suffer the most delivery delays?">Which categories have shipping delays?</button>
             <button class="prompt-chip" data-q="What is the breakdown of payment methods across customers?">Show payment method breakdown</button>
           </div>
 
-          <!-- Chat Input -->
           <form class="ask-input-bar" id="askChatForm">
             <input type="text" id="askInput" placeholder="Ask DATOVA a question about this data..." autocomplete="off">
             <button type="submit" class="btn btn-solid btn-sm">Ask</button>
@@ -688,7 +702,6 @@
         </div>
       </div>
 
-      <!-- Studio Modal Footer -->
       <div class="studio-footer">
         <div class="footer-repo-info">
           <span>Project Repository:</span>
@@ -700,44 +713,9 @@
     </div>
   </div>
 
-  <!-- Regular Case Study Modal -->
-  <div class="modal-backdrop" id="caseStudyModal" aria-hidden="true">
-    <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" id="btnCloseModal" aria-label="Close modal">✕</button>
-      <div class="modal-header">
-        <span class="tag-minimal" id="modalBadge">Case Study</span>
-        <h2 class="modal-title" id="modalTitle">Project Title</h2>
-        <div class="modal-tools" id="modalTools"></div>
-      </div>
-      <div class="modal-body">
-        <div class="modal-metrics" id="modalMetrics"></div>
-        <div class="modal-block">
-          <h4>Business Problem</h4>
-          <p id="modalProblem"></p>
-        </div>
-        <div class="modal-block">
-          <h4>Analytical Architecture & Methodology</h4>
-          <p id="modalMethodology"></p>
-        </div>
-        <div class="modal-block">
-          <h4>Key Insights & Business Outcome</h4>
-          <p id="modalOutcome"></p>
-        </div>
-        <div class="modal-block">
-          <h4>Key Highlights</h4>
-          <ul id="modalHighlights" class="modal-list"></ul>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-solid" id="modalRepoLink">
-          <span>View Repository on GitHub →</span>
-        </a>
-        <button class="btn btn-outline" id="btnCloseModalBtm">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ATS-Friendly Resume Modal -->
+  <!-- ==============================================================
+       ATS-FRIENDLY RESUME MODAL
+       ============================================================== -->
   <div class="modal-backdrop" id="resumeModal" aria-hidden="true">
     <div class="modal-window resume-window" role="dialog" aria-modal="true">
       <button class="modal-close" id="btnCloseResume" aria-label="Close resume">✕</button>
@@ -752,11 +730,12 @@
 
       <div class="resume-sheet" id="resumePaper">
         <div class="resume-head">
-          <h1>MOHAMED FAZIL J</h1>
-          <div class="resume-role">DATA ANALYST & ASPIRING DATA SCIENTIST</div>
+          <h1>MOHAMED FAZIL</h1>
+          <div class="resume-role">ASPIRING DATA ANALYST | EXCEL • SQL • POWER BI • PYTHON</div>
           <div class="resume-contact-line">
             <span>Email: mf20159126@gmail.com</span>
             <span>GitHub: github.com/J-Mohamed-Fazil</span>
+            <span>Portfolio: j-mohamed-fazil.github.io</span>
             <span>Location: India</span>
           </div>
         </div>
@@ -764,32 +743,33 @@
         <hr class="resume-hr">
 
         <div class="resume-sec">
-          <h3>EXECUTIVE SUMMARY</h3>
+          <h3>PROFESSIONAL SUMMARY</h3>
           <p>
-            Analytical and results-driven Data Analyst and aspiring Data Scientist with deep hands-on experience in full-stack AI data platforms, interactive EER database schema modeling, business intelligence dashboard design, and relational database querying. Creator of <strong>DATOVA AI</strong>, a domain-agnostic platform featuring CAD-style EER relational modeling and statistical anomaly detection. Proven ability to transform massive datasets into executive clarity using <strong>Power BI, SQL, Python, and Advanced Excel</strong> across 19 public GitHub repositories.
+            Information Technology graduate interested in Data Analytics and Business Intelligence. Skilled in transforming raw, noisy datasets into actionable business insights through data cleaning, SQL analysis, Excel reporting, and interactive dashboards. Completed specialized Advanced Excel and Data Analytics training at IT Vedant. Demonstrated experience across e-commerce sales analysis (100k+ rows), workforce attrition modeling, and relational database querying across 19 public GitHub repositories.
           </p>
         </div>
 
         <div class="resume-sec">
           <h3>TECHNICAL SKILLS</h3>
-          <p><strong>Full-Stack & Data Modeling:</strong> DATOVA AI, EER Model Studio, React 18, TypeScript, FastAPI, SQLAlchemy, Schema Normalization (1NF–3NF), Star Schemas</p>
-          <p><strong>Business Intelligence & Visualization:</strong> Microsoft Power BI, DAX Measures, Power Query (M), Tableau, Advanced Excel (Pivot Tables, Slicers, XLOOKUP, Dynamic Arrays), Matplotlib, Seaborn</p>
-          <p><strong>Database & SQL:</strong> SQL (MySQL, PostgreSQL, SQLite), Window Functions (ROW_NUMBER, DENSE_RANK), Common Table Expressions (CTEs), Multi-Table Joins, Indexing</p>
-          <p><strong>Programming & Data Science:</strong> Python (Pandas, NumPy, Scikit-Learn), Exploratory Data Analysis (EDA), Statistical Hypothesis Testing, Text Processing (NLP), Outlier Detection (IQR)</p>
+          <p><strong>Microsoft Excel:</strong> Power Query (ETL), Data Cleaning, Lookup Functions (XLOOKUP, INDEX/MATCH), Logical Formulas, PivotTables, PivotCharts, Slicers, Dashboard Reporting</p>
+          <p><strong>SQL & Relational Databases:</strong> SQL (MySQL, PostgreSQL), Multi-Table JOINs, GROUP BY, Aggregations, Subqueries, Common Table Expressions (CTEs), Window Functions (ROW_NUMBER, DENSE_RANK), 1NF–3NF Relational Normalization</p>
+          <p><strong>Microsoft Power BI:</strong> Data Modeling, Star Schema, 1-to-Many Relationships, DAX Measures, KPI Cards, Cross-Filtering, Dynamic Visuals, Drill-Through Reporting</p>
+          <p><strong>Python for Analytics:</strong> Python Fundamentals, Pandas (DataFrames, GroupBy, Imputation), NumPy, Statistical Exploratory Data Analysis, Outlier Detection (IQR)</p>
+          <p><strong>Tools:</strong> Git, GitHub, VS Code, Jupyter Notebook</p>
         </div>
 
         <div class="resume-sec">
-          <h3>KEY ANALYTICAL PROJECTS</h3>
+          <h3>FEATURED ANALYTICAL PROJECTS</h3>
 
           <div class="resume-item">
             <div class="resume-item-top">
-              <strong>DATOVA AI — Universal AI Data Analyst & EER Model Studio</strong>
-              <span>github.com/J-Mohamed-Fazil/dataova</span>
+              <strong>Brazilian E-Commerce Sales Analysis (Microsoft Excel & Power Query)</strong>
+              <span>github.com/J-Mohamed-Fazil/olist-sales-analytics-excel</span>
             </div>
             <ul>
-              <li>Architected and built a full-stack enterprise data analytics web application using React, TypeScript, FastAPI, and SQLAlchemy.</li>
-              <li>Engineered an interactive CAD-style EER Database Model Studio with orthogonal relationship routing, 1:N cardinality, and automated join simulation.</li>
-              <li>Implemented automated schema profiling and 0–100 data health audits evaluating null rates, cardinality, and statistical anomalies (IQR).</li>
+              <li>Combined and cleaned 9 relational tables comprising 99k+ orders and $15.8M in revenue using Power Query ETL.</li>
+              <li>Engineered interactive PivotTables, slicers, and calculated delivery delay columns to analyze fulfillment bottlenecks.</li>
+              <li>Identified critical delay clusters: orders delayed past 3 days caused customer review scores to drop from 4.65★ to 2.75★.</li>
             </ul>
           </div>
 
@@ -799,42 +779,55 @@
               <span>github.com/J-Mohamed-Fazil/HR-Employee-Attrition-Analytics-PowerBI</span>
             </div>
             <ul>
-              <li>Developed an interactive executive Power BI dashboard analyzing workforce demographics, compensation, and turnover patterns across 1,470+ employees.</li>
-              <li>Engineered custom DAX measures for dynamic attrition rates, tenure cohorts, and salary tier classifications within a star-schema model.</li>
-              <li>Identified critical turnover concentration (39%+) in early-tenure sales roles, formulating actionable HR retention recommendations.</li>
+              <li>Constructed an interactive star-schema data model analyzing attrition across 1,470 employee records.</li>
+              <li>Authored reusable DAX measures for dynamic attrition rates, tenure cohorts, and salary tier classifications.</li>
+              <li>Discovered early-career turnover hazard: sales reps with &lt;2 years tenure working overtime experienced 39.2% attrition.</li>
             </ul>
           </div>
 
           <div class="resume-item">
             <div class="resume-item-top">
-              <strong>Olist E-Commerce Sales & Supply Chain Analytics (Excel & Power Query)</strong>
-              <span>github.com/J-Mohamed-Fazil/olist-sales-analytics-excel</span>
-            </div>
-            <ul>
-              <li>Executed comprehensive ETL transformations on 100k+ customer transactions from the Brazilian Olist marketplace.</li>
-              <li>Built an executive dashboard featuring dynamic KPI cards and freight delay root-cause analysis correlating with review drops.</li>
-            </ul>
-          </div>
-
-          <div class="resume-item">
-            <div class="resume-item-top">
-              <strong>SQL Business Case Studies (Chinook Relational DB)</strong>
+              <strong>Retail Analytics & Database Architecture (MySQL)</strong>
               <span>github.com/J-Mohamed-Fazil/SQL_Business_Case_Studies_Chinook</span>
             </div>
             <ul>
-              <li>Solved complex analytical queries across 11 relational entities using Window Functions (ROW_NUMBER, DENSE_RANK) and CTEs.</li>
+              <li>Audited and queried 11 normalized relational entities using multi-table JOINs, subqueries, and CTEs with sub-25ms latency.</li>
+              <li>Applied Window Functions (ROW_NUMBER, DENSE_RANK) to calculate customer lifetime spend and sales rep quota contributions.</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-top">
+              <strong>DATOVA AI — Universal AI Data Analyst Platform (React 18 & Python)</strong>
+              <span>github.com/J-Mohamed-Fazil/dataova</span>
+            </div>
+            <ul>
+              <li>Built a full-stack platform featuring an interactive in-browser EER Model Studio, 0–100 data health auditing, and deterministic statistical anomaly detection.</li>
             </ul>
           </div>
         </div>
 
         <div class="resume-sec">
-          <h3>EDUCATION & PROFESSIONAL TRAINING</h3>
+          <h3>EDUCATION & CERTIFICATIONS</h3>
+          <div class="resume-item">
+            <div class="resume-item-top">
+              <strong>Advanced Excel Certification</strong>
+              <span>IT Vedant Education</span>
+            </div>
+            <p>Practical training in Power Query, Advanced Formulas, Pivot Reporting, and Business Dashboards.</p>
+          </div>
           <div class="resume-item">
             <div class="resume-item-top">
               <strong>Data Science & Analytics Specialization</strong>
-              <span>Itvedant Education</span>
+              <span>IT Vedant Education</span>
             </div>
-            <p>Hands-on training covering Data Analysis, Python, SQL, Power BI, Tableau, Advanced Excel, Statistics, and Applied Machine Learning.</p>
+            <p>Comprehensive training covering SQL, Power BI, Python for Data Science, and Statistical Methods.</p>
+          </div>
+          <div class="resume-item">
+            <div class="resume-item-top">
+              <strong>B.Tech in Information Technology</strong>
+              <span>Completed Undergraduate Degree</span>
+            </div>
           </div>
         </div>
       </div>
