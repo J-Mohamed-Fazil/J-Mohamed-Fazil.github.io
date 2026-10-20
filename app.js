@@ -67,17 +67,29 @@ function initNavbar() {
 }
 
 /* ===================================================================
-   3. FEATURED PROJECTS: EDITORIAL CARDS RENDERER
+   3. FEATURED PROJECTS: SINGLE-CARD CAROUSEL RENDERER
    =================================================================== */
+let currentProjectIndex = 0;
+
 function initProjectShowcase() {
   const container = document.getElementById('projectsListContainer');
+  const dotsContainer = document.getElementById('carouselDots');
+  const counterTotal = document.getElementById('carouselTotal');
+  const btnPrev = document.getElementById('btnPrevProject');
+  const btnNext = document.getElementById('btnNextProject');
+  const wrapper = document.getElementById('projectCarouselWrapper');
+
   if (!container || typeof portfolioProjects === 'undefined') return;
 
-  container.innerHTML = portfolioProjects.map(p => {
+  const total = portfolioProjects.length;
+  if (counterTotal) counterTotal.textContent = String(total).padStart(2, '0');
+
+  // Render Project Cards (each occupies 100% of carousel width)
+  container.innerHTML = portfolioProjects.map((p, idx) => {
     const metrics = p.verifiedMetrics || [];
 
     return `
-      <article class="project-card" data-id="${escapeHtml(p.id)}">
+      <article class="project-card" data-id="${escapeHtml(p.id)}" role="group" aria-roledescription="slide" aria-label="Project ${idx + 1} of ${total}: ${escapeHtml(p.title)}">
         <div class="card-tags">
           <span class="tag-neutral">${escapeHtml(p.badge || 'Analytics Project')}</span>
           ${p.tools.slice(0, 3).map(t => `<span class="tag-neutral">${escapeHtml(t)}</span>`).join('')}
@@ -125,6 +137,89 @@ function initProjectShowcase() {
     `;
   }).join('');
 
+  // Render Clickable Pagination Dots
+  if (dotsContainer) {
+    dotsContainer.innerHTML = portfolioProjects.map((p, idx) => `
+      <button type="button" class="carousel-dot ${idx === 0 ? 'active' : ''}" data-index="${idx}" role="tab" aria-selected="${idx === 0 ? 'true' : 'false'}" aria-label="Go to slide ${idx + 1}: ${escapeHtml(p.title)}"></button>
+    `).join('');
+
+    dotsContainer.addEventListener('click', (e) => {
+      const dot = e.target.closest('.carousel-dot');
+      if (dot) {
+        const idx = parseInt(dot.dataset.index, 10);
+        if (!isNaN(idx)) goToProject(idx);
+      }
+    });
+  }
+
+  function goToProject(index) {
+    currentProjectIndex = (index + total) % total;
+
+    // Slide track to show strictly one card
+    container.style.transform = `translateX(-${currentProjectIndex * 100}%)`;
+
+    // Update Counter
+    const currEl = document.getElementById('carouselCurrent');
+    if (currEl) currEl.textContent = String(currentProjectIndex + 1).padStart(2, '0');
+
+    // Update Pagination Dots
+    const dots = document.querySelectorAll('.carousel-dot');
+    dots.forEach((dot, idx) => {
+      const isActive = idx === currentProjectIndex;
+      dot.classList.toggle('active', isActive);
+      dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    // Update accessibility state & keyboard tab flow
+    const cards = container.querySelectorAll('.project-card');
+    cards.forEach((card, idx) => {
+      const isCurrent = idx === currentProjectIndex;
+      card.setAttribute('aria-hidden', isCurrent ? 'false' : 'true');
+      card.querySelectorAll('button, a').forEach(el => {
+        el.tabIndex = isCurrent ? 0 : -1;
+      });
+    });
+  }
+
+  // Arrow Navigation Handlers
+  if (btnPrev) {
+    btnPrev.addEventListener('click', () => goToProject(currentProjectIndex - 1));
+  }
+  if (btnNext) {
+    btnNext.addEventListener('click', () => goToProject(currentProjectIndex + 1));
+  }
+
+  // Keyboard Navigation (<kbd>ArrowLeft</kbd> / <kbd>ArrowRight</kbd>)
+  if (wrapper) {
+    wrapper.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goToProject(currentProjectIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goToProject(currentProjectIndex + 1);
+      }
+    });
+
+    // Touch Swipe Controls for Mobile
+    let touchStartX = 0;
+    wrapper.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) > 45) {
+        if (diff < 0) {
+          goToProject(currentProjectIndex + 1); // Swiped left -> next
+        } else {
+          goToProject(currentProjectIndex - 1); // Swiped right -> prev
+        }
+      }
+    }, { passive: true });
+  }
+
   // Attach Case Study Modal Handlers
   container.querySelectorAll('.btn-view-study').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -144,6 +239,9 @@ function initProjectShowcase() {
       }
     });
   });
+
+  // Initialize first slide state
+  goToProject(0);
 }
 
 function openCaseStudyModal(project) {

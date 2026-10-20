@@ -231,16 +231,42 @@
     </section>
 
     <!-- ==============================================================
-         04. FEATURED PROJECTS SECTION
+         04. FEATURED PROJECTS SECTION (SINGLE-CARD CAROUSEL)
          ============================================================== -->
     <section class="section" id="projects">
-      <div class="section-head">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-desc">Practical analytical case studies with verified methodology, genuine screenshots or clean placeholders, and public repositories.</p>
+      <div class="section-head section-head-with-controls">
+        <div class="sec-title-wrap">
+          <h2 class="section-title">Projects</h2>
+          <p class="section-desc">Practical analytical case studies with verified methodology, genuine metrics, and public repositories.</p>
+        </div>
+
+        <div class="carousel-nav-group" aria-label="Project carousel navigation">
+          <div class="carousel-counter" id="carouselCounter" aria-live="polite">
+            <span id="carouselCurrent">01</span> <span class="counter-sep">/</span> <span id="carouselTotal">08</span>
+          </div>
+          <div class="carousel-arrows">
+            <button type="button" class="btn-carousel-arrow" id="btnPrevProject" aria-label="Previous project" title="Previous project">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="btn-carousel-arrow" id="btnNextProject" aria-label="Next project" title="Next project">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div class="projects-list" id="projectsListContainer">
-        <!-- Dynamically rendered from projects-data.js -->
+      <!-- Single Project Card Container: Strictly One Card Visible -->
+      <div class="project-carousel-wrapper" id="projectCarouselWrapper" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Featured Projects Showcase">
+        <div class="project-carousel-track" id="projectsListContainer">
+          <!-- Dynamically populated: exactly ONE card visible in viewport -->
+        </div>
+      </div>
+
+      <!-- Clickable Pagination Dots -->
+      <div class="carousel-pagination-row">
+        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Select project slide">
+          <!-- Dynamically generated dots -->
+        </div>
       </div>
     </section>
 
