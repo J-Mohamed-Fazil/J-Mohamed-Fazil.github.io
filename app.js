@@ -1,12 +1,13 @@
 /**
- * Mohamed Fazil J — Professional Data Analyst Portfolio & DATOVA AI Studio
- * 7-Section Blueprint with 9-Part Case Studies, Theme Toggle, and Working Model
+ * Mohamed Fazil J — Professional Data Analyst Portfolio
+ * Client-Side Controller & Interactive Showcase
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initNavbar();
   initProjectShowcase();
+  initCertificateModal();
   initDatanovaStudio();
   initModals();
   initContactForm();
@@ -20,7 +21,6 @@ function initThemeToggle() {
   const themeIcon = document.getElementById('themeIcon');
   const htmlEl = document.documentElement;
 
-  // Retrieve saved theme or default to 'dark'
   const savedTheme = localStorage.getItem('fazil_portfolio_theme') || 'dark';
   applyTheme(savedTheme);
 
@@ -28,7 +28,6 @@ function initThemeToggle() {
     htmlEl.setAttribute('data-theme', theme);
     localStorage.setItem('fazil_portfolio_theme', theme);
     if (themeIcon) {
-      // If dark, show sun (to switch to light); if light, show moon (to switch to dark)
       themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
     }
   }
@@ -38,7 +37,7 @@ function initThemeToggle() {
       const current = htmlEl.getAttribute('data-theme') || 'dark';
       const next = current === 'dark' ? 'light' : 'dark';
       applyTheme(next);
-      showToast(`Switched to ${next === 'dark' ? 'Dark Modern' : 'Clean Corporate Light'} theme`);
+      showToast(`Switched to ${next === 'dark' ? 'Dark Modern Navy' : 'Clean Corporate Light'} theme`);
     });
   }
 }
@@ -65,7 +64,7 @@ function initNavbar() {
 }
 
 /* ===================================================================
-   3. FEATURED PROJECTS: 9-PART BLUEPRINT RENDERER
+   3. FEATURED PROJECTS: REUSABLE COMPONENT RENDERER
    =================================================================== */
 function initProjectShowcase() {
   const container = document.getElementById('projectsListContainer');
@@ -73,26 +72,28 @@ function initProjectShowcase() {
 
   container.innerHTML = portfolioProjects.map(p => {
     const isFlagship = p.category === 'flagship' || p.id === 'datanova-ai';
-    const topFindings = p.caseStudy && p.caseStudy.keyFindings ? p.caseStudy.keyFindings.slice(0, 3) : [];
+    const workItems = p.workPerformed || [];
 
     return `
       <article class="project-feature-card ${isFlagship ? 'flagship-highlight' : ''}" data-id="${p.id}">
         <div class="p-left-content">
           <div class="p-meta-top">
             <span class="p-badge">${p.badge || 'Analytical Project'}</span>
-            <span class="p-impact">${p.impact}</span>
           </div>
 
           <h3 class="p-title">${p.title}</h3>
-          <span class="p-role">${p.role}</span>
+
+          <p class="p-business-problem">
+            <strong>Business Problem:</strong> ${p.businessProblem}
+          </p>
 
           <p class="p-summary">${p.summary}</p>
 
-          ${topFindings.length > 0 ? `
-            <div class="p-findings-box">
-              <span class="p-findings-title">Verified Key Findings (Preview)</span>
-              <ul class="p-findings-list">
-                ${topFindings.map(f => `<li>${f}</li>`).join('')}
+          ${workItems.length > 0 ? `
+            <div class="p-work-box">
+              <span class="p-work-title">Verified Analytical Work Performed</span>
+              <ul class="p-work-list">
+                ${workItems.map(w => `<li>${w}</li>`).join('')}
               </ul>
             </div>
           ` : ''}
@@ -108,23 +109,31 @@ function initProjectShowcase() {
               </button>
             ` : ''}
             <button class="btn ${p.hasWorkingModel ? 'btn-outline' : 'btn-solid'} btn-sm btn-view-study" data-id="${p.id}">
-              Read Full 9-Part Case Study →
+              View Case Study →
             </button>
-            <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
-              GitHub Repo ↗
-            </a>
+            ${p.hasRepo ? `
+              <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                View GitHub ↗
+              </a>
+            ` : `
+              <span class="btn btn-ghost btn-sm" style="opacity: 0.6; cursor: default;">Repository Verified Locally</span>
+            `}
           </div>
         </div>
 
         <div class="p-right-kpis">
           <span class="kpi-title">Verified Project Metrics</span>
           <div class="kpi-grid">
-            ${p.metrics.map(m => `
+            ${(p.verifiedMetrics || []).map(m => `
               <div class="kpi-tile">
                 <span class="k-val">${m.value}</span>
                 <span class="k-lbl">${m.label}</span>
               </div>
             `).join('')}
+          </div>
+
+          <div class="p-placeholder-badge">
+            <span>📷 ${p.screenshotPlaceholder || 'Verified Project Visual Artifact'}</span>
           </div>
         </div>
       </article>
@@ -160,7 +169,6 @@ function openCaseStudyModal(project) {
 
   document.getElementById('modalBadge').textContent = project.badge || 'Case Study';
   document.getElementById('modalTitle').textContent = project.title;
-  document.getElementById('modalRole').textContent = project.role;
 
   document.getElementById('modalTools').innerHTML = project.tools
     .map(t => `<span class="tag-minimal">${t}</span>`)
@@ -177,8 +185,8 @@ function openCaseStudyModal(project) {
   `;
   document.getElementById('modalOverview').innerHTML = overviewHtml;
 
-  // 02. Problem
-  document.getElementById('modalProblem').textContent = cs.businessProblem || 'Information not specified.';
+  // 02. Problem & Objectives
+  document.getElementById('modalProblem').textContent = cs.businessProblem || project.businessProblem;
 
   // 03. Dataset
   document.getElementById('modalDataset').textContent = cs.datasetSource || 'Standard public verified analytical dataset.';
@@ -189,11 +197,19 @@ function openCaseStudyModal(project) {
     ? prepList.map(step => `<li>${step}</li>`).join('')
     : '<li>Data imported, cleansed, and verified.</li>';
 
-  // 05. Methodology
+  // 05. Methodology & SQL / Measure Box
   document.getElementById('modalMethodology').textContent = cs.analysisMethodology || 'Quantitative relational analysis and modeling.';
+  const queryBoxContainer = document.getElementById('modalQueryContainer');
+  const queryCodeEl = document.getElementById('modalQueryCode');
+  if (cs.sampleQuery && queryBoxContainer && queryCodeEl) {
+    queryCodeEl.textContent = cs.sampleQuery;
+    queryBoxContainer.style.display = 'block';
+  } else if (queryBoxContainer) {
+    queryBoxContainer.style.display = 'none';
+  }
 
-  // 06. Metrics
-  document.getElementById('modalMetrics').innerHTML = project.metrics.map(m => `
+  // 06. Verified Metrics
+  document.getElementById('modalMetrics').innerHTML = (project.verifiedMetrics || []).map(m => `
     <div class="kpi-tile">
       <span class="k-val">${m.value}</span>
       <span class="k-lbl">${m.label}</span>
@@ -212,21 +228,59 @@ function openCaseStudyModal(project) {
     ? recsList.map(r => `<li>${r}</li>`).join('')
     : '<li>Deploy recommendations according to business constraints.</li>';
 
-  // 09. Files Info
+  // 09. Limitations & Files
+  document.getElementById('modalLimitations').innerHTML = `<strong>Limitations & Improvements:</strong> ${cs.limitations || 'None documented.'}`;
   const filesInfo = cs.projectFiles
-    ? `${cs.projectFiles.type} available in the linked GitHub repository.`
+    ? `${cs.projectFiles.type} available in public GitHub repository.`
     : 'Public repository documentation and reproduction scripts.';
   document.getElementById('modalFilesInfo').textContent = filesInfo;
 
   const repoLink = document.getElementById('modalRepoLink');
-  if (repoLink) repoLink.href = project.github;
+  if (repoLink) {
+    repoLink.href = project.github;
+    repoLink.style.display = project.hasRepo ? 'inline-flex' : 'none';
+  }
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
 
 /* ===================================================================
-   4. DATOVA AI: INTERACTIVE WORKING MODEL STUDIO
+   4. CERTIFICATE PREVIEW MODAL
+   =================================================================== */
+function initCertificateModal() {
+  const certModal = document.getElementById('certModal');
+  const btnPreviewCert = document.getElementById('btnPreviewCert');
+  const btnCloseCert = document.getElementById('btnCloseCertModal');
+  const btnCloseCertBtm = document.getElementById('btnCloseCertModalBtm');
+
+  function openCertModal() {
+    if (certModal) {
+      certModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeCertModal() {
+    if (certModal) {
+      certModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (btnPreviewCert) btnPreviewCert.addEventListener('click', openCertModal);
+  if (btnCloseCert) btnCloseCert.addEventListener('click', closeCertModal);
+  if (btnCloseCertBtm) btnCloseCertBtm.addEventListener('click', closeCertModal);
+
+  if (certModal) {
+    certModal.addEventListener('click', (e) => {
+      if (e.target === certModal) closeCertModal();
+    });
+  }
+}
+
+/* ===================================================================
+   5. DATOVA AI: INTERACTIVE WORKING MODEL STUDIO
    =================================================================== */
 const studioDatasets = {
   retail: {
@@ -414,14 +468,12 @@ function initDatanovaStudio() {
       </div>
     `).join('');
 
-    // Attach click effect on table
     nodesContainer.querySelectorAll('.eer-table-node').forEach(node => {
       node.addEventListener('click', () => {
         showToast(`Inspecting Entity: ${node.dataset.table}`);
       });
     });
 
-    // Render simulation table
     if (simTable) {
       simTable.innerHTML = `
         <thead>
@@ -434,7 +486,6 @@ function initDatanovaStudio() {
     }
   }
 
-  // Switch Dataset
   if (datasetSelect) {
     datasetSelect.addEventListener('change', (e) => {
       currentKey = e.target.value;
@@ -443,7 +494,6 @@ function initDatanovaStudio() {
     });
   }
 
-  // Switch Tabs inside Studio
   viewTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       viewTabs.forEach(t => t.classList.remove('active'));
@@ -456,7 +506,6 @@ function initDatanovaStudio() {
     });
   });
 
-  // Run Join Simulation
   if (btnRunJoin) {
     btnRunJoin.addEventListener('click', () => {
       btnRunJoin.disabled = true;
@@ -476,7 +525,6 @@ function initDatanovaStudio() {
     });
   }
 
-  // Wire home spotlight trigger
   document.querySelectorAll('.btn-launch-model').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -488,13 +536,10 @@ function initDatanovaStudio() {
     });
   });
 
-  // Ask DATOVA Chat
   initAskDatovaChat();
-
   renderEerCanvas('retail');
 }
 
-/* Ask DATOVA Chat Simulation */
 function initAskDatovaChat() {
   const form = document.getElementById('askChatForm');
   const input = document.getElementById('askInput');
@@ -556,7 +601,7 @@ function initAskDatovaChat() {
 }
 
 /* ===================================================================
-   5. MODALS & RESUME
+   6. MODALS & RESUME
    =================================================================== */
 function initModals() {
   const caseModal = document.getElementById('caseStudyModal');
@@ -569,8 +614,8 @@ function initModals() {
 
   const resumeModal = document.getElementById('resumeModal');
   const btnNavResume = document.getElementById('btnNavResume');
-  const btnHomeResume = document.getElementById('btnHomeResume');
-  const btnOpenResumeSection = document.getElementById('btnOpenResumeSection');
+  const btnHeroResume = document.getElementById('btnHeroResume');
+  const btnOpenResumeModal = document.getElementById('btnOpenResumeModal');
   const btnFooterResume = document.getElementById('btnFooterResume');
   const btnCloseResume = document.getElementById('btnCloseResume');
   const btnPrintResume = document.getElementById('btnPrintResume');
@@ -579,6 +624,8 @@ function initModals() {
     if (caseModal) caseModal.classList.remove('active');
     if (datanovaModal) datanovaModal.classList.remove('active');
     if (resumeModal) resumeModal.classList.remove('active');
+    const certModal = document.getElementById('certModal');
+    if (certModal) certModal.classList.remove('active');
     document.body.style.overflow = '';
   }
 
@@ -590,8 +637,7 @@ function initModals() {
 
   if (btnCloseResume) btnCloseResume.addEventListener('click', closeAllModals);
 
-  // Resume Triggers
-  [btnNavResume, btnHomeResume, btnOpenResumeSection, btnFooterResume].forEach(btn => {
+  [btnNavResume, btnHeroResume, btnOpenResumeModal, btnFooterResume].forEach(btn => {
     if (btn) {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -609,7 +655,6 @@ function initModals() {
     });
   }
 
-  // Backdrop clicks
   [caseModal, datanovaModal, resumeModal].forEach(m => {
     if (m) {
       m.addEventListener('click', (e) => {
@@ -618,7 +663,6 @@ function initModals() {
     }
   });
 
-  // ESC key
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeAllModals();
@@ -627,7 +671,7 @@ function initModals() {
 }
 
 /* ===================================================================
-   6. CONTACT FORM & TOAST
+   7. CONTACT FORM & TOAST
    =================================================================== */
 function initContactForm() {
   const form = document.getElementById('contactForm');

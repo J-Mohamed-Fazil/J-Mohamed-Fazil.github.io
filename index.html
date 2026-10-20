@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohamed Fazil | Aspiring Data Analyst Portfolio</title>
-  <meta name="description" content="Portfolio of Mohamed Fazil - Aspiring Data Analyst specializing in Excel, SQL, Power BI, Python, and interactive business intelligence.">
+  <meta name="description" content="Portfolio of Mohamed Fazil - Aspiring Data Analyst specializing in Excel, SQL, and Power BI. Graduate in Information Technology from Sri Krishna College of Engineering and Technology.">
   <meta name="author" content="Mohamed Fazil">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Mohamed Fazil | Aspiring Data Analyst Portfolio">
-  <meta property="og:description" content="Transforming raw data into meaningful insights through data cleaning, SQL analysis, Excel reporting, and interactive dashboards.">
+  <meta property="og:title" content="Mohamed Fazil | Aspiring Data Analyst">
+  <meta property="og:description" content="Turning Data Into Meaningful Insights through Excel, SQL, and Power BI.">
   <meta property="og:url" content="https://j-mohamed-fazil.github.io/">
 
   <!-- Google Fonts: Inter & JetBrains Mono -->
@@ -18,45 +18,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Chart.js for Live Data Analytics Demonstrations -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- ==============================================================
+       STICKY TOP NAVIGATION BAR
+       ============================================================== -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#home" class="nav-brand">
+      <a href="#home" class="nav-brand" title="Return to Home">
         <span class="brand-monogram">MF</span>
-        <span class="brand-name">Mohamed Fazil<span class="brand-role"> · Data Analyst</span></span>
+        <span class="brand-name">Mohamed Fazil<span class="brand-sub"> · Data Analyst</span></span>
       </a>
 
       <nav class="nav-menu" id="navMenu">
         <a href="#home" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About Me</a>
-        <a href="#skills" class="nav-link">Technical Skills</a>
-        <a href="#projects" class="nav-link">Featured Projects</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
         <a href="#certifications" class="nav-link">Certifications</a>
-        <a href="#resume" class="nav-link">Resume</a>
+        <a href="#education" class="nav-link">Education</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <!-- Theme Toggle: Dark Modern / Clean Corporate Light -->
-        <button class="theme-toggle-btn" id="themeToggleBtn" title="Switch Theme (Dark / Light)" aria-label="Toggle theme">
+        <!-- Reliable Theme Toggle (Dark Modern Navy / Clean Corporate Light) -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" title="Switch Theme" aria-label="Toggle theme">
           <span class="theme-icon" id="themeIcon">☀️</span>
         </button>
 
-        <button class="btn btn-outline btn-sm" id="btnNavResume">
+        <!-- Prominent View Resume Action -->
+        <button class="btn btn-solid btn-sm" id="btnNavResume">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          <span>Resume</span>
+          <span>View Resume</span>
         </button>
-        <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="btn btn-solid btn-sm">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          <span>GitHub</span>
-        </a>
+
+        <!-- Mobile Menu Toggle -->
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
           <span></span><span></span>
         </button>
@@ -66,99 +64,116 @@
 
   <main>
     <!-- ==============================================================
-         01. HOME SECTION — THE FIRST IMPRESSION (10-15s READ)
+         1. HERO SECTION
          ============================================================== -->
-    <section class="section home-section" id="home">
-      <div class="container home-layout">
-        <div class="home-content">
-          <div class="role-badge">
+    <section class="section hero-section" id="home">
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <div class="role-status-badge">
             <span class="status-indicator"></span>
-            <span>Seeking Data Analyst Internships & Junior Roles</span>
+            <span>Available for Data Analyst & Analytics Internships</span>
           </div>
 
-          <h1 class="home-title">Mohamed Fazil</h1>
-          <h2 class="home-headline">Aspiring Data Analyst | Excel • SQL • Power BI • Python</h2>
+          <!-- Exact Main Heading Required -->
+          <h1 class="hero-title">Turning Data Into Meaningful Insights.</h1>
 
-          <p class="home-intro">
-            I am an <strong>Information Technology graduate</strong> interested in Data Analytics and Business Intelligence. I enjoy transforming raw data into meaningful insights through data cleaning, SQL analysis, Excel reporting, and interactive dashboards.
-          </p>
-          <p class="home-intro-sub">
-            I have worked on practical projects involving <strong>e-commerce sales analysis, workforce attrition, and database analytics</strong>. I am continuously strengthening my analytical and technical skills while seeking opportunities to contribute to data-driven decision-making.
+          <!-- Exact Supporting Text Required -->
+          <p class="hero-supporting">
+            I'm <strong>Mohamed Fazil</strong>, an aspiring Data Analyst passionate about transforming raw data into useful insights through Excel, SQL, and Power BI.
           </p>
 
-          <div class="home-actions">
+          <!-- Exact Compact Skills Line Required -->
+          <div class="hero-skills-line">
+            <span class="skills-line-label">Core Analytics Stack:</span>
+            <span class="skills-line-items">Excel • Power Query • MySQL • Power BI • Data Visualization</span>
+          </div>
+
+          <!-- Three Prominent Actions Required -->
+          <div class="hero-actions">
             <a href="#projects" class="btn btn-solid">
               <span>Explore My Projects</span>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <button class="btn btn-outline" id="btnHomeResume">
+            <button class="btn btn-outline" id="btnHeroResume">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              <span>View Resume (PDF)</span>
+              <span>View Resume</span>
             </button>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+            <a href="https://www.linkedin.com/in/mohamed-fazil-j-22ds/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               <span>Connect on LinkedIn →</span>
             </a>
           </div>
 
-          <div class="home-highlights-grid">
-            <div class="hl-card">
-              <span class="hl-num">4</span>
-              <span class="hl-label">Flagship Analytical Projects</span>
+          <!-- Quantitative Evidence Stats -->
+          <div class="hero-stats-row">
+            <div class="stat-unit">
+              <span class="stat-number">100K+</span>
+              <span class="stat-label">Verified Rows Modeled</span>
             </div>
-            <div class="hl-card">
-              <span class="hl-num">100K+</span>
-              <span class="hl-label">Data Records Cleaned & Modeled</span>
+            <div class="stat-unit">
+              <span class="stat-number">19</span>
+              <span class="stat-label">Public Repositories</span>
             </div>
-            <div class="hl-card">
-              <span class="hl-num">19</span>
-              <span class="hl-label">Public GitHub Repositories</span>
+            <div class="stat-unit">
+              <span class="stat-number">B.Tech</span>
+              <span class="stat-label">Information Technology</span>
             </div>
-            <div class="hl-card">
-              <span class="hl-num">B.Tech</span>
-              <span class="hl-label">Information Technology Degree</span>
+            <div class="stat-unit">
+              <span class="stat-number">IT Vedant</span>
+              <span class="stat-label">Advanced Excel Certified</span>
             </div>
           </div>
         </div>
 
-        <!-- Featured Project Preview Spotlight Card (DATOVA AI / Working Model) -->
-        <div class="home-preview-col">
-          <div class="preview-box">
-            <div class="preview-box-head">
-              <span class="preview-tag">Featured Full-Stack Platform</span>
-              <span class="preview-status">Interactive Preview</span>
-            </div>
-            <h3 class="preview-title">DATOVA AI</h3>
-            <p class="preview-desc">
-              "Upload. Ask. Discover. Decide." — Universal AI data analytics platform with an interactive in-browser EER Model Studio, 0–100 data health audits, and deterministic statistical calculations.
-            </p>
-
-            <div class="preview-schema-mini">
-              <div class="mini-entity">
-                <strong>CUSTOMERS</strong>
-                <span>PK customer_id</span>
-                <span>customer_state</span>
+        <!-- Right Side: Professional Analytical Dashboard Preview -->
+        <div class="hero-visual-col">
+          <div class="dashboard-preview-card">
+            <div class="dp-header">
+              <div class="dp-header-left">
+                <span class="dp-dot"></span>
+                <span class="dp-title">Executive Analytics Dashboard</span>
               </div>
-              <span class="mini-rel">1 ──&lt; N</span>
-              <div class="mini-entity">
-                <strong>ORDERS</strong>
-                <span>PK order_id</span>
-                <span>FK customer_id</span>
-              </div>
-              <span class="mini-rel">1 ──&lt; N</span>
-              <div class="mini-entity">
-                <strong>PAYMENTS</strong>
-                <span>PK payment_id</span>
-                <span>payment_value</span>
-              </div>
+              <span class="dp-tag">Live Metrics</span>
             </div>
 
-            <div class="preview-actions">
-              <button class="btn btn-solid btn-block btn-launch-model">
-                <span>⚡ Open DATOVA Working Model →</span>
-              </button>
-              <a href="https://github.com/J-Mohamed-Fazil/dataova" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-block btn-sm">
-                <span>View Repository on GitHub</span>
-              </a>
+            <!-- Mini Dashboard KPI Tiles -->
+            <div class="dp-kpis">
+              <div class="dp-kpi">
+                <span class="dp-kpi-label">Total E-Commerce GMV</span>
+                <span class="dp-kpi-val">$15.8M</span>
+                <span class="dp-kpi-sub">99,441 Olist Orders</span>
+              </div>
+              <div class="dp-kpi">
+                <span class="dp-kpi-label">Workforce Attrition</span>
+                <span class="dp-kpi-val">16.1%</span>
+                <span class="dp-kpi-sub">1,470 Personnel Cleaned</span>
+              </div>
+              <div class="dp-kpi">
+                <span class="dp-kpi-label">SQL Query Execution</span>
+                <span class="dp-kpi-val">&lt; 25ms</span>
+                <span class="dp-kpi-sub">Normalized 3NF Entities</span>
+              </div>
+              <div class="dp-kpi">
+                <span class="dp-kpi-label">Data Health Audit</span>
+                <span class="dp-kpi-val">94/100</span>
+                <span class="dp-kpi-sub">0 Orphan Rows Detected</span>
+              </div>
+            </div>
+
+            <!-- Mini Data Visual Illustration -->
+            <div class="dp-chart-simulation">
+              <div class="chart-sim-title">Quarterly Revenue vs. Fulfillment Delivery SLA</div>
+              <div class="bars-container">
+                <div class="bar-col"><div class="bar-fill" style="height: 65%;"></div><span>Q1</span></div>
+                <div class="bar-col"><div class="bar-fill" style="height: 80%;"></div><span>Q2</span></div>
+                <div class="bar-col"><div class="bar-fill" style="height: 95%;"></div><span>Q3</span></div>
+                <div class="bar-col"><div class="bar-fill active" style="height: 72%;"></div><span>Q4</span></div>
+              </div>
+            </div>
+
+            <div class="dp-footer">
+              <span>Verified Case Studies in Excel, Power BI & MySQL</span>
+              <a href="#projects" class="dp-link">View All Projects ↓</a>
             </div>
           </div>
         </div>
@@ -166,133 +181,167 @@
     </section>
 
     <!-- ==============================================================
-         02. ABOUT ME — TELL YOUR PROFESSIONAL STORY (4 PARTS)
+         2. ABOUT SECTION
          ============================================================== -->
     <section class="section about-section" id="about">
       <div class="container">
         <div class="section-title-wrap">
-          <span class="section-badge">Professional Background</span>
+          <span class="section-badge">Background & Profile</span>
+          <!-- Exact Heading Required -->
           <h2 class="section-heading">About Me</h2>
-          <p class="section-desc">My journey from an Information Technology graduate into practical data analytics and business intelligence.</p>
         </div>
 
-        <div class="about-grid">
-          <div class="about-card">
-            <div class="about-card-num">Part 01</div>
-            <h3 class="about-card-title">Education</h3>
-            <p class="about-card-text">
-              Completed my <strong>B.Tech in Information Technology</strong>. Built a strong foundational understanding of database systems, computer science principles, algorithms, and analytical problem-solving.
+        <div class="about-grid-layout">
+          <div class="about-main-text">
+            <!-- Exact Content Required -->
+            <p class="about-paragraph">
+              I completed my B.Tech in Information Technology at Sri Krishna College of Engineering and Technology. My interest in Data Analytics has led me to work on projects involving e-commerce analytics, retail sales, HR analytics, and relational database analysis.
             </p>
+            <p class="about-paragraph">
+              Through these projects, I have practised preparing data, working with multiple related tables, writing SQL queries, building Excel reports, and developing interactive dashboards.
+            </p>
+            <p class="about-paragraph">
+              I enjoy understanding the problem behind the data, selecting the appropriate analytical approach, and communicating findings clearly. I am currently seeking opportunities to develop these skills further in a professional environment.
+            </p>
+
+            <div class="about-summary-quote">
+              <span class="quote-bar"></span>
+              <p>
+                "I am an Information Technology graduate with a strong interest in Data Analytics and Business Intelligence. I enjoy working with data to identify patterns, understand business problems, and present findings through meaningful reports and dashboards."
+              </p>
+            </div>
           </div>
 
-          <div class="about-card">
-            <div class="about-card-num">Part 02</div>
-            <h3 class="about-card-title">Technical Journey</h3>
-            <p class="about-card-text">
-              Dedicated intensive learning and practical training in <strong>Microsoft Excel, SQL, Power BI, and Python</strong>. Completed formal Advanced Excel and Data Analytics specialization through <strong>IT Vedant</strong>, focusing on real business application.
-            </p>
-          </div>
+          <!-- Three Compact Highlights Required -->
+          <div class="about-highlights-col">
+            <div class="highlight-card">
+              <div class="hl-icon">🎓</div>
+              <div>
+                <h3 class="hl-heading">Information Technology Graduate</h3>
+                <p class="hl-detail">Sri Krishna College of Engineering and Technology (2022–2026). Strong grounding in databases, algorithms, and data modeling.</p>
+              </div>
+            </div>
 
-          <div class="about-card">
-            <div class="about-card-num">Part 03</div>
-            <h3 class="about-card-title">Practical Work</h3>
-            <p class="about-card-text">
-              Delivered complete, verified analytical case studies: Brazilian E-Commerce sales performance (100k+ records in Excel), HR employee attrition patterns (Power BI star schemas and DAX), and retail database querying (MySQL CTEs & window functions).
-            </p>
-          </div>
+            <div class="highlight-card">
+              <div class="hl-icon">📜</div>
+              <div>
+                <h3 class="hl-heading">Advanced Excel Certified</h3>
+                <p class="hl-detail">Completed rigorous training through IT Vedant in Power Query ETL, nested lookup formulas, PivotTables, and executive reporting.</p>
+              </div>
+            </div>
 
-          <div class="about-card">
-            <div class="about-card-num">Part 04</div>
-            <h3 class="about-card-title">Career Objective</h3>
-            <p class="about-card-text">
-              Actively seeking a <strong>Data Analyst / Business Intelligence internship or entry-level role</strong> where I can contribute to data cleaning, automated dashboarding, and actionable business reporting while learning from senior analysts.
-            </p>
+            <div class="highlight-card">
+              <div class="hl-icon">📊</div>
+              <div>
+                <h3 class="hl-heading">Data Analytics & Business Intelligence</h3>
+                <p class="hl-detail">Focused on solving business problems with structured methodology: cleaning data, modeling relationships, and delivering verified insights.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==============================================================
-         03. TECHNICAL SKILLS — DEMONSTRATE, DON'T JUST LIST
+         3. TECHNICAL SKILLS SECTION (4 ORGANIZED CATEGORIES)
          ============================================================== -->
     <section class="section skills-section" id="skills">
       <div class="container">
         <div class="section-title-wrap">
-          <span class="section-badge">Competency Matrix</span>
-          <h2 class="section-heading">Technical Skills & Evidence</h2>
-          <p class="section-desc">Skills organized by capability and directly supported by project evidence. No arbitrary percentages.</p>
+          <span class="section-badge">Capabilities Matrix</span>
+          <h2 class="section-heading">Technical Skills</h2>
+          <p class="section-desc">Organized by analytical competency and supported by verified project work. No arbitrary percentage bars.</p>
         </div>
 
         <div class="skills-grid">
-          <!-- Skill 1: Excel -->
+          <!-- A. Spreadsheet Analytics -->
           <div class="skill-category-card">
-            <div class="skill-head">
-              <span class="skill-icon">📊</span>
+            <div class="sc-head">
+              <span class="sc-icon">📊</span>
               <div>
-                <h3 class="skill-title">Microsoft Excel</h3>
-                <span class="skill-sub">Power Query & Business Reporting</span>
+                <h3 class="sc-title">Spreadsheet Analytics</h3>
+                <span class="sc-sub">Advanced Reporting & Pivot Modeling</span>
               </div>
             </div>
-            <p class="skill-desc">
-              Power Query (M-code), multi-table merges, data cleaning, lookup functions (XLOOKUP, INDEX/MATCH), logical formulas, PivotTables, PivotCharts, interactive slicers, and executive reporting.
-            </p>
-            <div class="skill-evidence">
-              <span class="evidence-tag">Evidence:</span>
-              <a href="#projects" class="evidence-link">Brazilian E-Commerce Analysis (Olist) →</a>
+            <ul class="skill-items-list">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Microsoft Excel</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Advanced Excel Functions</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Lookup and Logical Functions (XLOOKUP, INDEX/MATCH, nested IFs)</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>PivotTables and PivotCharts</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Data Cleaning & Deduplication</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Excel Dashboard Development (Slicers & Timelines)</span></li>
+            </ul>
+            <div class="sc-evidence">
+              <span class="ev-lbl">Evidence:</span>
+              <a href="#projects" class="ev-link">Brazilian E-Commerce & HR Excel Dashboards →</a>
             </div>
           </div>
 
-          <!-- Skill 2: SQL -->
+          <!-- B. Data Preparation -->
           <div class="skill-category-card">
-            <div class="skill-head">
-              <span class="skill-icon">🗄️</span>
+            <div class="sc-head">
+              <span class="sc-icon">⚙️</span>
               <div>
-                <h3 class="skill-title">SQL / MySQL</h3>
-                <span class="skill-sub">Relational Querying & Database Design</span>
+                <h3 class="sc-title">Data Preparation</h3>
+                <span class="sc-sub">ETL Pipelines & Quality Validation</span>
               </div>
             </div>
-            <p class="skill-desc">
-              SELECT, complex filtering, multi-table JOINs, GROUP BY, aggregations, subqueries, Common Table Expressions (CTEs), Window Functions (ROW_NUMBER, DENSE_RANK), and 1NF–3NF relational normalization.
-            </p>
-            <div class="skill-evidence">
-              <span class="evidence-tag">Evidence:</span>
-              <a href="#projects" class="evidence-link">Retail Analytics & Database Design (MySQL) →</a>
+            <ul class="skill-items-list">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Power Query (Get & Transform)</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Data Transformation & M-Code</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Merging and Combining Related Tables</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Data Type Validation (Date, Numeric, Text)</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Data Quality & Null Value Imputation Checks</span></li>
+            </ul>
+            <div class="sc-evidence">
+              <span class="ev-lbl">Evidence:</span>
+              <a href="#projects" class="ev-link">9-Table Olist Power Query Workflow →</a>
             </div>
           </div>
 
-          <!-- Skill 3: Power BI -->
+          <!-- C. SQL and Databases -->
           <div class="skill-category-card">
-            <div class="skill-head">
-              <span class="skill-icon">📈</span>
+            <div class="sc-head">
+              <span class="sc-icon">🗄️</span>
               <div>
-                <h3 class="skill-title">Microsoft Power BI</h3>
-                <span class="skill-sub">Data Modeling & DAX Measures</span>
+                <h3 class="sc-title">SQL and Databases</h3>
+                <span class="sc-sub">Relational Querying & Optimization</span>
               </div>
             </div>
-            <p class="skill-desc">
-              Power Query data transformation, star-schema data modeling, 1-to-many relationship design, custom DAX measures, KPI status cards, cross-filtering, dynamic slicers, and drill-through navigation.
-            </p>
-            <div class="skill-evidence">
-              <span class="evidence-tag">Evidence:</span>
-              <a href="#projects" class="evidence-link">HR Employee Attrition Analytics →</a>
+            <ul class="skill-items-list">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>MySQL & Relational Database Management</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Database Design & 1NF–3NF Normalization</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Primary and Foreign Key Integrity Checks</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Multi-Table SQL JOINs (INNER, LEFT, RIGHT)</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Aggregate Functions, GROUP BY, and HAVING</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Subqueries, CTEs, and Window Functions</span></li>
+            </ul>
+            <div class="sc-evidence">
+              <span class="ev-lbl">Evidence:</span>
+              <a href="#projects" class="ev-link">Chinook & MySQL Retail Analytics Projects →</a>
             </div>
           </div>
 
-          <!-- Skill 4: Python -->
+          <!-- D. Business Intelligence -->
           <div class="skill-category-card">
-            <div class="skill-head">
-              <span class="skill-icon">🐍</span>
+            <div class="sc-head">
+              <span class="sc-icon">📈</span>
               <div>
-                <h3 class="skill-title">Python for Analytics</h3>
-                <span class="skill-sub">Data Wrangling & Statistical EDA</span>
+                <h3 class="sc-title">Business Intelligence</h3>
+                <span class="sc-sub">Dimensional Modeling & Interactive BI</span>
               </div>
             </div>
-            <p class="skill-desc">
-              Python fundamentals, functions, Pandas (DataFrames, GroupBy, missing value imputation), NumPy, statistical exploratory data analysis, outlier detection (IQR & Z-score), and text similarity algorithms.
-            </p>
-            <div class="skill-evidence">
-              <span class="evidence-tag">Evidence:</span>
-              <a href="#projects" class="evidence-link">DATOVA AI Platform & Retail EDA →</a>
+            <ul class="skill-items-list">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Microsoft Power BI Desktop</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Star Schema & Fact/Dimension Relationships</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>DAX Measures (Calculated Columns, Time Intelligence)</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>KPI Card Development & Threshold Indicators</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Interactive Reports, Cross-Filtering & Drill-Throughs</span></li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Data Visualization & Executive Storytelling</span></li>
+            </ul>
+            <div class="sc-evidence">
+              <span class="ev-lbl">Evidence:</span>
+              <a href="#projects" class="ev-link">HR Attrition Power BI Star-Schema Report →</a>
             </div>
           </div>
         </div>
@@ -300,67 +349,62 @@
     </section>
 
     <!-- ==============================================================
-         04. FEATURED PROJECTS — THE 3–5 BEST PROJECTS (9-PART FORMAT)
+         4. FEATURED PROJECTS SECTION
          ============================================================== -->
     <section class="section projects-section" id="projects">
       <div class="container">
         <div class="section-title-wrap">
-          <span class="section-badge">Case Studies</span>
+          <span class="section-badge">Practical Evidence</span>
           <h2 class="section-heading">Featured Projects</h2>
-          <p class="section-desc">Each project documents the business problem, data preparation, analytical methodology, verified findings, and practical recommendations.</p>
+          <p class="section-desc">Real case studies demonstrating end-to-end analytical problem solving: raw data preparation, relational querying, dashboarding, and actionable business insights.</p>
         </div>
 
         <div class="projects-list" id="projectsListContainer">
-          <!-- Injected via JavaScript from projects-data.js -->
+          <!-- Dynamically populated from projects-data.js -->
         </div>
       </div>
     </section>
 
     <!-- ==============================================================
-         05. CERTIFICATIONS & EDUCATION
+         5. CERTIFICATIONS SECTION
          ============================================================== -->
     <section class="section cert-section" id="certifications">
       <div class="container">
         <div class="section-title-wrap">
           <span class="section-badge">Credentials</span>
-          <h2 class="section-heading">Certifications & Education</h2>
-          <p class="section-desc">Formal credentials supporting practical project work.</p>
+          <h2 class="section-heading">Certifications</h2>
+          <p class="section-desc">Formal training validating spreadsheet analytics and business intelligence capabilities.</p>
         </div>
 
         <div class="cert-grid">
           <div class="cert-card">
-            <div class="cert-type">Professional Certification</div>
+            <div class="cert-badge-tag">Verified Professional Certification</div>
             <h3 class="cert-title">Advanced Excel Certification</h3>
             <span class="cert-issuer">IT Vedant Education</span>
             <p class="cert-desc">
-              Completed rigorous practical training in Advanced Excel: Power Query ETL, complex lookup functions (XLOOKUP, INDEX/MATCH), dynamic arrays, PivotTables, PivotCharts, and executive KPI dashboard construction.
+              Comprehensive training covering Power Query (ETL), multi-table consolidation, complex lookup formulas (XLOOKUP, INDEX/MATCH), dynamic arrays, PivotTables, and executive business dashboard development.
             </p>
-            <div class="cert-skills">
+            <div class="cert-skills-pills">
               <span>Power Query</span><span>PivotTables</span><span>Data Modeling</span><span>M-Code</span>
+            </div>
+            <div class="cert-actions">
+              <button class="btn btn-outline btn-sm" id="btnPreviewCert">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>View Certificate</span>
+              </button>
+              <a href="assets/advanceexcel.jpg" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">Direct Image ↗</a>
             </div>
           </div>
 
           <div class="cert-card">
-            <div class="cert-type">Professional Training</div>
+            <div class="cert-badge-tag">Professional Training</div>
             <h3 class="cert-title">Data Science & Analytics Specialization</h3>
             <span class="cert-issuer">IT Vedant Education</span>
             <p class="cert-desc">
-              Comprehensive hands-on training covering the full data lifecycle: SQL database querying, Power BI business intelligence, Python data analysis (Pandas & NumPy), statistical exploratory analysis, and predictive modeling.
+              Practical curriculum focusing on SQL database querying, Power BI report authoring, Python exploratory data analysis (Pandas & NumPy), and quantitative statistical methods for business decision-making.
             </p>
-            <div class="cert-skills">
+            <div class="cert-skills-pills">
               <span>SQL Queries</span><span>Power BI & DAX</span><span>Python EDA</span><span>Statistics</span>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <div class="cert-type">Academic Degree</div>
-            <h3 class="cert-title">B.Tech in Information Technology</h3>
-            <span class="cert-issuer">Undergraduate Degree</span>
-            <p class="cert-desc">
-              Academically grounded in computer science fundamentals, relational database management systems (RDBMS), data structures, software engineering principles, and quantitative analytics.
-            </p>
-            <div class="cert-skills">
-              <span>RDBMS</span><span>Algorithms</span><span>Software Engineering</span><span>Data Systems</span>
             </div>
           </div>
         </div>
@@ -368,25 +412,52 @@
     </section>
 
     <!-- ==============================================================
-         06. RESUME SECTION — CLEAR VIEW & DOWNLOAD
+         6. EDUCATION SECTION
+         ============================================================== -->
+    <section class="section education-section" id="education">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-badge">Academic Qualification</span>
+          <h2 class="section-heading">Education</h2>
+        </div>
+
+        <div class="education-card-wrap">
+          <div class="education-card">
+            <div class="edu-icon">🏛️</div>
+            <div class="edu-body">
+              <span class="edu-timeline">2022 – 2026</span>
+              <h3 class="edu-degree">B.Tech in Information Technology</h3>
+              <span class="edu-college">Sri Krishna College of Engineering and Technology</span>
+              <p class="edu-summary">
+                Undergraduate coursework grounding analytical problem solving in relational database management systems (RDBMS), data structures, algorithms, and quantitative information technology principles.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         7. RESUME SECTION
          ============================================================== -->
     <section class="section resume-section" id="resume">
       <div class="container">
-        <div class="resume-cta-card">
-          <div class="resume-cta-text">
+        <div class="resume-cta-box">
+          <div class="resume-cta-content">
             <span class="section-badge">Curriculum Vitae</span>
-            <h2 class="resume-cta-title">Current Professional Resume</h2>
-            <p class="resume-cta-desc">
-              A structured, ATS-friendly single-page resume outlining my B.Tech degree, IT Vedant certifications, core technical skills (Excel, SQL, Power BI, Python), and documented portfolio projects.
+            <h2 class="resume-title">Current Professional Resume</h2>
+            <p class="resume-desc">
+              A structured, ATS-compliant single-page resume detailing my B.Tech degree from Sri Krishna College of Engineering and Technology, IT Vedant certification, verified skills (Excel, SQL, Power BI), and flagship analytical case studies.
             </p>
           </div>
-          <div class="resume-cta-actions">
-            <button class="btn btn-solid btn-lg" id="btnOpenResumeSection">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <div class="resume-cta-buttons">
+            <button class="btn btn-solid btn-lg" id="btnOpenResumeModal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               <span>View & Print Resume</span>
             </button>
-            <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">
-              <span>Inspect GitHub Repositories →</span>
+            <a href="assets/MohamedFazilJ_Resume.pdf" download="MohamedFazilJ_Resume.pdf" class="btn btn-outline btn-lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download PDF</span>
             </a>
           </div>
         </div>
@@ -394,38 +465,44 @@
     </section>
 
     <!-- ==============================================================
-         07. CONTACT SECTION — GET IN TOUCH
+         8. CONTACT SECTION
          ============================================================== -->
     <section class="section contact-section" id="contact">
       <div class="container">
         <div class="contact-card">
           <div class="contact-info-col">
-            <span class="section-badge">Connect</span>
-            <h2 class="contact-heading">Get In Touch</h2>
-            <p class="contact-desc">
-              I am actively seeking <strong>Data Analyst and Business Intelligence internship opportunities</strong>. Whether you have an open position, feedback on my projects, or would like to discuss my analysis, I would love to connect.
+            <span class="section-badge">Opportunities</span>
+            <!-- Exact Heading Required -->
+            <h2 class="contact-heading">Let's Connect</h2>
+            <!-- Exact Supporting Text Required -->
+            <p class="contact-text">
+              I'm actively seeking Data Analyst and Data Analytics internship opportunities. I'm interested in connecting with professionals and organizations where I can apply my analytical skills, learn from real-world problems, and contribute to data-driven work.
             </p>
 
-            <div class="contact-channel-list">
-              <div class="channel-row">
-                <span class="channel-label">Email:</span>
-                <a href="mailto:mf20159126@gmail.com" class="channel-val" id="emailVal">mf20159126@gmail.com</a>
+            <div class="contact-links-stack">
+              <div class="contact-row">
+                <span class="c-label">LinkedIn:</span>
+                <a href="https://www.linkedin.com/in/mohamed-fazil-j-22ds/" target="_blank" rel="noopener noreferrer" class="c-val">
+                  linkedin.com/in/mohamed-fazil-j-22ds ↗
+                </a>
+              </div>
+
+              <div class="contact-row">
+                <span class="c-label">GitHub:</span>
+                <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="c-val">
+                  github.com/J-Mohamed-Fazil ↗
+                </a>
+              </div>
+
+              <div class="contact-row">
+                <span class="c-label">Email:</span>
+                <a href="mailto:mf20159126@gmail.com" class="c-val" id="emailVal">mf20159126@gmail.com</a>
                 <button class="btn btn-ghost btn-xs" id="btnCopyEmail" title="Copy email address">Copy</button>
               </div>
 
-              <div class="channel-row">
-                <span class="channel-label">GitHub:</span>
-                <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="channel-val">github.com/J-Mohamed-Fazil</a>
-              </div>
-
-              <div class="channel-row">
-                <span class="channel-label">LinkedIn:</span>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="channel-val">Connect on LinkedIn</a>
-              </div>
-
-              <div class="channel-row">
-                <span class="channel-label">Location:</span>
-                <span class="channel-val">India (Open to Remote / Hybrid / On-site Roles)</span>
+              <div class="contact-row">
+                <span class="c-label">Location:</span>
+                <span class="c-val">India (Available for Remote, Hybrid, or On-Site)</span>
               </div>
             </div>
           </div>
@@ -434,7 +511,7 @@
             <form class="clean-form" id="contactForm">
               <div class="form-group">
                 <label for="cName">Your Name</label>
-                <input type="text" id="cName" required placeholder="Recruiter / Hiring Manager Name">
+                <input type="text" id="cName" required placeholder="Hiring Manager / Recruiter Name">
               </div>
               <div class="form-group">
                 <label for="cEmail">Your Email</label>
@@ -446,9 +523,9 @@
               </div>
               <div class="form-group">
                 <label for="cMsg">Message</label>
-                <textarea id="cMsg" rows="3" required placeholder="Hello Mohamed, I reviewed your Olist Excel and Power BI projects..."></textarea>
+                <textarea id="cMsg" rows="3" required placeholder="Hello Mohamed, I reviewed your Olist and HR analytics projects..."></textarea>
               </div>
-              <button type="submit" class="btn btn-solid btn-block">Send Message →</button>
+              <button type="submit" class="btn btn-solid btn-block">Send Email Message →</button>
             </form>
           </div>
         </div>
@@ -456,21 +533,24 @@
     </section>
   </main>
 
-  <!-- Clean Professional Footer -->
+  <!-- ==============================================================
+       FOOTER
+       ============================================================== -->
   <footer class="footer">
     <div class="container footer-layout">
-      <span>© 2026 Mohamed Fazil · Aspiring Data Analyst Portfolio</span>
+      <!-- Exact Required Text -->
+      <span>© 2026 Mohamed Fazil. Built to showcase my journey in Data Analytics.</span>
       <div class="footer-links">
         <a href="#home">Back to Top ↑</a>
         <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/mohamed-fazil-j-22ds/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <button class="footer-btn" id="btnFooterResume">Resume</button>
       </div>
     </div>
   </footer>
 
   <!-- ==============================================================
-       DETAILED PROJECT MODAL (COMPLETE 9-PART BLUEPRINT FORMAT)
+       DETAILED CASE STUDY MODAL (WITH ANALYTICAL WORKFLOW DIAGRAM)
        ============================================================== -->
   <div class="modal-backdrop" id="caseStudyModal" aria-hidden="true">
     <div class="modal-window project-detail-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -479,8 +559,25 @@
       <div class="modal-header">
         <span class="tag-minimal" id="modalBadge">Case Study</span>
         <h2 class="modal-title" id="modalTitle">Project Title</h2>
-        <span class="modal-role-subtitle" id="modalRole">Role & Overview</span>
         <div class="modal-tools" id="modalTools"></div>
+      </div>
+
+      <!-- Analytical Workflow Diagram -->
+      <div class="workflow-banner">
+        <span class="wf-label">Analytical Workflow:</span>
+        <div class="wf-steps">
+          <span>Raw Data</span>
+          <span class="wf-arrow">→</span>
+          <span>Data Cleaning</span>
+          <span class="wf-arrow">→</span>
+          <span>Transformation</span>
+          <span class="wf-arrow">→</span>
+          <span>Analysis</span>
+          <span class="wf-arrow">→</span>
+          <span>Visualization</span>
+          <span class="wf-arrow">→</span>
+          <span>Business Insights</span>
+        </div>
       </div>
 
       <div class="modal-body">
@@ -493,16 +590,16 @@
           </div>
         </div>
 
-        <!-- 02. Business Problem -->
+        <!-- 02. Business Problem & Objectives -->
         <div class="detail-section">
           <div class="section-indicator">02</div>
           <div class="section-content">
-            <h4>Business Problem</h4>
+            <h4>Business Problem & Objectives</h4>
             <p id="modalProblem"></p>
           </div>
         </div>
 
-        <!-- 03. Dataset & Source -->
+        <!-- 03. Dataset and Source -->
         <div class="detail-section">
           <div class="section-indicator">03</div>
           <div class="section-content">
@@ -511,38 +608,42 @@
           </div>
         </div>
 
-        <!-- 04. Data Preparation -->
+        <!-- 04. Data Preparation and Cleaning -->
         <div class="detail-section">
           <div class="section-indicator">04</div>
           <div class="section-content">
-            <h4>Data Preparation</h4>
+            <h4>Data Preparation & Cleaning</h4>
             <ul id="modalDataPrep" class="detail-bullet-list"></ul>
           </div>
         </div>
 
-        <!-- 05. Analysis Methodology -->
+        <!-- 05. Analytical Methodology -->
         <div class="detail-section">
           <div class="section-indicator">05</div>
           <div class="section-content">
-            <h4>Analysis Methodology</h4>
+            <h4>Analytical Methodology</h4>
             <p id="modalMethodology"></p>
+            <div id="modalQueryContainer" style="display: none; margin-top: 1rem;">
+              <span class="code-box-lbl">Selected Real SQL Query / Measure:</span>
+              <pre class="code-box"><code id="modalQueryCode"></code></pre>
+            </div>
           </div>
         </div>
 
-        <!-- 06. Results Preview & KPIs -->
+        <!-- 06. Verified Metrics -->
         <div class="detail-section">
           <div class="section-indicator">06</div>
           <div class="section-content">
-            <h4>Key Metrics & Summary</h4>
+            <h4>Verified Key Metrics</h4>
             <div class="modal-metrics-grid" id="modalMetrics"></div>
           </div>
         </div>
 
-        <!-- 07. Key Findings -->
+        <!-- 07. Key Verified Findings -->
         <div class="detail-section">
           <div class="section-indicator">07</div>
           <div class="section-content">
-            <h4>Verified Key Findings</h4>
+            <h4>Key Verified Findings</h4>
             <ul id="modalFindings" class="detail-bullet-list"></ul>
           </div>
         </div>
@@ -551,16 +652,17 @@
         <div class="detail-section">
           <div class="section-indicator">08</div>
           <div class="section-content">
-            <h4>Business Recommendations</h4>
+            <h4>Practical Business Recommendations</h4>
             <ul id="modalRecommendations" class="detail-bullet-list"></ul>
           </div>
         </div>
 
-        <!-- 09. Project Files & GitHub -->
+        <!-- 09. Limitations & Repository Files -->
         <div class="detail-section">
           <div class="section-indicator">09</div>
           <div class="section-content">
-            <h4>Project Files & Repository</h4>
+            <h4>Project Files & Limitations</h4>
+            <p id="modalLimitations" style="margin-bottom: 0.5rem;"></p>
             <p id="modalFilesInfo"></p>
           </div>
         </div>
@@ -568,9 +670,9 @@
 
       <div class="modal-footer">
         <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-solid" id="modalRepoLink">
-          <span>Inspect Repository on GitHub →</span>
+          <span>View GitHub Repository →</span>
         </a>
-        <button class="btn btn-outline" id="btnCloseModalBtm">Close</button>
+        <button class="btn btn-outline" id="btnCloseModalBtm">Close Case Study</button>
       </div>
     </div>
   </div>
@@ -585,17 +687,17 @@
       <div class="studio-topbar">
         <div class="studio-brand">
           <span class="studio-dot"></span>
-          <strong id="datanovaModalTitle">DATOVA AI — Interactive EER Model Studio & Workspace</strong>
+          <strong id="datanovaModalTitle">DATOVA AI — Interactive EER Model Studio</strong>
           <span class="studio-version">v1.2 Active</span>
         </div>
 
         <div class="studio-controls">
           <div class="studio-dataset-picker">
-            <span class="picker-lbl">Dataset:</span>
+            <span class="picker-lbl">Domain:</span>
             <select id="studioDatasetSelect" class="studio-select" aria-label="Select sample dataset">
-              <option value="retail" selected>🛒 Global Retail & E-Commerce Sales</option>
-              <option value="hr">👥 Corporate Workforce & Attrition</option>
-              <option value="banking">🏛️ Commercial Banking Transactions</option>
+              <option value="retail" selected>🛒 Retail & E-Commerce Sales</option>
+              <option value="hr">👥 HR Workforce & Attrition</option>
+              <option value="banking">🏛️ Commercial Banking Operations</option>
             </select>
           </div>
 
@@ -613,7 +715,7 @@
           <div class="eer-legend">
             <span><strong style="color: #60a5fa;">PK</strong> Primary Key</span>
             <span><strong style="color: #94a3b8;">FK</strong> Foreign Key</span>
-            <span><strong style="color: #3b82f6;">1 ──&lt; N</strong> One-to-Many Relationship</span>
+            <span><strong style="color: #38bdf8;">1 ──&lt; N</strong> One-to-Many Relationship</span>
           </div>
           <div class="eer-actions">
             <button class="btn btn-solid btn-xs" id="btnRunJoinSimulation">▶ Run Join Simulation</button>
@@ -658,7 +760,7 @@
           <div class="health-kpis-col">
             <div class="kpi-block">
               <span class="lbl">Inferred Domain Context</span>
-              <span class="val" style="font-size: 1.15rem; color: #60a5fa;">Retail & E-Commerce (96% Conf)</span>
+              <span class="val" style="font-size: 1.15rem; color: #38bdf8;">Retail & E-Commerce (96% Conf)</span>
             </div>
             <div class="kpi-block">
               <span class="lbl">Total Processed Records</span>
@@ -684,7 +786,7 @@
               <div class="msg-avatar">AI</div>
               <div class="msg-bubble">
                 <strong>Ask DATOVA Conversational Analyst</strong>
-                <p>Hello! I have fully ingested and indexed this dataset. Ask me any business question or click one of the suggested prompts below to see deterministic analysis in real time.</p>
+                <p>Hello! I have indexed the dataset. Ask me any business question or click one of the suggested prompts below to see deterministic analysis in real time.</p>
               </div>
             </div>
           </div>
@@ -714,6 +816,26 @@
   </div>
 
   <!-- ==============================================================
+       CERTIFICATE PREVIEW MODAL
+       ============================================================== -->
+  <div class="modal-backdrop" id="certModal" aria-hidden="true">
+    <div class="modal-window cert-modal-window" role="dialog" aria-modal="true">
+      <button class="modal-close" id="btnCloseCertModal" aria-label="Close certificate">✕</button>
+      <div class="cert-modal-header">
+        <h3>Advanced Excel Certification — IT Vedant</h3>
+        <span class="cert-meta">Verified Student Credential: Mohamed Fazil</span>
+      </div>
+      <div class="cert-img-wrap">
+        <img src="assets/advanceexcel.jpg" alt="Advanced Excel Certification from IT Vedant awarded to Mohamed Fazil" class="cert-img">
+      </div>
+      <div class="cert-modal-footer">
+        <a href="assets/advanceexcel.jpg" download="MohamedFazil_AdvancedExcel_ITVedant.jpg" class="btn btn-solid btn-sm">Download Certificate</a>
+        <button class="btn btn-outline btn-sm" id="btnCloseCertModalBtm">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================================================
        ATS-FRIENDLY RESUME MODAL
        ============================================================== -->
   <div class="modal-backdrop" id="resumeModal" aria-hidden="true">
@@ -721,21 +843,27 @@
       <button class="modal-close" id="btnCloseResume" aria-label="Close resume">✕</button>
 
       <div class="resume-bar no-print">
-        <button class="btn btn-solid btn-sm" id="btnPrintResume">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          <span>Print / Save as PDF</span>
-        </button>
-        <span class="resume-note">Standard ATS-formatted document ready for download</span>
+        <div class="resume-actions-left">
+          <button class="btn btn-solid btn-sm" id="btnPrintResume">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <span>Print / Save as PDF</span>
+          </button>
+          <a href="assets/MohamedFazilJ_Resume.pdf" download="MohamedFazilJ_Resume.pdf" class="btn btn-outline btn-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download Official PDF</span>
+          </a>
+        </div>
+        <span class="resume-note">Standard ATS-formatted document</span>
       </div>
 
       <div class="resume-sheet" id="resumePaper">
         <div class="resume-head">
           <h1>MOHAMED FAZIL</h1>
-          <div class="resume-role">ASPIRING DATA ANALYST | EXCEL • SQL • POWER BI • PYTHON</div>
+          <div class="resume-role">ASPIRING DATA ANALYST | EXCEL • SQL • POWER BI</div>
           <div class="resume-contact-line">
             <span>Email: mf20159126@gmail.com</span>
+            <span>LinkedIn: linkedin.com/in/mohamed-fazil-j-22ds</span>
             <span>GitHub: github.com/J-Mohamed-Fazil</span>
-            <span>Portfolio: j-mohamed-fazil.github.io</span>
             <span>Location: India</span>
           </div>
         </div>
@@ -745,16 +873,16 @@
         <div class="resume-sec">
           <h3>PROFESSIONAL SUMMARY</h3>
           <p>
-            Information Technology graduate interested in Data Analytics and Business Intelligence. Skilled in transforming raw, noisy datasets into actionable business insights through data cleaning, SQL analysis, Excel reporting, and interactive dashboards. Completed specialized Advanced Excel and Data Analytics training at IT Vedant. Demonstrated experience across e-commerce sales analysis (100k+ rows), workforce attrition modeling, and relational database querying across 19 public GitHub repositories.
+            Information Technology graduate with a strong interest in Data Analytics and Business Intelligence. Experienced in taking raw, multi-table datasets and performing data cleaning, SQL relational querying, spreadsheet reporting, and interactive dashboard development. Completed formal Advanced Excel certification from IT Vedant. Demonstrated capabilities across e-commerce analytics (99K+ transactions), workforce attrition modeling (1,470 personnel), and retail relational database analysis.
           </p>
         </div>
 
         <div class="resume-sec">
           <h3>TECHNICAL SKILLS</h3>
-          <p><strong>Microsoft Excel:</strong> Power Query (ETL), Data Cleaning, Lookup Functions (XLOOKUP, INDEX/MATCH), Logical Formulas, PivotTables, PivotCharts, Slicers, Dashboard Reporting</p>
-          <p><strong>SQL & Relational Databases:</strong> SQL (MySQL, PostgreSQL), Multi-Table JOINs, GROUP BY, Aggregations, Subqueries, Common Table Expressions (CTEs), Window Functions (ROW_NUMBER, DENSE_RANK), 1NF–3NF Relational Normalization</p>
-          <p><strong>Microsoft Power BI:</strong> Data Modeling, Star Schema, 1-to-Many Relationships, DAX Measures, KPI Cards, Cross-Filtering, Dynamic Visuals, Drill-Through Reporting</p>
-          <p><strong>Python for Analytics:</strong> Python Fundamentals, Pandas (DataFrames, GroupBy, Imputation), NumPy, Statistical Exploratory Data Analysis, Outlier Detection (IQR)</p>
+          <p><strong>Spreadsheet Analytics:</strong> Microsoft Excel, Advanced Formulas (XLOOKUP, INDEX/MATCH, Nested Logical Functions), PivotTables, PivotCharts, Slicers, Dashboard Development</p>
+          <p><strong>Data Preparation:</strong> Power Query (ETL), Data Transformation, M-Code, Multi-Table Merges, Data Quality Validation, Missing Value Imputation</p>
+          <p><strong>SQL & Relational Databases:</strong> MySQL, Relational Database Design (1NF–3NF), Primary & Foreign Keys, SQL JOINs, GROUP BY & HAVING, Subqueries, Common Table Expressions (CTEs), Window Functions</p>
+          <p><strong>Business Intelligence:</strong> Microsoft Power BI, Star Schema Modeling, Relationships, Custom DAX Measures, KPI Cards, Cross-Filtering, Drill-Through Navigation</p>
           <p><strong>Tools:</strong> Git, GitHub, VS Code, Jupyter Notebook</p>
         </div>
 
@@ -763,13 +891,25 @@
 
           <div class="resume-item">
             <div class="resume-item-top">
-              <strong>Brazilian E-Commerce Sales Analysis (Microsoft Excel & Power Query)</strong>
+              <strong>Brazilian E-Commerce Sales & Supply Chain Analytics (Excel & Power Query)</strong>
               <span>github.com/J-Mohamed-Fazil/olist-sales-analytics-excel</span>
             </div>
             <ul>
-              <li>Combined and cleaned 9 relational tables comprising 99k+ orders and $15.8M in revenue using Power Query ETL.</li>
-              <li>Engineered interactive PivotTables, slicers, and calculated delivery delay columns to analyze fulfillment bottlenecks.</li>
-              <li>Identified critical delay clusters: orders delayed past 3 days caused customer review scores to drop from 4.65★ to 2.75★.</li>
+              <li>Combined and cleaned 9 relational tables comprising 99,441 verified orders and $15.8M in revenue using Power Query ETL.</li>
+              <li>Engineered interactive PivotTables, slicers, and calculated delivery delay columns to analyze logistics bottlenecks.</li>
+              <li>Discovered critical delay threshold: orders delayed past 3 days cause review ratings to plunge from 4.65★ to 2.75★ (+64% churn hazard).</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-top">
+              <strong>HR Employee Attrition Analytics Dashboard (Microsoft Excel)</strong>
+              <span>github.com/J-Mohamed-Fazil/HR-Employee-Attrition-Analytics-Excel</span>
+            </div>
+            <ul>
+              <li>Analyzed 1,470 corporate employee records across 35 attributes to diagnose root causes of a 16.1% voluntary turnover rate.</li>
+              <li>Constructed automated PivotTables and slicers tracking compensation equity, overtime burnout, and tenure hazard cohorts.</li>
+              <li>Identified that personnel working routine overtime experience nearly triple the attrition rate (30.5%) of non-overtime peers (10.4%).</li>
             </ul>
           </div>
 
@@ -779,30 +919,19 @@
               <span>github.com/J-Mohamed-Fazil/HR-Employee-Attrition-Analytics-PowerBI</span>
             </div>
             <ul>
-              <li>Constructed an interactive star-schema data model analyzing attrition across 1,470 employee records.</li>
-              <li>Authored reusable DAX measures for dynamic attrition rates, tenure cohorts, and salary tier classifications.</li>
-              <li>Discovered early-career turnover hazard: sales reps with &lt;2 years tenure working overtime experienced 39.2% attrition.</li>
+              <li>Constructed an interactive star-schema data model separating Fact_Attrition from Dim_Employee and Dim_Department.</li>
+              <li>Authored 15+ custom DAX measures for dynamic turnover rates, overtime variance, and cohort risk multipliers.</li>
             </ul>
           </div>
 
           <div class="resume-item">
             <div class="resume-item-top">
               <strong>Retail Analytics & Database Architecture (MySQL)</strong>
-              <span>github.com/J-Mohamed-Fazil/SQL_Business_Case_Studies_Chinook</span>
+              <span>github.com/J-Mohamed-Fazil/itVedantExpMySql</span>
             </div>
             <ul>
-              <li>Audited and queried 11 normalized relational entities using multi-table JOINs, subqueries, and CTEs with sub-25ms latency.</li>
-              <li>Applied Window Functions (ROW_NUMBER, DENSE_RANK) to calculate customer lifetime spend and sales rep quota contributions.</li>
-            </ul>
-          </div>
-
-          <div class="resume-item">
-            <div class="resume-item-top">
-              <strong>DATOVA AI — Universal AI Data Analyst Platform (React 18 & Python)</strong>
-              <span>github.com/J-Mohamed-Fazil/dataova</span>
-            </div>
-            <ul>
-              <li>Built a full-stack platform featuring an interactive in-browser EER Model Studio, 0–100 data health auditing, and deterministic statistical anomaly detection.</li>
+              <li>Audited database referential integrity, primary/foreign key mappings, and executed null and orphan record validation scripts.</li>
+              <li>Authored multi-table JOINs, CTEs, and window functions to compute category revenue contributions and cohort frequency.</li>
             </ul>
           </div>
         </div>
@@ -811,23 +940,17 @@
           <h3>EDUCATION & CERTIFICATIONS</h3>
           <div class="resume-item">
             <div class="resume-item-top">
+              <strong>B.Tech in Information Technology</strong>
+              <span>2022 – 2026</span>
+            </div>
+            <p>Sri Krishna College of Engineering and Technology</p>
+          </div>
+          <div class="resume-item">
+            <div class="resume-item-top">
               <strong>Advanced Excel Certification</strong>
               <span>IT Vedant Education</span>
             </div>
-            <p>Practical training in Power Query, Advanced Formulas, Pivot Reporting, and Business Dashboards.</p>
-          </div>
-          <div class="resume-item">
-            <div class="resume-item-top">
-              <strong>Data Science & Analytics Specialization</strong>
-              <span>IT Vedant Education</span>
-            </div>
-            <p>Comprehensive training covering SQL, Power BI, Python for Data Science, and Statistical Methods.</p>
-          </div>
-          <div class="resume-item">
-            <div class="resume-item-top">
-              <strong>B.Tech in Information Technology</strong>
-              <span>Completed Undergraduate Degree</span>
-            </div>
+            <p>Verified training in Power Query ETL, PivotTables, Complex Lookup Formulas, and Executive Dashboards.</p>
           </div>
         </div>
       </div>
