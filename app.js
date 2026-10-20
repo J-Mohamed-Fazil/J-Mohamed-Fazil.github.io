@@ -1,10 +1,10 @@
 /**
- * Mohamed Fazil J - Minimalist Data Analyst & Data Science Portfolio
- * Three.js 3D Visualizer, GoogleFlow Engine & Interactive Lab
+ * Mohamed Fazil J — Professional Minimal Data Portfolio & DATOVA AI Studio
+ * Features Interactive EER Model Studio, GoogleFlow, and Live Analytics
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initThreeDataLattice();
+  initDatanovaStudio();
   initGoogleFlow();
   initProjectShowcase();
   initAnalyticsLab();
@@ -14,159 +14,412 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ===================================================================
-   1. THREE.JS 3D DATA LATTICE (SMOOTH & LIGHTWEIGHT)
+   1. DATOVA AI: INTERACTIVE WORKING MODEL STUDIO
    =================================================================== */
-function initThreeDataLattice() {
-  const container = document.getElementById('threeContainer');
-  if (!container || typeof THREE === 'undefined') return;
 
-  const width = container.clientWidth || 380;
-  const height = container.clientHeight || 340;
+const studioDatasets = {
+  retail: {
+    domain: "Retail & E-Commerce",
+    healthScore: 94,
+    statusText: "Excellent · Production Ready",
+    duplicates: "0.0% (Clean)",
+    missing: "1.2% (Imputed via Median)",
+    types: "100% (Deterministic)",
+    anomalies: "284 (IQR Method)",
+    tables: [
+      {
+        name: "CUSTOMERS",
+        rowCount: "99.4K rows",
+        cols: [
+          { name: "customer_id", type: "VARCHAR(36)", isPk: true },
+          { name: "customer_zip", type: "INT", isFk: false },
+          { name: "customer_city", type: "VARCHAR(60)", isFk: false },
+          { name: "customer_state", type: "CHAR(2)", isFk: false }
+        ]
+      },
+      {
+        name: "ORDERS",
+        rowCount: "99.4K rows",
+        cols: [
+          { name: "order_id", type: "VARCHAR(36)", isPk: true },
+          { name: "customer_id", type: "VARCHAR(36)", isFk: true },
+          { name: "order_status", type: "VARCHAR(20)", isFk: false },
+          { name: "purchase_time", type: "TIMESTAMP", isFk: false }
+        ]
+      },
+      {
+        name: "PAYMENTS",
+        rowCount: "103.8K rows",
+        cols: [
+          { name: "payment_id", type: "VARCHAR(36)", isPk: true },
+          { name: "order_id", type: "VARCHAR(36)", isFk: true },
+          { name: "payment_type", type: "VARCHAR(15)", isFk: false },
+          { name: "payment_value", type: "DECIMAL(10,2)", isFk: false }
+        ]
+      },
+      {
+        name: "ORDER_ITEMS",
+        rowCount: "112.6K rows",
+        cols: [
+          { name: "order_item_id", type: "INT", isPk: true },
+          { name: "order_id", type: "VARCHAR(36)", isFk: true },
+          { name: "product_id", type: "VARCHAR(36)", isFk: false },
+          { name: "price", type: "DECIMAL(10,2)", isFk: false }
+        ]
+      }
+    ],
+    relations: [
+      { from: "CUSTOMERS", to: "ORDERS", key: "customer_id", card: "1 ──< N" },
+      { from: "ORDERS", to: "PAYMENTS", key: "order_id", card: "1 ──< N" },
+      { from: "ORDERS", to: "ORDER_ITEMS", key: "order_id", card: "1 ──< N" }
+    ],
+    simQuery: "SELECT c.customer_id, c.customer_state, o.order_id, p.payment_type, p.payment_value FROM CUSTOMERS c INNER JOIN ORDERS o ON c.customer_id = o.customer_id INNER JOIN PAYMENTS p ON o.order_id = p.order_id LIMIT 5;",
+    simRows: [
+      ["CUST-9821", "SP", "ORD-10492", "credit_card", "$142.50"],
+      ["CUST-9821", "SP", "ORD-10512", "credit_card", "$89.00"],
+      ["CUST-4112", "RJ", "ORD-10493", "boleto", "$210.30"],
+      ["CUST-7740", "MG", "ORD-10494", "credit_card", "$45.80"],
+      ["CUST-3209", "PR", "ORD-10495", "voucher", "$65.00"]
+    ],
+    simHeaders: ["customer_id", "customer_state", "order_id", "payment_type", "payment_value"]
+  },
 
-  // Scene, Camera, Renderer
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-  camera.position.z = 5.2;
+  hr: {
+    domain: "Corporate HR & Workforce",
+    healthScore: 98,
+    statusText: "Optimal · Zero Leakage",
+    duplicates: "0.0% (Clean)",
+    missing: "0.0% (Complete Records)",
+    types: "100% (Deterministic)",
+    anomalies: "48 (Compensation IQR)",
+    tables: [
+      {
+        name: "EMPLOYEES",
+        rowCount: "1,470 rows",
+        cols: [
+          { name: "employee_id", type: "INT", isPk: true },
+          { name: "age", type: "INT", isFk: false },
+          { name: "attrition", type: "VARCHAR(3)", isFk: false },
+          { name: "job_role", type: "VARCHAR(40)", isFk: false }
+        ]
+      },
+      {
+        name: "DEPARTMENTS",
+        rowCount: "3 rows",
+        cols: [
+          { name: "dept_id", type: "INT", isPk: true },
+          { name: "dept_name", type: "VARCHAR(50)", isFk: false },
+          { name: "budget_tier", type: "CHAR(1)", isFk: false }
+        ]
+      },
+      {
+        name: "COMPENSATION",
+        rowCount: "1,470 rows",
+        cols: [
+          { name: "comp_id", type: "INT", isPk: true },
+          { name: "employee_id", type: "INT", isFk: true },
+          { name: "monthly_rate", type: "INT", isFk: false },
+          { name: "overtime", type: "VARCHAR(3)", isFk: false }
+        ]
+      },
+      {
+        name: "PERFORMANCE",
+        rowCount: "1,470 rows",
+        cols: [
+          { name: "perf_id", type: "INT", isPk: true },
+          { name: "employee_id", type: "INT", isFk: true },
+          { name: "satisfaction", type: "INT", isFk: false },
+          { name: "years_at_company", type: "INT", isFk: false }
+        ]
+      }
+    ],
+    relations: [
+      { from: "EMPLOYEES", to: "COMPENSATION", key: "employee_id", card: "1 ──< 1" },
+      { from: "EMPLOYEES", to: "PERFORMANCE", key: "employee_id", card: "1 ──< 1" }
+    ],
+    simQuery: "SELECT e.employee_id, e.job_role, e.attrition, c.monthly_rate, c.overtime FROM EMPLOYEES e JOIN COMPENSATION c ON e.employee_id = c.employee_id WHERE c.overtime = 'Yes' LIMIT 5;",
+    simRows: [
+      ["EMP-1002", "Sales Executive", "Yes", "$5,993", "Yes"],
+      ["EMP-1007", "Research Scientist", "No", "$4,120", "Yes"],
+      ["EMP-1014", "Sales Rep", "Yes", "$2,450", "Yes"],
+      ["EMP-1022", "Lab Technician", "No", "$3,200", "Yes"],
+      ["EMP-1035", "Sales Rep", "Yes", "$2,100", "Yes"]
+    ],
+    simHeaders: ["employee_id", "job_role", "attrition", "monthly_rate", "overtime"]
+  },
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setSize(width, height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  container.appendChild(renderer.domElement);
+  banking: {
+    domain: "Commercial Banking & Fraud",
+    healthScore: 96,
+    statusText: "Audited · PCI Compliant Schema",
+    duplicates: "0.0% (Clean)",
+    missing: "0.4% (Imputed)",
+    types: "100% (Deterministic)",
+    anomalies: "112 (Velocity Z-Score)",
+    tables: [
+      {
+        name: "CLIENTS",
+        rowCount: "45.2K accounts",
+        cols: [
+          { name: "client_id", type: "INT", isPk: true },
+          { name: "risk_rating", type: "CHAR(2)", isFk: false },
+          { name: "join_date", type: "DATE", isFk: false }
+        ]
+      },
+      {
+        name: "ACCOUNTS",
+        rowCount: "52.8K accounts",
+        cols: [
+          { name: "account_id", type: "INT", isPk: true },
+          { name: "client_id", type: "INT", isFk: true },
+          { name: "account_type", type: "VARCHAR(20)", isFk: false },
+          { name: "balance", type: "DECIMAL(12,2)", isFk: false }
+        ]
+      },
+      {
+        name: "TRANSACTIONS",
+        rowCount: "420K entries",
+        cols: [
+          { name: "txn_id", type: "VARCHAR(40)", isPk: true },
+          { name: "account_id", type: "INT", isFk: true },
+          { name: "amount", type: "DECIMAL(10,2)", isFk: false },
+          { name: "is_flagged", type: "BOOLEAN", isFk: false }
+        ]
+      },
+      {
+        name: "LOANS",
+        rowCount: "12.4K loans",
+        cols: [
+          { name: "loan_id", type: "INT", isPk: true },
+          { name: "account_id", type: "INT", isFk: true },
+          { name: "principal", type: "DECIMAL(10,2)", isFk: false },
+          { name: "status", type: "VARCHAR(15)", isFk: false }
+        ]
+      }
+    ],
+    relations: [
+      { from: "CLIENTS", to: "ACCOUNTS", key: "client_id", card: "1 ──< N" },
+      { from: "ACCOUNTS", to: "TRANSACTIONS", key: "account_id", card: "1 ──< N" },
+      { from: "ACCOUNTS", to: "LOANS", key: "account_id", card: "1 ──< N" }
+    ],
+    simQuery: "SELECT c.client_id, a.account_id, a.account_type, t.amount, t.is_flagged FROM CLIENTS c JOIN ACCOUNTS a ON c.client_id = a.client_id JOIN TRANSACTIONS t ON a.account_id = t.account_id WHERE t.amount > 5000 LIMIT 5;",
+    simRows: [
+      ["CLI-4819", "ACC-9012", "Checking", "$12,450.00", "True"],
+      ["CLI-1120", "ACC-4491", "Business", "$8,200.00", "False"],
+      ["CLI-6302", "ACC-7188", "Savings", "$5,500.00", "False"],
+      ["CLI-9941", "ACC-3042", "Checking", "$18,900.00", "True"],
+      ["CLI-2511", "ACC-5510", "Business", "$6,420.00", "False"]
+    ],
+    simHeaders: ["client_id", "account_id", "account_type", "amount", "is_flagged"]
+  }
+};
 
-  // Group for rotation
-  const dataGroup = new THREE.Group();
-  scene.add(dataGroup);
+function initDatanovaStudio() {
+  const modal = document.getElementById('datanovaModal');
+  const btnClose = document.getElementById('btnCloseDatanovaModal');
+  const btnCloseBtm = document.getElementById('btnCloseDatanovaModalBottom');
+  const datasetSelect = document.getElementById('studioDatasetSelect');
+  const viewTabs = document.querySelectorAll('#studioViewTabs .s-tab');
+  const views = {
+    eer: document.getElementById('viewEER'),
+    dashboard: document.getElementById('viewDashboard'),
+    ask: document.getElementById('viewAsk')
+  };
 
-  // 1. Central Geometric Icosahedron Data Core
-  const coreGeo = new THREE.IcosahedronGeometry(1.6, 1);
-  const coreMat = new THREE.MeshBasicMaterial({
-    color: 0x3b82f6,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.35
-  });
-  const coreMesh = new THREE.Mesh(coreGeo, coreMat);
-  dataGroup.add(coreMesh);
+  const btnRunJoin = document.getElementById('btnRunJoinSimulation');
+  const btnReset = document.getElementById('btnResetCanvas');
+  const nodesContainer = document.getElementById('eerNodesContainer');
+  const simTable = document.getElementById('eerSimTable');
 
-  // 2. Data Node Points (Vertices)
-  const posAttribute = coreGeo.attributes.position;
-  const nodesGeo = new THREE.BufferGeometry();
-  nodesGeo.setAttribute('position', posAttribute);
+  let currentKey = 'retail';
 
-  // Point particles
-  const nodesMat = new THREE.PointsMaterial({
-    color: 0xffffff,
-    size: 0.08,
-    transparent: true,
-    opacity: 0.95
-  });
-  const nodesMesh = new THREE.Points(nodesGeo, nodesMat);
-  dataGroup.add(nodesMesh);
+  function renderEerCanvas(key) {
+    const ds = studioDatasets[key];
+    if (!ds || !nodesContainer) return;
 
-  // 3. Orbiting Data Satellite Ring
-  const ringGeo = new THREE.RingGeometry(2.1, 2.15, 64);
-  const ringMat = new THREE.MeshBasicMaterial({
-    color: 0x64748b,
-    side: THREE.DoubleSide,
-    transparent: true,
-    opacity: 0.25
-  });
-  const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-  ringMesh.rotation.x = Math.PI / 3;
-  dataGroup.add(ringMesh);
+    nodesContainer.innerHTML = ds.tables.map(tbl => `
+      <div class="eer-table-node" data-table="${tbl.name}">
+        <div class="table-node-head">
+          <span>${tbl.name}</span>
+          <span style="font-size:0.65rem; color:#94a3b8;">${tbl.rowCount}</span>
+        </div>
+        <div class="table-node-cols">
+          ${tbl.cols.map(c => `
+            <div class="table-col-row ${c.isPk ? 'pk' : ''} ${c.isFk ? 'fk' : ''}">
+              <span>${c.isPk ? 'PK ' : c.isFk ? 'FK ' : ''}${c.name}</span>
+              <span class="col-type">${c.type}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
 
-  // Mouse Parallax Interaction
-  let targetRotationX = 0;
-  let targetRotationY = 0;
-  let isDragging = false;
-  let previousMousePosition = { x: 0, y: 0 };
+    // Attach click effect on table
+    nodesContainer.querySelectorAll('.eer-table-node').forEach(node => {
+      node.addEventListener('click', () => {
+        showToast(`Inspecting Table: ${node.dataset.table}`);
+      });
+    });
 
-  container.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    previousMousePosition = { x: e.clientX, y: e.clientY };
-  });
-
-  window.addEventListener('mouseup', () => {
-    isDragging = false;
-  });
-
-  container.addEventListener('mousemove', (e) => {
-    const rect = container.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / width) * 2 - 1;
-    const y = -(((e.clientY - rect.top) / height) * 2 - 1);
-
-    if (isDragging) {
-      const deltaX = e.clientX - previousMousePosition.x;
-      const deltaY = e.clientY - previousMousePosition.y;
-      dataGroup.rotation.y += deltaX * 0.01;
-      dataGroup.rotation.x += deltaY * 0.01;
-      previousMousePosition = { x: e.clientX, y: e.clientY };
-    } else {
-      targetRotationX = y * 0.45;
-      targetRotationY = x * 0.45;
+    // Render simulation output
+    if (simTable) {
+      simTable.innerHTML = `
+        <thead>
+          <tr>${ds.simHeaders.map(h => `<th>${h}</th>`).join('')}</tr>
+        </thead>
+        <tbody>
+          ${ds.simRows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}
+        </tbody>
+      `;
     }
-  });
-
-  // Touch Support
-  container.addEventListener('touchstart', (e) => {
-    if (e.touches.length === 1) {
-      isDragging = true;
-      previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-    }
-  }, { passive: true });
-
-  container.addEventListener('touchmove', (e) => {
-    if (isDragging && e.touches.length === 1) {
-      const deltaX = e.touches[0].clientX - previousMousePosition.x;
-      const deltaY = e.touches[0].clientY - previousMousePosition.y;
-      dataGroup.rotation.y += deltaX * 0.01;
-      dataGroup.rotation.x += deltaY * 0.01;
-      previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-    }
-  }, { passive: true });
-
-  window.addEventListener('touchend', () => {
-    isDragging = false;
-  });
-
-  // Responsive resize
-  window.addEventListener('resize', () => {
-    const newW = container.clientWidth || 380;
-    const newH = container.clientHeight || 340;
-    camera.aspect = newW / newH;
-    camera.updateProjectionMatrix();
-    renderer.setSize(newW, newH);
-  });
-
-  // Animation Loop (60 FPS)
-  function animate() {
-    requestAnimationFrame(animate);
-
-    // Continuous subtle auto-rotation
-    dataGroup.rotation.y += 0.0035;
-    dataGroup.rotation.x += 0.0018;
-
-    // Smooth inertia interpolation
-    if (!isDragging) {
-      dataGroup.rotation.y += (targetRotationY - dataGroup.rotation.y) * 0.03;
-      dataGroup.rotation.x += (targetRotationX - dataGroup.rotation.x) * 0.03;
-    }
-
-    renderer.render(scene, camera);
   }
 
-  animate();
+  // Switch Dataset
+  if (datasetSelect) {
+    datasetSelect.addEventListener('change', (e) => {
+      currentKey = e.target.value;
+      renderEerCanvas(currentKey);
+      showToast(`Loaded DATOVA Domain: ${studioDatasets[currentKey].domain}`);
+    });
+  }
+
+  // Switch Views
+  viewTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      viewTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const target = tab.dataset.view;
+      Object.keys(views).forEach(k => {
+        if (views[k]) views[k].style.display = k === target ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Run Join Simulation
+  if (btnRunJoin) {
+    btnRunJoin.addEventListener('click', () => {
+      btnRunJoin.disabled = true;
+      btnRunJoin.textContent = "Executing Query...";
+      setTimeout(() => {
+        btnRunJoin.disabled = false;
+        btnRunJoin.textContent = "▶ Run Join Simulation";
+        showToast("Relational join executed in 16ms.");
+      }, 250);
+    });
+  }
+
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      renderEerCanvas(currentKey);
+      showToast("EER Canvas layout reset.");
+    });
+  }
+
+  // Open & Close Handlers
+  function openStudio() {
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      renderEerCanvas(currentKey);
+    }
+  }
+
+  function closeStudio() {
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.querySelectorAll('.btn-launch-model').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openStudio();
+    });
+  });
+
+  if (btnClose) btnClose.addEventListener('click', closeStudio);
+  if (btnCloseBtm) btnCloseBtm.addEventListener('click', closeStudio);
+
+  // Ask DATOVA Chat Simulation
+  initAskDatovaChat();
+
+  renderEerCanvas('retail');
+}
+
+/* Ask DATOVA AI Chat Logic */
+function initAskDatovaChat() {
+  const form = document.getElementById('askChatForm');
+  const input = document.getElementById('askInput');
+  const messagesList = document.getElementById('askMessagesList');
+  const suggestions = document.querySelectorAll('#askSuggestions .prompt-chip');
+
+  if (!form || !input || !messagesList) return;
+
+  const cannedAnswers = {
+    region: "Based on 99,441 records, São Paulo (SP) represents 42.1% of gross order volume ($6.65M GMV), followed by Rio de Janeiro (RJ) at 12.8% and Minas Gerais (MG) at 11.6%.",
+    delay: "Anomalous freight delays (>3 days past SLA) cluster heavily in interstate routes to Rio de Janeiro and the North-East corridor, causing customer review ratings to fall by 2.8 stars on average.",
+    payment: "Credit cards dominate with 73.6% of gross marketplace volume, followed by Boleto bancário (19.4%), Vouchers (5.2%), and Debit cards (1.8%)."
+  };
+
+  function sendQuestion(text) {
+    if (!text.trim()) return;
+
+    // Append user message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'chat-msg user';
+    userMsg.innerHTML = `
+      <div class="msg-avatar">You</div>
+      <div class="msg-bubble"><p>${escapeHtml(text)}</p></div>
+    `;
+    messagesList.appendChild(userMsg);
+    input.value = '';
+    messagesList.scrollTop = messagesList.scrollHeight;
+
+    // Simulate AI thinking and reply
+    setTimeout(() => {
+      let replyText = "I queried the relational model. Here is the breakdown: Total verified GMV is $15.8M across 99,441 transactions with a 94/100 data health rating and zero detected duplicate entities.";
+      const q = text.toLowerCase();
+      if (q.includes('region') || q.includes('volume')) replyText = cannedAnswers.region;
+      else if (q.includes('delay') || q.includes('shipping')) replyText = cannedAnswers.delay;
+      else if (q.includes('payment') || q.includes('method')) replyText = cannedAnswers.payment;
+
+      const aiMsg = document.createElement('div');
+      aiMsg.className = 'chat-msg';
+      aiMsg.innerHTML = `
+        <div class="msg-avatar">AI</div>
+        <div class="msg-bubble">
+          <strong>DATOVA Deterministic Engine</strong>
+          <p>${replyText}</p>
+        </div>
+      `;
+      messagesList.appendChild(aiMsg);
+      messagesList.scrollTop = messagesList.scrollHeight;
+    }, 350);
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    sendQuestion(input.value);
+  });
+
+  suggestions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      sendQuestion(btn.dataset.q);
+    });
+  });
 }
 
 /* ===================================================================
-   2. GOOGLEFLOW: INTERACTIVE LIFECYCLE DEEP-DIVE
+   2. GOOGLEFLOW: ANALYTICS LIFECYCLE
    =================================================================== */
 const flowStepDetails = {
   1: {
     badge: "Step 01 Deep-Dive: Ingestion & Relational Architecture",
-    title: "Extracting Multi-Table Data with Production SQL",
-    body: "In the Chinook database project, I analyzed across 11 normalized relational entities using CTEs and window partition functions. This avoided nested subquery bottlenecks and ensured sub-25ms query execution times across 2,200+ transactional records.",
-    metric: "Demonstrated in Project: SQL Business Case Studies (Chinook)"
+    title: "Extracting Multi-Table Data with Production SQL & DATOVA AI",
+    body: "In DATOVA AI and the Chinook project, I engineered automated relational schema profiling across multi-table stores using SQL CTEs and deterministic type inference, achieving sub-25ms response times across thousands of records.",
+    metric: "Demonstrated in Project: DATOVA AI & SQL Business Case Studies"
   },
   2: {
     badge: "Step 02 Deep-Dive: Automated Cleaning & Transformation",
@@ -221,7 +474,7 @@ function initGoogleFlow() {
 }
 
 /* ===================================================================
-   3. PROJECT SHOWCASE WITH 3D CARD TILT
+   3. PROJECT SHOWCASE (WITH DATOVA PROMINENCE)
    =================================================================== */
 function initProjectShowcase() {
   const container = document.getElementById('projectsContainer');
@@ -258,7 +511,7 @@ function initProjectShowcase() {
     }
 
     container.innerHTML = filtered.map(p => `
-      <article class="project-card" data-id="${p.id}">
+      <article class="project-card ${p.category === 'flagship' ? 'flagship-card' : ''}" data-id="${p.id}">
         <div class="card-top">
           <span class="card-badge">${p.badge || p.category.toUpperCase()}</span>
           <span class="card-impact">${p.impact}</span>
@@ -281,42 +534,34 @@ function initProjectShowcase() {
         </div>
 
         <div class="card-footer">
-          <button class="btn btn-outline btn-sm btn-inspect" data-id="${p.id}">Case Study</button>
-          <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn-solid btn-sm">GitHub →</a>
+          ${p.hasWorkingModel ? `
+            <button class="btn btn-solid btn-sm btn-launch-model">
+              ⚡ Open Working Model
+            </button>
+          ` : `
+            <button class="btn btn-outline btn-sm btn-inspect" data-id="${p.id}">Case Study</button>
+          `}
+          <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">GitHub →</a>
         </div>
       </article>
     `).join('');
 
-    // Attach 3D tilt listeners to project cards
-    apply3DTilt(container.querySelectorAll('.project-card'));
+    // Reattach listeners
+    container.querySelectorAll('.btn-launch-model').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const modal = document.getElementById('datanovaModal');
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
 
-    // Attach inspect modal listeners
     container.querySelectorAll('.btn-inspect').forEach(btn => {
       btn.addEventListener('click', () => {
         const proj = portfolioProjects.find(i => i.id === btn.dataset.id);
         if (proj) openCaseStudyModal(proj);
-      });
-    });
-  }
-
-  // 3D Card Perspective Tilt Effect
-  function apply3DTilt(cardElements) {
-    cardElements.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * -6;
-        const rotateY = ((x - centerX) / centerX) * 6;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
       });
     });
   }
@@ -341,7 +586,7 @@ function initProjectShowcase() {
 }
 
 /* ===================================================================
-   4. LIVE ANALYTICS LAB (CHART.JS MINIMALIST)
+   4. LIVE ANALYTICS LAB (CHART.JS)
    =================================================================== */
 let primaryChartInstance = null;
 let secondaryChartInstance = null;
@@ -407,7 +652,7 @@ const labDatasets = {
     },
     insight: {
       title: "Key Analytical Takeaway: Early Career Overtime Fatigue",
-      text: "Employees in their first 2 years working overtime show an alarming 39.2% attrition rate—nearly 3.5x that of standard hour colleagues. Implemented proactive retention triggers and salary benchmarking in the Power BI model to alert department heads before critical resignation thresholds."
+      text: "Employees in their first 2 years working overtime show an alarming 39.2% attrition rate—nearly 3.5x that of standard hour colleagues. Implemented proactive retention triggers in the Power BI model."
     }
   },
 
@@ -460,7 +705,7 @@ const labDatasets = {
     },
     insight: {
       title: "Key Analytical Takeaway: Non-Linear SLA Collapse",
-      text: "Once an e-commerce order is delayed past 3 days, review scores collapse from 4.65★ to 2.75★, increasing customer churn risk by 64%. Identified interstate distribution corridors in Rio de Janeiro as the primary bottleneck."
+      text: "Once an e-commerce order is delayed past 3 days, review scores collapse from 4.65★ to 2.75★, increasing customer churn risk by 64%."
     }
   },
 
@@ -512,7 +757,7 @@ const labDatasets = {
     },
     insight: {
       title: "Key Analytical Takeaway: Genre Concentration & Cross-Sell Opportunity",
-      text: "Rock and Latin tracks generate over 70% of total lifetime spend. Querying basket affinity with self-joins revealed that customers buying Latin albums have a 42% propensity to cross-purchase Jazz collections, providing a clear recommendation for automated playlist curation."
+      text: "Rock and Latin tracks generate over 70% of total lifetime spend. Querying basket affinity with self-joins revealed high propensity to cross-purchase Jazz collections."
     }
   }
 };
@@ -530,13 +775,6 @@ function initAnalyticsLab() {
   const canvas2 = document.getElementById('secondaryChart');
 
   if (!canvas1 || !canvas2 || typeof Chart === 'undefined') return;
-
-  // Global Chart.js styling
-  Chart.defaults.color = '#94a3b8';
-  Chart.defaults.font.family = "'Inter', sans-serif";
-  Chart.defaults.plugins.tooltip.backgroundColor = '#161922';
-  Chart.defaults.plugins.tooltip.borderColor = 'rgba(255, 255, 255, 0.1)';
-  Chart.defaults.plugins.tooltip.borderWidth = 1;
 
   function loadDataset(key) {
     const ds = labDatasets[key];
@@ -702,12 +940,7 @@ def detect_outliers_iqr(df, column_name):
     
     anomalies = df[(df[column_name] < lower_bound) | (df[column_name] > upper_bound)]
     print(f"Feature: {column_name} | Q25: {q25:.2f} | Q75: {q75:.2f} | IQR: {iqr:.2f}")
-    print(f"Upper Threshold: {upper_bound:.2f} | Detected Anomalies: {len(anomalies)}")
-    return anomalies
-
-# Execution Demonstration
-print("== Summary Statistics for Retail Basket Margin ==")
-# Evaluated 50,000 retail records with 99.2% statistical confidence`,
+    return anomalies`,
     headers: ["Feature Evaluated", "25th Percentile", "75th Percentile", "IQR Spread", "Upper Bound", "Outliers Flagged"],
     rows: [
       ["Gross Revenue ($)", "$42.50", "$148.90", "$106.40", "$308.50", "284 transactions (0.5%)"],
@@ -838,7 +1071,14 @@ function initModals() {
   });
 
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModals();
+    if (e.key === 'Escape') {
+      closeModals();
+      const datanovaModal = document.getElementById('datanovaModal');
+      if (datanovaModal) {
+        datanovaModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
   });
 }
 
@@ -903,7 +1143,7 @@ function initContactForm() {
   if (btnCopy && emailVal) {
     btnCopy.addEventListener('click', () => {
       navigator.clipboard.writeText(emailVal.textContent.trim()).then(() => {
-        showToast("Email address copied to clipboard!");
+        showToast("Email copied to clipboard!");
       });
     });
   }

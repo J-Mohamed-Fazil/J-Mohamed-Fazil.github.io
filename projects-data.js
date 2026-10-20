@@ -1,5 +1,32 @@
 const portfolioProjects = [
   {
+    id: "datanova-ai",
+    title: "DATOVA AI — Universal AI Data Analyst & EER Studio",
+    category: "flagship",
+    badge: "⭐ Flagship Full-Stack Platform",
+    tools: ["React 18", "TypeScript", "FastAPI", "Python", "EER Model Studio", "SQLAlchemy", "Pandas"],
+    summary: "Enterprise-grade, domain-agnostic AI data analytics platform featuring an interactive EER Database Model Studio, automated schema profiling, data health auditing (0–100), statistical anomaly detection (IQR/Z-score), and conversational analytics (ASK DATOVA).",
+    impact: "Full-Stack AI Data Platform & Interactive EER Studio",
+    metrics: [
+      { label: "Data Health Audit", value: "94/100" },
+      { label: "Supported Files", value: "CSV, XLSX, TSV" },
+      { label: "Schema Ingestion", value: "100% Deterministic" },
+      { label: "Model Studio", value: "Interactive CAD/ERD" }
+    ],
+    highlights: [
+      "Engineered an interactive EER (Enhanced Entity-Relationship) Model Studio with CAD-style connector routing, cardinality (1:N), and join simulation.",
+      "Built automated data profiling engine evaluating missing rates, semantic types, cardinality, and IQR outlier detection without hallucination.",
+      "Integrated 'Ask DATOVA' conversational AI assistant with dataset grounding and structured executive briefing export."
+    ],
+    github: "https://github.com/J-Mohamed-Fazil/dataova",
+    hasWorkingModel: true,
+    caseStudy: {
+      problem: "Enterprise teams often spend days manually cleaning data, inspecting schemas, and drafting entity relationship models before deriving strategic insights.",
+      methodology: "Full-stack architecture: React + TypeScript interactive canvas frontend, FastAPI + Pandas deterministic calculation backend, and SQLAlchemy schema manager.",
+      outcome: "Enables instant drag-and-drop schema discovery, automated health scoring, relationship mapping, and plain-English conversational analytics in seconds."
+    }
+  },
+  {
     id: "hr-attrition-powerbi",
     title: "HR Employee Attrition Analytics",
     category: "powerbi",
@@ -11,14 +38,15 @@ const portfolioProjects = [
       { label: "Total Employees", value: "1,470" },
       { label: "Attrition Rate", value: "16.1%" },
       { label: "Avg Monthly Income", value: "$6,503" },
-      { label: "High-Risk Department", value: "Sales & R&D" }
+      { label: "High-Risk Segment", value: "Sales Reps (<2y)" }
     ],
     highlights: [
       "Built star schema data model connecting employee demographics, job roles, and performance ratings.",
       "Engineered complex DAX calculations for dynamic attrition rate, YoY attrition change, and salary band categorization.",
-      "Implemented dynamic slicers for department, education field, marital status, and job satisfaction tiers."
+      "Identified critical overtime burnout: employees with <2 years tenure working overtime suffered 39.2% turnover hazard."
     ],
     github: "https://github.com/J-Mohamed-Fazil/HR-Employee-Attrition-Analytics-PowerBI",
+    hasWorkingModel: false,
     caseStudy: {
       problem: "Company was experiencing high unbudgeted employee turnover with no clear visibility into which departments or salary bands had the highest attrition risk.",
       methodology: "Data profiling in Power Query -> Schema normalization -> Star schema architecture -> DAX KPI measures -> Cross-filtered dashboard views.",
@@ -45,6 +73,7 @@ const portfolioProjects = [
       "Identified critical freight delay hotspots causing customer review score drops from 4.8 to 2.1 stars."
     ],
     github: "https://github.com/J-Mohamed-Fazil/olist-sales-analytics-excel",
+    hasWorkingModel: false,
     caseStudy: {
       problem: "Fragmented multi-state customer order data made it challenging for executives to identify regional fulfillment bottlenecks and payment preferences.",
       methodology: "Power Query M-code transformations -> Relational data model in Excel -> Calculated Pivot metrics -> Slicer-driven executive layout.",
@@ -71,6 +100,7 @@ const portfolioProjects = [
       "Analyzed sales rep performance vs target quotas using aggregate subqueries and multi-join views."
     ],
     github: "https://github.com/J-Mohamed-Fazil/SQL_Business_Case_Studies_Chinook",
+    hasWorkingModel: false,
     caseStudy: {
       problem: "Stakeholders lacked granular customer retention metrics and needed to identify which music genres generated the highest customer lifetime value.",
       methodology: "Data exploration -> Multi-level CTE architecture -> Windowed partition aggregations -> Optimized indexing queries.",
@@ -97,6 +127,7 @@ const portfolioProjects = [
       "Generates instant skill gap feedback with missing keywords and tailored recommendations."
     ],
     github: "https://github.com/J-Mohamed-Fazil/ai-resume-analyzer",
+    hasWorkingModel: false,
     caseStudy: {
       problem: "Manual screening of hundreds of resumes per job opening is slow, subjective, and prone to human bias.",
       methodology: "Text extraction -> Tokenization & TF-IDF Vectorization -> Cosine Similarity Scoring -> Structured JSON report output.",
@@ -123,6 +154,7 @@ const portfolioProjects = [
       "Interactive slicers for fiscal years, quarterly breakdowns, and geographical territories."
     ],
     github: "https://github.com/J-Mohamed-Fazil/AdventureWorks-Sales-Dashboard-Excel",
+    hasWorkingModel: false,
     caseStudy: {
       problem: "Global sales leadership needed a single-screen dashboard to identify underperforming territories and product category margin erosion.",
       methodology: "Data cleaning -> Normalization -> Dimension table architecture -> Dynamic Pivot Charts & Slicers.",
@@ -149,36 +181,11 @@ const portfolioProjects = [
       "Detected anomalous purchase quantities using Interquartile Range (IQR) and Z-score statistical tests."
     ],
     github: "https://github.com/J-Mohamed-Fazil/dmart-sales-analysis",
+    hasWorkingModel: false,
     caseStudy: {
       problem: "Retail managers had vast point-of-sale data but no clear insights on basket affinities or seasonal promotional efficiency.",
       methodology: "Missing value imputation -> Outlier capping -> Feature engineering -> Visual statistical storytelling.",
       outcome: "Identified high cross-sell basket combinations in household goods and groceries, yielding actionable floor layout recommendations."
-    }
-  },
-  {
-    id: "hr-attrition-excel",
-    title: "HR Workforce Demographics & Attrition (Excel)",
-    category: "excel",
-    badge: "Workforce Analytics",
-    tools: ["Excel", "Pivot Charts", "Conditional Formatting", "Formula Engine"],
-    summary: "Dedicated HR workforce intelligence dashboard in Excel tracking employee tenure, compensation bands, overtime correlation, and attrition probabilities.",
-    impact: "Deep Overtime vs Attrition Correlation",
-    metrics: [
-      { label: "Overtime Attrition", value: "30.5%" },
-      { label: "Non-OT Attrition", value: "10.4%" },
-      { label: "Key Tenures", value: "1-3 Years" },
-      { label: "Satisfaction Index", value: "4 Tiers" }
-    ],
-    highlights: [
-      "Engineered automated formulas using INDEX/MATCH, XLOOKUP, SUMIFS, and dynamic array calculations.",
-      "Demonstrated that overtime workers experienced nearly 3x higher turnover compared to non-overtime employees.",
-      "Designed clean, executive-ready dashboard UI with unified color-coded status badges and interactive slicers."
-    ],
-    github: "https://github.com/J-Mohamed-Fazil/HR-Employee-Attrition-Analytics-Excel",
-    caseStudy: {
-      problem: "HR team needed a lightweight, Excel-based solution without external database dependencies to monitor flight-risk employees.",
-      methodology: "Raw HR data audit -> Formula engineering -> Pivot reporting engine -> UI styling with strict design hierarchy.",
-      outcome: "Provided HR leaders with an immediate tool to isolate employees suffering from severe overtime burnout."
     }
   },
   {
@@ -201,6 +208,7 @@ const portfolioProjects = [
       "Implemented dashboard actions for seamless drill-down from country-level to city-level performance."
     ],
     github: "https://github.com/J-Mohamed-Fazil/TableauItvedant",
+    hasWorkingModel: false,
     caseStudy: {
       problem: "Complex multi-layered data required intuitive visual storytelling that non-technical department heads could easily explore.",
       methodology: "Data connection -> Dimension & Measure setup -> Calculated field logic -> Storyboard composition.",
