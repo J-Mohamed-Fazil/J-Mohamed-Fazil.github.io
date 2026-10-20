@@ -119,12 +119,17 @@ function initProjectShowcase() {
         </div>
 
         <div class="card-actions">
+          ${p.liveUrl ? `
+            <a href="${escapeHtml(p.liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" aria-label="Launch live ${escapeHtml(p.title)} web application">
+              🚀 Launch Live App ↗
+            </a>
+          ` : ''}
           ${p.hasWorkingModel ? `
-            <button type="button" class="btn btn-primary btn-sm btn-launch-model" id="launchModel-${escapeHtml(p.id)}">
-              Open Working Model
+            <button type="button" class="btn ${p.liveUrl ? 'btn-secondary' : 'btn-primary'} btn-sm btn-launch-model" id="launchModel-${escapeHtml(p.id)}">
+              EER Studio Preview
             </button>
           ` : ''}
-          <button type="button" class="btn ${p.hasWorkingModel ? 'btn-secondary' : 'btn-primary'} btn-sm btn-view-study" data-id="${escapeHtml(p.id)}" id="viewStudy-${escapeHtml(p.id)}">
+          <button type="button" class="btn ${p.liveUrl || p.hasWorkingModel ? 'btn-secondary' : 'btn-primary'} btn-sm btn-view-study" data-id="${escapeHtml(p.id)}" id="viewStudy-${escapeHtml(p.id)}">
             View Case Study
           </button>
           ${p.hasRepo ? `
@@ -326,6 +331,16 @@ function openCaseStudyModal(project) {
     ? `${escapeHtml(cs.projectFiles.type)} available in the linked GitHub repository.`
     : 'Public repository documentation and reproduction scripts.';
   document.getElementById('modalFilesInfo').textContent = filesInfo;
+
+  const liveLink = document.getElementById('modalLiveLink');
+  if (liveLink) {
+    if (project.liveUrl) {
+      liveLink.href = project.liveUrl;
+      liveLink.style.display = 'inline-flex';
+    } else {
+      liveLink.style.display = 'none';
+    }
+  }
 
   const repoLink = document.getElementById('modalRepoLink');
   if (repoLink) {

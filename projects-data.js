@@ -444,11 +444,11 @@ LIMIT 10;`,
 
   {
     id: "datanova-ai",
-    title: "DATOVA AI — Universal AI Data Analyst Platform",
+    title: "Datanova AI — Autonomous Data Intelligence",
     category: "flagship",
-    badge: "⭐ Flagship Full-Stack Platform",
+    badge: "⭐ Flagship Live AI Web App",
     tools: ["React 18", "TypeScript", "FastAPI", "Python", "EER Model Studio", "SQLAlchemy", "Pandas"],
-    summary: "Full-stack enterprise AI data analytics platform featuring an interactive in-browser EER Database Model Studio, automated schema profiling, data health auditing (0–100 score), statistical anomaly detection (IQR/Z-score), and conversational analytics (Ask DATOVA).",
+    summary: "Full-stack enterprise AI data intelligence platform featuring an interactive in-browser EER Database Model Studio, automated schema discovery, data health auditing (0–100 score), statistical anomaly detection (IQR/Z-score), and conversational analytics (Ask DATOVA).",
     businessProblem: "Data analysts lose valuable hours manually inspecting unfamiliar multi-table CSV/Excel exports, identifying foreign keys, auditing missing values, and generating baseline charts before answering simple strategic questions.",
     workPerformed: [
       "Built full-stack web application with React 18, TypeScript, and Python FastAPI.",
@@ -460,11 +460,13 @@ LIMIT 10;`,
       { label: "Data Health Score", value: "94/100" },
       { label: "Engine Accuracy", value: "100% Deterministic" },
       { label: "EER Studio", value: "Interactive CAD/ERD" },
-      { label: "Supported Formats", value: "CSV, XLSX, TSV" }
+      { label: "Live Deployment", value: "Production Ready" }
     ],
     github: "https://github.com/J-Mohamed-Fazil/dataova",
     hasRepo: true,
     hasWorkingModel: true,
+    liveUrl: "https://shoulder-mandatory-cycle-eating.trycloudflare.com/",
+    hasLiveUrl: true,
     screenshotPlaceholder: "Interactive In-Browser EER Model Studio & Workspace",
     caseStudy: {
       overview: {
