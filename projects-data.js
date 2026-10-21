@@ -26,10 +26,8 @@ const portfolioProjects = [
       { label: "Hypothesis p-val", value: "< 0.001" }
     ],
     github: "https://github.com/J-Mohamed-Fazil/quick-commerce-logistics-eda-python",
-    image: "assets/quick_commerce_python_eda.jpg",
     hasRepo: true,
     hasWorkingModel: false,
-    screenshotPlaceholder: "Python Jupyter Notebook & Seaborn Statistical EDA Dashboard",
     caseStudy: {
       overview: {
         domain: "Hyperlocal Quick-Commerce & Supply Chain Logistics",
@@ -103,10 +101,8 @@ print(f"Mann-Whitney U Statistic: {u_stat:.2f}, p-value: {p_val:.4e}")`,
       { label: "Rating Drop (>3d)", value: "-41%" }
     ],
     github: "https://github.com/J-Mohamed-Fazil/olist-sales-analytics-excel",
-    image: "assets/olist_excel_dashboard.jpg",
     hasRepo: true,
     hasWorkingModel: false,
-    screenshotPlaceholder: "Interactive Excel Dashboard · Olist E-Commerce Logistics",
     caseStudy: {
       overview: {
         domain: "E-Commerce & Supply Chain Logistics",
@@ -165,10 +161,8 @@ print(f"Mann-Whitney U Statistic: {u_stat:.2f}, p-value: {p_val:.4e}")`,
       { label: "Sales Rep Attrition", value: "39.2%" }
     ],
     github: "https://github.com/J-Mohamed-Fazil/HR-Employee-Attrition-Analytics-PowerBI",
-    image: "assets/hr_powerbi_dashboard.jpg",
     hasRepo: true,
     hasWorkingModel: false,
-    screenshotPlaceholder: "Power BI Star Schema & Executive Report Visuals",
     caseStudy: {
       overview: {
         domain: "Human Resources Intelligence",
@@ -224,10 +218,8 @@ print(f"Mann-Whitney U Statistic: {u_stat:.2f}, p-value: {p_val:.4e}")`,
       { label: "Avg Monthly Income", value: "$6,503" }
     ],
     github: "https://github.com/J-Mohamed-Fazil/HR-Employee-Attrition-Analytics-Excel",
-    image: "assets/hr_excel_dashboard.jpg",
     hasRepo: true,
     hasWorkingModel: false,
-    screenshotPlaceholder: "Verified Excel HR Dashboard",
     caseStudy: {
       overview: {
         domain: "Human Resources & Workforce Intelligence",
@@ -285,10 +277,8 @@ print(f"Mann-Whitney U Statistic: {u_stat:.2f}, p-value: {p_val:.4e}")`,
       { label: "Orphan Records", value: "0 Detected" }
     ],
     github: "https://github.com/J-Mohamed-Fazil/itVedantExpMySql",
-    image: "assets/retail_mysql_dashboard.jpg",
     hasRepo: true,
     hasWorkingModel: false,
-    screenshotPlaceholder: "Verified SQL Query Execution & Schema Architecture",
     caseStudy: {
       overview: {
         domain: "Retail Operations & Relational Database Management",
@@ -361,10 +351,8 @@ FROM CategoryRevenue;`,
       { label: "Global Markets", value: "24 Countries" }
     ],
     github: "https://github.com/J-Mohamed-Fazil/SQL_Business_Case_Studies_Chinook",
-    image: "assets/chinook_mysql_dashboard.jpg",
     hasRepo: true,
     hasWorkingModel: false,
-    screenshotPlaceholder: "Chinook Database Schema & CTE Query Performance",
     caseStudy: {
       overview: {
         domain: "Retail & Digital Media Commerce",
@@ -439,10 +427,8 @@ LIMIT 10;`,
       { label: "Total Transactions", value: "67,742" }
     ],
     github: "https://github.com/J-Mohamed-Fazil/dmart-sales-analysis",
-    image: "assets/dmart_sales_excel_dashboard.jpg",
     hasRepo: true,
     hasWorkingModel: false,
-    screenshotPlaceholder: "DMart Retail Sales Analysis Excel Report",
     caseStudy: {
       overview: {
         domain: "Supermarket & Fast-Moving Consumer Goods (FMCG) Retail",
@@ -495,10 +481,8 @@ LIMIT 10;`,
       { label: "Total Orders", value: "124,560" }
     ],
     github: "https://github.com/J-Mohamed-Fazil/AdventureWorks-Sales-Dashboard-Excel",
-    image: "assets/adventureworks_excel_dashboard.jpg",
     hasRepo: true,
     hasWorkingModel: false,
-    screenshotPlaceholder: "AdventureWorks Enterprise Excel Dashboard",
     caseStudy: {
       overview: {
         domain: "Enterprise Manufacturing & Global Retail Sales",
@@ -550,11 +534,9 @@ LIMIT 10;`,
       { label: "Supported Domains", value: "3 Datasets" }
     ],
     github: "https://github.com/J-Mohamed-Fazil/dataova",
-    image: "assets/datanova_studio_screenshot.jpg",
     hasRepo: true,
     hasWorkingModel: true,
     isSimulator: true,
-    screenshotPlaceholder: "Interactive In-Browser EER Model Studio & Workspace",
     caseStudy: {
       overview: {
         domain: "Data Profiling & Schema Architecture Tooling",

@@ -35,8 +35,10 @@ fazil-data-portfolio/
 ├── app.js                  # Interactive logic, Chart.js instances, query simulation, modals
 ├── projects-data.js        # Structured project dataset with metrics & case study notes
 ├── assets/
-│   └── hero-banner.jpg     # 3D holographic data science visual asset
-└── README.md               # Documentation & deployment guide
+│   ├── MohamedFazilJ_Resume.pdf      # Downloadable verified resume
+│   ├── sql_itvedant_certificate.jpg  # Verified SQL course certificate
+│   └── advanceexcel.jpg              # Verified Advanced Excel certificate
+└── README.md                         # Documentation & deployment guide
 ```
 
 ---

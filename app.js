@@ -114,16 +114,6 @@ function initProjectShowcase() {
           </div>
         ` : ''}
 
-        ${p.image ? `
-          <div class="card-media-wrap">
-            <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)} Dashboard Preview" class="card-media-img" loading="lazy">
-          </div>
-        ` : `
-          <div class="card-screenshot-holder">
-            <span>📊 ${escapeHtml(p.screenshotPlaceholder || 'Analytical Deliverable')}</span>
-          </div>
-        `}
-
         <div class="card-actions">
           ${p.isSimulator || p.hasWorkingModel ? `
             <button type="button" class="btn btn-primary btn-sm btn-launch-model" id="launchModel-${escapeHtml(p.id)}" aria-label="Open Interactive Schema Studio for ${escapeHtml(p.title)}">
@@ -274,19 +264,6 @@ function openCaseStudyModal(project) {
     toolsEl.innerHTML = project.tools
       .map(t => `<span class="tag-neutral">${escapeHtml(t)}</span>`)
       .join('');
-  }
-
-  // Visual Deliverable Preview
-  const visualWrap = document.getElementById('modalVisualWrap');
-  const visualImg = document.getElementById('modalVisualImg');
-  if (visualWrap && visualImg) {
-    if (project.image) {
-      visualImg.src = project.image;
-      visualImg.alt = `${project.title} Visual Deliverable`;
-      visualWrap.style.display = 'block';
-    } else {
-      visualWrap.style.display = 'none';
-    }
   }
 
   // 01. Overview
