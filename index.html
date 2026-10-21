@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=4.1">
+  <link rel="stylesheet" href="style.css?v=5.0">
 </head>
 <body>
 
@@ -29,13 +29,13 @@
     <div class="nav-container">
       <a href="#home" class="nav-brand" aria-label="Mohamed Fazil Home">
         <span class="brand-name">Mohamed Fazil</span>
+        <span class="brand-sub">Data Analyst</span>
       </a>
 
       <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#projects" class="nav-link">Work</a>
+        <a href="#skills" class="nav-link">Capabilities</a>
+        <a href="#methodology" class="nav-link">Methodology</a>
         <a href="#credentials" class="nav-link">Credentials</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
@@ -47,9 +47,9 @@
         </button>
 
         <!-- Resume Action -->
-        <a href="assets/MohamedFazilJ_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" id="btnNavResume">
-          <span>Resume</span>
-        </a>
+        <button type="button" class="btn btn-secondary btn-sm" id="btnNavResume">
+          <span>Résumé</span>
+        </button>
 
         <!-- Mobile Menu Toggle -->
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
@@ -61,23 +61,25 @@
 
   <main class="page-container">
     <!-- ==============================================================
-         01. HERO SECTION
+         00. HERO SECTION
          ============================================================== -->
     <section class="hero-section" id="home">
       <div class="hero-inner">
-        <span class="hero-kicker">Portfolio & Work</span>
-        <h1 class="hero-title">Hi, I'm Mohamed Fazil.</h1>
-        <p class="hero-role">Data Analytics · Business Intelligence · Python EDA</p>
+        <span class="hero-kicker">Data Analytics · Business Intelligence · Statistical EDA</span>
+        <h1 class="hero-title">Turning complex data into clear business decisions.</h1>
         <p class="hero-summary">
-          I transform complex, multi-table datasets into actionable business insights through quantitative modeling, SQL relational querying, advanced Excel reporting, interactive Power BI dashboards, and Python exploratory data analysis.
+          I am <strong>Mohamed Fazil</strong>, an Information Technology graduate specializing in relational SQL querying, Power BI dimensional modeling, advanced Excel reporting, and Python statistical EDA. Built to transform multi-table transactional schemas into reliable executive insights.
         </p>
 
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">
-            <span>Explore Projects</span>
+          <a href="#projects" class="btn btn-primary" id="btnExploreWork">
+            <span>Explore Projects ↓</span>
           </a>
-          <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            <span>View GitHub</span>
+          <button type="button" class="btn btn-secondary" id="btnHeroResume">
+            <span>View Résumé</span>
+          </button>
+          <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+            <span>GitHub ↗</span>
           </a>
           <a href="https://www.linkedin.com/in/mohamed-fazil-j-22ds/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
             <span>LinkedIn ↗</span>
@@ -85,159 +87,46 @@
         </div>
       </div>
 
-      <!-- Subtle, Purposeful Snapshot Preview -->
-      <aside class="hero-snapshot" aria-label="Analytical metrics preview">
+      <!-- Restrained, Authentic Analytical Specimen -->
+      <aside class="hero-snapshot" aria-label="Analytical metrics verification preview">
         <div class="snapshot-header">
-          <span class="snapshot-tag">Portfolio Snapshot</span>
+          <span class="snapshot-tag">Portfolio Verification Snapshot</span>
           <span class="snapshot-meta">9 Case Studies Modeled</span>
         </div>
         <div class="snapshot-grid">
           <div class="snapshot-item">
-            <span class="sn-val">99.4K</span>
-            <span class="sn-lbl">E-Commerce Orders Cleaned & Modeled</span>
+            <span class="sn-val">99,441</span>
+            <span class="sn-lbl">E-Commerce Orders Cleaned &amp; Modeled</span>
           </div>
           <div class="snapshot-item">
-            <span class="sn-val">15.4K</span>
-            <span class="sn-lbl">Deliveries Analyzed via Python EDA</span>
+            <span class="sn-val">15,420</span>
+            <span class="sn-lbl">Deliveries Analyzed via Python EDA (p &lt; 0.001)</span>
           </div>
           <div class="snapshot-item">
             <span class="sn-val">1,470</span>
-            <span class="sn-lbl">HR Records Modeled for Attrition</span>
+            <span class="sn-lbl">HR Records Segmented for Attrition Risk</span>
           </div>
           <div class="snapshot-item">
-            <span class="sn-val">-41%</span>
-            <span class="sn-lbl">Rating Drop Threshold Identified</span>
+            <span class="sn-val">11</span>
+            <span class="sn-lbl">Relational Entities Modeled (3NF Schema)</span>
           </div>
+        </div>
+        <div class="snapshot-footer">
+          <span class="sn-status-dot"></span>
+          <span>100% Referential Integrity · Zero Orphan Records Detected</span>
         </div>
       </aside>
     </section>
 
     <!-- ==============================================================
-         02. ABOUT SECTION
-         ============================================================== -->
-    <section class="section" id="about">
-      <div class="section-head">
-        <h2 class="section-title">About</h2>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-main-col">
-          <p class="paragraph">
-            I completed my <strong>B.Tech in Information Technology</strong> at <strong>Sri Krishna College of Engineering and Technology (2022–2026)</strong>. My coursework in database systems, algorithms, and software engineering grounded my approach to quantitative analytics and data-driven decision support.
-          </p>
-          <p class="paragraph">
-            I focus on practical, end-to-end analytics: taking raw, multi-table exports, cleaning nulls and anomalies, designing normalized relational models, writing structured SQL queries, and authoring clean Excel and Power BI dashboards with actionable business recommendations.
-          </p>
-          <p class="paragraph">
-            I combine relational SQL querying with exploratory data analysis in Python (Pandas, Seaborn, SciPy). <strong>Entry-level / fresher, open to full-time Data Analyst roles and internships</strong> to apply analytical problem solving and continue growing within high-performing teams.
-          </p>
-        </div>
-
-        <aside class="about-meta-col" aria-label="Education and focus summary">
-          <div class="meta-card">
-            <span class="meta-label">Education</span>
-            <p class="meta-text">B.Tech in Information Technology<br>Sri Krishna College of Engineering and Technology (2022–2026)</p>
-          </div>
-          <div class="meta-card">
-            <span class="meta-label">Certification</span>
-            <p class="meta-text">SQL &amp; Advanced Excel Certifications<br>I.T. Vedant Education</p>
-          </div>
-          <div class="meta-card">
-            <span class="meta-label">Positioning</span>
-            <p class="meta-text">Entry-level / Fresher · Open to Full-Time &amp; Internships</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ==============================================================
-         03. SKILLS SECTION
-         ============================================================== -->
-    <section class="section" id="skills">
-      <div class="section-head">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-desc">Practical analytical competencies applied across real-world business scenarios and reproducible datasets.</p>
-      </div>
-
-      <div class="skills-grid">
-        <!-- 1. Data Analytics -->
-        <article class="skill-category">
-          <h3 class="skill-cat-title">Data Analytics</h3>
-          <ul class="skill-items">
-            <li>Data cleaning and preparation</li>
-            <li>Exploratory data analysis (EDA)</li>
-            <li>KPI definition and tracking</li>
-            <li>Business reporting and executive summaries</li>
-            <li>Data visualization and storytelling</li>
-            <li>Insight communication and synthesis</li>
-          </ul>
-        </article>
-
-        <!-- 2. Excel & Power Query -->
-        <article class="skill-category">
-          <h3 class="skill-cat-title">Excel and Power Query</h3>
-          <ul class="skill-items">
-            <li>Advanced Excel functions (XLOOKUP, INDEX/MATCH)</li>
-            <li>Lookup and logical functions (nested IFs, DATEDIF)</li>
-            <li>PivotTables and PivotCharts</li>
-            <li>Power Query (Get & Transform Data)</li>
-            <li>Interactive dashboards with slicers and timelines</li>
-            <li>Excel-based reporting and data validation</li>
-          </ul>
-        </article>
-
-        <!-- 3. SQL and MySQL -->
-        <article class="skill-category">
-          <h3 class="skill-cat-title">SQL and MySQL</h3>
-          <ul class="skill-items">
-            <li>MySQL and relational database querying</li>
-            <li>SELECT, filtering, and sorting</li>
-            <li>Multi-table JOINs and aggregations</li>
-            <li>GROUP BY, HAVING, and subqueries</li>
-            <li>CTEs and Window Functions (DENSE_RANK, ROW_NUMBER)</li>
-            <li>Relational database design and foreign keys</li>
-          </ul>
-        </article>
-
-        <!-- 4. Power BI -->
-        <article class="skill-category">
-          <h3 class="skill-cat-title">Power BI</h3>
-          <ul class="skill-items">
-            <li>Power Query data modeling</li>
-            <li>Star-schema and relational relationships</li>
-            <li>Custom DAX measures and calculated columns</li>
-            <li>KPI cards and interactive visuals</li>
-            <li>Cross-filtering and slicer controls</li>
-            <li>Drill-through and matrix reporting</li>
-          </ul>
-        </article>
-
-        <!-- 5. Python and Statistical EDA -->
-        <article class="skill-category full-width">
-          <div class="skill-cat-head">
-            <h3 class="skill-cat-title">Python and Statistical Data Analysis</h3>
-            <span class="skill-tag">Pandas · NumPy · Seaborn · SciPy</span>
-          </div>
-          <ul class="skill-items columns-2">
-            <li>Pandas for data ingestion, cleaning, transformation, and aggregation</li>
-            <li>NumPy for vectorized numerical computing and array operations</li>
-            <li>Statistical distribution analysis and outlier detection (IQR, Z-score)</li>
-            <li>Hypothesis testing (Two-sample Mann-Whitney U, p-value validation)</li>
-            <li>Exploratory data visualization (Seaborn heatmaps, KDE curves, boxplots)</li>
-            <li>Jupyter Notebook workflow for reproducible analytical modeling</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- ==============================================================
-         04. FEATURED PROJECTS SECTION (SINGLE-CARD CAROUSEL)
+         01. SELECTED ANALYTICAL WORK (STRICT SINGLE-CARD SHOWCASE)
          ============================================================== -->
     <section class="section" id="projects">
       <div class="section-head section-head-with-controls">
         <div class="sec-title-wrap">
-          <h2 class="section-title">Projects</h2>
-          <p class="section-desc">Practical analytical case studies with documented methodology, business findings, and reproducible code repositories.</p>
+          <span class="section-kicker">01 / SELECTED ANALYTICAL WORK</span>
+          <h2 class="section-title">Featured Case Studies</h2>
+          <p class="section-desc">Practical analytical case studies with documented methodology, business findings, authentic code specimens, and reproducible code repositories.</p>
         </div>
 
         <div class="carousel-nav-group" aria-label="Project carousel navigation">
@@ -271,11 +160,147 @@
     </section>
 
     <!-- ==============================================================
-         05. EDUCATION & CERTIFICATIONS
+         02. TECHNICAL CAPABILITIES (SKILLS WITHOUT KEYWORD WALL)
+         ============================================================== -->
+    <section class="section" id="skills">
+      <div class="section-head">
+        <span class="section-kicker">02 / TECHNICAL CAPABILITIES</span>
+        <h2 class="section-title">Analytical Competencies</h2>
+        <p class="section-desc">Applied technical competencies supported by real-world datasets, structured queries, and verified portfolio code.</p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- 1. SQL & Relational Databases -->
+        <article class="skill-category">
+          <div class="skill-cat-head">
+            <h3 class="skill-cat-title">SQL &amp; Relational Databases</h3>
+            <span class="skill-pill">MySQL 8.0</span>
+          </div>
+          <ul class="skill-items">
+            <li>Multi-table relational schema design &amp; 3NF normalization</li>
+            <li>Complex JOINs (INNER, LEFT, SELF) &amp; correlated subqueries</li>
+            <li>Common Table Expressions (CTEs) &amp; Window Functions (DENSE_RANK, ROW_NUMBER)</li>
+            <li>Referential integrity validation &amp; orphan record auditing</li>
+            <li>Query optimization, execution planning, and primary/foreign key indexing</li>
+          </ul>
+        </article>
+
+        <!-- 2. Power BI & Business Intelligence -->
+        <article class="skill-category">
+          <div class="skill-cat-head">
+            <h3 class="skill-cat-title">Power BI &amp; Business Intelligence</h3>
+            <span class="skill-pill">DAX &amp; Power Query</span>
+          </div>
+          <ul class="skill-items">
+            <li>Dimensional modeling (Star Schema architecture, 1:N cardinality)</li>
+            <li>Authored custom DAX measures (CALCULATE, DIVIDE, FILTER, SUMX)</li>
+            <li>Time-intelligence analysis (YOY, MOM growth metrics)</li>
+            <li>Executive dashboards with interactive slicers, cross-filtering, and drill-downs</li>
+            <li>Report performance tuning &amp; relationship ambiguity elimination</li>
+          </ul>
+        </article>
+
+        <!-- 3. Advanced Excel & Financial Modeling -->
+        <article class="skill-category">
+          <div class="skill-cat-head">
+            <h3 class="skill-cat-title">Advanced Excel &amp; Financial Modeling</h3>
+            <span class="skill-pill">Power Query ETL</span>
+          </div>
+          <ul class="skill-items">
+            <li>Power Query (Get &amp; Transform Data) multi-sheet ETL pipelines</li>
+            <li>Advanced lookup &amp; logical formulas (XLOOKUP, INDEX/MATCH, nested IFs)</li>
+            <li>Multi-dimensional PivotTables, dynamic timeline slicers, and summary cubes</li>
+            <li>Dynamic array formulas, conditional formatting thresholds, and KPI cards</li>
+            <li>Data cleansing, type casting, duplicate removal, and model documentation</li>
+          </ul>
+        </article>
+
+        <!-- 4. Python & Statistical EDA -->
+        <article class="skill-category">
+          <div class="skill-cat-head">
+            <h3 class="skill-cat-title">Python &amp; Statistical EDA</h3>
+            <span class="skill-pill">Pandas · NumPy · SciPy</span>
+          </div>
+          <ul class="skill-items">
+            <li>Pandas for multi-file tabular data ingestion, cleaning, and aggregation</li>
+            <li>NumPy for vectorized numerical computing and array operations</li>
+            <li>Hypothesis testing (Two-sample Mann-Whitney U test, p-value validation)</li>
+            <li>Statistical anomaly &amp; outlier detection (Interquartile Range IQR, Z-scores)</li>
+            <li>Seaborn &amp; Matplotlib visualization (KDE distributions, heatmaps, boxplots)</li>
+          </ul>
+        </article>
+
+        <!-- 5. Data Governance & Architecture -->
+        <article class="skill-category full-width">
+          <div class="skill-cat-head">
+            <h3 class="skill-cat-title">Data Cleaning, Architecture &amp; Governance</h3>
+            <span class="skill-pill">Analytical Governance</span>
+          </div>
+          <ul class="skill-items columns-2">
+            <li>Systematic null handling, boundary testing, and median imputation strategies</li>
+            <li>Relational schema mapping and Primary Key / Foreign Key constraint auditing</li>
+            <li>Data dictionary authoring and metadata documentation across tabular datasets</li>
+            <li>Exploratory data profiling with automated health scoring (0–100 scale)</li>
+            <li>Reproducible analytical workflows using Jupyter Notebooks and structured SQL scripts</li>
+            <li>Translation of raw statistical distributions into actionable business recommendations</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         03. WORKING METHODOLOGY
+         ============================================================== -->
+    <section class="section" id="methodology">
+      <div class="section-head">
+        <span class="section-kicker">03 / WORKING METHODOLOGY</span>
+        <h2 class="section-title">Analytical Approach &amp; Framework</h2>
+        <p class="section-desc">A disciplined four-phase analytical lifecycle ensuring data integrity, quantitative rigor, and actionable business impact.</p>
+      </div>
+
+      <div class="methodology-grid">
+        <article class="method-card">
+          <span class="method-step">PHASE 01</span>
+          <h3 class="method-title">Problem Framing &amp; Objectives</h3>
+          <p class="method-text">
+            Isolate the strategic business question before writing queries. Define critical KPIs (SLA adherence, gross GMV, turnover multiplier), stakeholder constraints, and baseline targets.
+          </p>
+        </article>
+
+        <article class="method-card">
+          <span class="method-step">PHASE 02</span>
+          <h3 class="method-title">Data Auditing &amp; ETL</h3>
+          <p class="method-text">
+            Audit schemas for nulls, duplicates, and orphan records. Normalize tables into 3NF or dimensional Star Schemas (fact &amp; dimension tables) using Power Query and SQL scripts.
+          </p>
+        </article>
+
+        <article class="method-card">
+          <span class="method-step">PHASE 03</span>
+          <h3 class="method-title">Quantitative Modeling</h3>
+          <p class="method-text">
+            Author structured SQL CTEs, window functions (DENSE_RANK), reusable DAX measures, and Python statistical tests (IQR anomaly filtering, Mann-Whitney U hypothesis validation).
+          </p>
+        </article>
+
+        <article class="method-card">
+          <span class="method-step">PHASE 04</span>
+          <h3 class="method-title">Executive Synthesis</h3>
+          <p class="method-text">
+            Synthesize findings into clean, decision-ready dashboards with dynamic slicers. Translate statistical discoveries into concrete, operational business recommendations.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         04. EDUCATION & VERIFIED CERTIFICATIONS
          ============================================================== -->
     <section class="section" id="credentials">
       <div class="section-head">
-        <h2 class="section-title">Education & Certifications</h2>
+        <span class="section-kicker">04 / CREDENTIALS &amp; BACKGROUND</span>
+        <h2 class="section-title">Education &amp; Verified Certifications</h2>
+        <p class="section-desc">Formal degree coursework and independently verified industry certifications with authentic digital credentials.</p>
       </div>
 
       <div class="credentials-stack">
@@ -289,7 +314,7 @@
             <h3 class="cred-name">B.Tech in Information Technology</h3>
             <span class="cred-org">Sri Krishna College of Engineering and Technology</span>
             <p class="cred-text">
-              Undergraduate coursework in relational database management systems (RDBMS), data structures, algorithms, and quantitative problem solving.
+              Undergraduate coursework in relational database management systems (RDBMS), data structures, algorithms, and quantitative problem solving. Grounded approach to data-driven decision systems.
             </p>
           </div>
         </article>
@@ -360,7 +385,7 @@
           <div class="cred-content">
             <div class="cred-header-row">
               <h3 class="cred-name">Microsoft Certified: Power BI Data Analyst Associate (PL-300)</h3>
-              <span class="cred-id-badge" style="background: rgba(37,99,235,0.1); color: var(--color-accent);">In Active Preparation</span>
+              <span class="cred-id-badge" style="background: rgba(29,78,216,0.1); color: var(--color-accent);">In Active Preparation</span>
             </div>
             <span class="cred-org">Microsoft</span>
             <p class="cred-text">
@@ -372,57 +397,52 @@
     </section>
 
     <!-- ==============================================================
-         06. RESUME SECTION
-         ============================================================== -->
-    <section class="section" id="resume">
-      <div class="resume-card">
-        <div class="resume-card-body">
-          <h2 class="resume-card-title">Professional Resume</h2>
-          <p class="resume-card-text">
-            A concise resume detailing my educational background in Information Technology, verified certifications in SQL and Advanced Excel, analytical toolstack (Python, SQL, Power BI, Excel), and end-to-end analytical case studies.
-          </p>
-        </div>
-        <div class="resume-card-actions">
-          <button class="btn btn-primary" id="btnOpenResumeModal">View Resume</button>
-          <a href="assets/MohamedFazilJ_Resume.pdf" download="MohamedFazilJ_Resume.pdf" class="btn btn-secondary">Download PDF</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==============================================================
-         07. CONTACT SECTION
+         05. PROFESSIONAL RÉSUMÉ & CONTACT
          ============================================================== -->
     <section class="section" id="contact">
       <div class="section-head">
-        <h2 class="section-title">Contact</h2>
+        <span class="section-kicker">05 / RÉSUMÉ &amp; CONTACT</span>
+        <h2 class="section-title">Get in Touch</h2>
         <p class="section-desc">
-          Entry-level / fresher, open to full-time Data Analyst roles and internships. Let's discuss how my analytical skills and problem-solving mindset can contribute to your team.
+          Entry-level / fresher, open to full-time Data Analyst roles and internships. Available immediately for remote, hybrid, or on-site opportunities across India. Let's discuss how my analytical skills and disciplined execution can support your team.
         </p>
       </div>
 
       <div class="contact-grid">
         <div class="contact-links-col">
-          <div class="contact-item">
-            <span class="c-label">LinkedIn</span>
-            <a href="https://www.linkedin.com/in/mohamed-fazil-j-22ds/" target="_blank" rel="noopener noreferrer" class="c-link">
-              linkedin.com/in/mohamed-fazil-j-22ds ↗
-            </a>
+          <!-- Resume Box -->
+          <div class="resume-mini-box">
+            <div class="rmb-body">
+              <span class="rmb-kicker">Curriculum Vitae</span>
+              <h3 class="rmb-title">Professional Résumé</h3>
+              <p class="rmb-desc">Comprehensive one-page summary covering Information Technology coursework, verified certifications, analytical tooling, and end-to-end case studies.</p>
+            </div>
+            <div class="rmb-actions">
+              <button class="btn btn-primary btn-sm" id="btnOpenResumeModal">View Résumé</button>
+              <a href="assets/MohamedFazilJ_Resume.pdf" download="MohamedFazilJ_Resume.pdf" class="btn btn-secondary btn-sm">Download PDF</a>
+            </div>
           </div>
 
+          <!-- Direct Channels -->
           <div class="contact-item">
-            <span class="c-label">GitHub</span>
-            <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="c-link">
-              github.com/J-Mohamed-Fazil ↗
-            </a>
-          </div>
-
-          <div class="contact-item">
-            <span class="c-label">Email</span>
+            <span class="c-label">Email Address</span>
             <div class="email-row">
               <a href="mailto:mf20159126@gmail.com" class="c-link" id="emailVal">mf20159126@gmail.com</a>
               <button class="btn-copy" id="btnCopyEmail" title="Copy email to clipboard">Copy</button>
             </div>
-            <span style="font-size: 12px; color: var(--color-text-muted); margin-top: 4px; display: block;">Open to inquiries &amp; opportunities</span>
+            <span class="c-subtext">Direct reachout · Inquiries &amp; interview scheduling</span>
+          </div>
+
+          <div class="contact-item">
+            <span class="c-label">Professional Profiles</span>
+            <div class="c-links-stack">
+              <a href="https://www.linkedin.com/in/mohamed-fazil-j-22ds/" target="_blank" rel="noopener noreferrer" class="c-link">
+                LinkedIn Profile ↗
+              </a>
+              <a href="https://github.com/J-Mohamed-Fazil" target="_blank" rel="noopener noreferrer" class="c-link">
+                GitHub Repositories ↗
+              </a>
+            </div>
           </div>
 
           <div class="contact-item">
@@ -433,23 +453,27 @@
 
         <div class="contact-form-col">
           <form class="clean-form" id="contactForm">
-            <div class="form-group">
-              <label for="cName">Name</label>
-              <input type="text" id="cName" required placeholder="Hiring Manager / Recruiter">
+            <div class="form-head">
+              <h3 class="form-title">Direct Outreach Message</h3>
+              <p class="form-desc">Sends an email directly with pre-filled details to <strong style="color: var(--color-text-primary);">mf20159126@gmail.com</strong>.</p>
             </div>
             <div class="form-group">
-              <label for="cEmail">Email</label>
-              <input type="email" id="cEmail" required placeholder="name@company.com">
+              <label for="cName">Your Name</label>
+              <input type="text" id="cName" required placeholder="e.g. Hiring Manager / Technical Recruiter">
+            </div>
+            <div class="form-group">
+              <label for="cEmail">Your Work Email</label>
+              <input type="email" id="cEmail" required placeholder="e.g. talent@company.com">
             </div>
             <div class="form-group">
               <label for="cSubject">Subject</label>
-              <input type="text" id="cSubject" required placeholder="Data Analyst Opportunity">
+              <input type="text" id="cSubject" required placeholder="Data Analyst Interview / Opportunity">
             </div>
             <div class="form-group">
               <label for="cMsg">Message</label>
-              <textarea id="cMsg" rows="3" required placeholder="Hello Mohamed, I reviewed your analytical projects..."></textarea>
+              <textarea id="cMsg" rows="3" required placeholder="Hi Mohamed, I reviewed your analytical case studies and would like to discuss an opportunity..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-block" id="btnSubmitContact">Send Message</button>
+            <button type="submit" class="btn btn-primary btn-block" id="btnSubmitContact">Compose Message ✉</button>
             <div id="contactStatus" style="display: none; margin-top: 0.75rem; font-size: 13px; line-height: 1.4;"></div>
           </form>
         </div>
@@ -841,7 +865,7 @@
   <div class="toast" id="toast"></div>
 
   <!-- Scripts -->
-  <script src="projects-data.js?v=4.1"></script>
-  <script src="app.js?v=4.1"></script>
+  <script src="projects-data.js?v=5.0"></script>
+  <script src="app.js?v=5.0"></script>
 </body>
 </html>

@@ -1,89 +1,73 @@
-# 📊 Mohamed Fazil J — Data Analyst & Data Science Portfolio
-
-> An interactive, high-performance portfolio website built specifically for **Mohamed Fazil J** to showcase data analytics, business intelligence dashboards, SQL case studies, and machine learning prototypes to hiring managers and recruiters.
-
----
-
-## 🌟 Key Highlights & Features
-
-- **🎯 Interactive Data Analytics Lab (Powered by Chart.js)**
-  - Toggle between live business intelligence datasets:
-    - **HR Attrition Analytics**: Department turnover rates, overtime impact, early tenure flight-risk isolation.
-    - **Olist E-Commerce Sales (100k+ rows)**: Revenue by product category, delivery delay SLA vs. review score correlation.
-    - **Chinook Digital Music SQL Analytics**: Genre revenue distribution, customer lifetime spend by country.
-- **🔍 Filterable Project Showcase**
-  - Instant live filtering by category: **Power BI**, **Advanced Excel**, **SQL Cases**, **Python & Machine Learning**, and **Tableau**.
-  - Real-time search by tool, topic, or keyword.
-  - Deep-dive **Case Study Modals** detailing Business Challenge, Methodology, Quantitative Metrics, and Direct Links to your [GitHub Repositories](https://github.com/J-Mohamed-Fazil).
-- **💻 SQL & Python Code Sandbox**
-  - Interactive browser query runner demonstrating CTEs, Window Functions (`ROW_NUMBER`, `DENSE_RANK`), and Python IQR outlier detection with simulated execution times (14–24ms) and formatted result tables.
-- **📄 Built-in ATS-Friendly Resume Modal**
-  - Complete, structured resume viewer with a single-click **"Print / Save as PDF"** button (optimized via `@media print`).
-- **⚡ Modern Dark Glassmorphism Design System**
-  - Built with pure HTML5, vanilla CSS3 custom properties, and JavaScript.
-  - Fully responsive across desktop, tablet, and mobile devices.
-  - Zero external build dependencies—ready for immediate hosting on **GitHub Pages**.
+# 📊 Mohamed Fazil — Recruiter-Focused Data Analytics Portfolio
+> **PROJECT OVERDRIVE EDITION** — Swiss Editorial Design & Analytical Software Aesthetics  
+> Live URL: [https://j-mohamed-fazil.github.io/](https://j-mohamed-fazil.github.io/)  
+> Repository: [https://github.com/j-mohamed-fazil/j-mohamed-fazil.github.io](https://github.com/j-mohamed-fazil/j-mohamed-fazil.github.io)
 
 ---
 
-## 📁 Project Structure
+## 🌟 Executive Overview & Architectural Highlights
+
+This repository contains the production website for **Mohamed Fazil**, designed specifically for technical recruiters, hiring managers, and senior analytics leads evaluating Data Analyst and Business Intelligence candidates.
+
+Built under **Project Overdrive** principles:
+- **Swiss Editorial Visual Identity**: Disciplined typography (Inter & JetBrains Mono), warm white (`#FAFAF8`) / deep dark surface palettes, subtle 1px borders, and single authoritative Swiss blue accent.
+- **Strict Single-Card Project Showcase**: Adheres strictly to the **ONE PROJECT CARD AT A TIME** showcase rule across all viewports (desktop, tablet, and mobile).
+- **Authentic Technical Specimen Consoles**: Pure focus on authentic analytical deliverables—every project features syntax-highlighted code specimens (Python Mann-Whitney U test, SQL CTEs & Window Functions, Power BI DAX measures, Excel Power Query M / dynamic formulas, DATOVA schema models) alongside 4 verified analytical metrics.
+- **Recruiter-First Sequence**:
+  1. **Navigation** (Compact, responsive, theme toggle, quick résumé access)
+  2. **Hero** (Positioning statement, verified metrics snapshot)
+  3. **01 Selected Analytical Work** (Strict 1-card carousel with 9 in-depth case studies)
+  4. **02 Technical Capabilities** (Categorized skills without keyword walls or fake progress bars)
+  5. **03 Working Methodology** (4-phase analytical framework from problem formulation to executive synthesis)
+  6. **04 Verified Credentials** (B.Tech IT degree, verified I.T. Vedant SQL & Advanced Excel certificates, PL-300 in progress)
+  7. **05 Résumé & Direct Contact** (Verified ATS PDF download, modal viewer, 1-click email copy to `mf20159126@gmail.com`)
+  8. **Minimal Footer** (Back to top, verified social links)
+- **Zero Irrelevant Mock Stock Images**: All unverified placeholder screenshots purged. Only authentic assets (certificates and official PDF) are retained.
+
+---
+
+## 📁 Repository Structure
 
 ```
 fazil-data-portfolio/
-├── index.html              # Core semantic HTML5 structure & accessibility
-├── style.css               # Design system, glassmorphism, responsive styles & print rules
-├── app.js                  # Interactive logic, Chart.js instances, query simulation, modals
-├── projects-data.js        # Structured project dataset with metrics & case study notes
+├── index.html              # Semantic HTML5 architecture & accessibility structure
+├── style.css               # Swiss editorial design tokens, 2-column card grid, print rules (v5.0)
+├── app.js                  # Accessible carousel logic, DATOVA studio, modal handlers (v5.0)
+├── projects-data.js        # 9 authentic project datasets with verified metrics & code specimens (v5.0)
 ├── assets/
-│   ├── MohamedFazilJ_Resume.pdf      # Downloadable verified resume
-│   ├── sql_itvedant_certificate.jpg  # Verified SQL course certificate
-│   └── advanceexcel.jpg              # Verified Advanced Excel certificate
+│   ├── MohamedFazilJ_Resume.pdf      # Official ATS-compliant resume
+│   ├── sql_itvedant_certificate.jpg  # Verified I.T. Vedant SQL certificate (ID: ITV6ad4844237225)
+│   └── advanceexcel.jpg              # Verified I.T. Vedant Advanced Excel certificate
 └── README.md                         # Documentation & deployment guide
 ```
 
 ---
 
-## 🚀 How to Run Locally
+## 🚀 Running Locally
 
-You can preview the portfolio using any local web server or VS Code Live Server:
+Preview using any static HTTP server:
 
-### Option 1: Python HTTP Server (Built-in)
-```bash
-cd "C:\Users\Mohamed Fazil J\.gemini\antigravity-ide\scratch\fazil-data-portfolio"
+```powershell
+# Using Python
 python -m http.server 4321
-```
-Then open your browser at:
-👉 **[http://localhost:4321](http://localhost:4321)**
 
-### Option 2: Node `npx serve`
-```bash
-npx serve .
+# Or using Node
+npx -y serve .
 ```
+
+Open [http://localhost:4321](http://localhost:4321) in your browser.
 
 ---
 
-## 🌐 How to Deploy to GitHub Pages for FREE
+## 🌐 Deploying to GitHub Pages
 
-Because this website is built with clean static HTML/CSS/JS, you can host it for free on GitHub Pages:
+To deploy changes to GitHub Pages:
 
-1. Create a repository on your GitHub named **`J-Mohamed-Fazil.github.io`** (or push to a branch in your repository).
-2. Push the files in this folder to that repository:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: launch data analyst portfolio"
-   git branch -M main
-   git remote add origin https://github.com/J-Mohamed-Fazil/J-Mohamed-Fazil.github.io.git
-   git push -u origin main
-   ```
-3. Your live portfolio will automatically go live at:
-   👉 **`https://J-Mohamed-Fazil.github.io`**
+```powershell
+git add -A
+git commit -m "feat: complete Project Overdrive Swiss editorial portfolio redesign"
+git push origin main
+```
 
----
+Your live site will update at **[https://j-mohamed-fazil.github.io/](https://j-mohamed-fazil.github.io/)**.
 
-## 👤 Author
-
-- **Mohamed Fazil J**
-- **GitHub**: [github.com/J-Mohamed-Fazil](https://github.com/J-Mohamed-Fazil)
-- **Role**: Data Analyst & Aspiring Data Scientist
-- **Specialization**: Power BI, Advanced SQL, Python, Excel BI Modeling, Tableau

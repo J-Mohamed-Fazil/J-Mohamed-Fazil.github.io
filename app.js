@@ -87,49 +87,100 @@ function initProjectShowcase() {
   // Render Project Cards (each occupies 100% of carousel width)
   container.innerHTML = portfolioProjects.map((p, idx) => {
     const metrics = p.verifiedMetrics || [];
+    const cs = p.caseStudy || {};
+    const keyFinding = cs.keyFindings && cs.keyFindings.length > 0 ? cs.keyFindings[0] : '';
+    const recommendation = cs.businessRecommendations && cs.businessRecommendations.length > 0 ? cs.businessRecommendations[0] : '';
+    const sampleCode = cs.sampleQuery || '';
 
     return `
       <article class="project-card" data-id="${escapeHtml(p.id)}" role="group" aria-roledescription="slide" aria-label="Project ${idx + 1} of ${total}: ${escapeHtml(p.title)}">
-        <div class="card-tags">
-          <span class="tag-neutral">${escapeHtml(p.badge || 'Analytics Project')}</span>
-          ${p.tools.slice(0, 3).map(t => `<span class="tag-neutral">${escapeHtml(t)}</span>`).join('')}
-        </div>
-
-        <h3 class="card-title">${escapeHtml(p.title)}</h3>
-
-        <p class="card-objective">${escapeHtml(p.summary)}</p>
-
-        <div class="card-problem">
-          <strong>Business Problem:</strong> ${escapeHtml(p.businessProblem)}
-        </div>
-
-        ${metrics.length > 0 ? `
-          <div class="card-metrics">
-            ${metrics.map(m => `
-              <div class="card-metric">
-                <span class="m-val">${escapeHtml(m.value)}</span>
-                <span class="m-lbl">${escapeHtml(m.label)}</span>
-              </div>
-            `).join('')}
+        <!-- Card Top Bar: Meta & Index -->
+        <header class="card-header">
+          <div class="card-meta-row">
+            <span class="card-counter-badge">PROJECT ${String(idx + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}</span>
+            <span class="card-badge-pill">${escapeHtml(p.badge || 'Analytics Project')}</span>
+            <div class="card-tool-tags">
+              ${p.tools.slice(0, 4).map(t => `<span class="tag-neutral">${escapeHtml(t)}</span>`).join('')}
+            </div>
           </div>
-        ` : ''}
+          <h3 class="card-title">${escapeHtml(p.title)}</h3>
+          <p class="card-summary">${escapeHtml(p.summary)}</p>
+        </header>
 
+        <!-- 2-Column Responsive Editorial Body -->
+        <div class="card-editorial-grid">
+          <!-- Column 1: Analytical Narrative -->
+          <div class="card-narrative-col">
+            <div class="narrative-block problem-block">
+              <span class="narrative-label">Business Problem</span>
+              <p class="narrative-text">${escapeHtml(p.businessProblem)}</p>
+            </div>
+
+            <div class="narrative-block scope-block">
+              <span class="narrative-label">Dataset &amp; Scope</span>
+              <p class="narrative-text">${escapeHtml(cs.datasetSource || 'Curated enterprise analytical dataset.')}</p>
+            </div>
+
+            ${keyFinding ? `
+              <div class="narrative-block finding-block">
+                <span class="narrative-label">Key Verified Discovery</span>
+                <p class="narrative-text">${escapeHtml(keyFinding)}</p>
+              </div>
+            ` : ''}
+
+            ${recommendation ? `
+              <div class="narrative-block rec-block">
+                <span class="narrative-label">Strategic Business Recommendation</span>
+                <p class="narrative-text">${escapeHtml(recommendation)}</p>
+              </div>
+            ` : ''}
+          </div>
+
+          <!-- Column 2: Authentic Technical Specimen & Metrics -->
+          <div class="card-specimen-col">
+            ${sampleCode ? `
+              <div class="card-specimen-box">
+                <div class="specimen-header">
+                  <span class="specimen-tag">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    ${p.category === 'python' ? 'Python Analysis & Statistical Script' : p.category === 'sql' ? 'Relational SQL Query (MySQL)' : p.category === 'tools' ? 'Schema Modeler Architecture' : 'Analytical Model & Metric Formula'}
+                  </span>
+                  <span class="specimen-ext">${p.category === 'python' ? '.py' : p.category === 'sql' ? '.sql' : p.category === 'tools' ? '.ts' : '.xlsx'}</span>
+                </div>
+                <pre class="specimen-code"><code>${escapeHtml(sampleCode)}</code></pre>
+              </div>
+            ` : ''}
+
+            ${metrics.length > 0 ? `
+              <div class="card-metrics-grid">
+                ${metrics.map(m => `
+                  <div class="metric-cell">
+                    <span class="m-val">${escapeHtml(m.value)}</span>
+                    <span class="m-lbl">${escapeHtml(m.label)}</span>
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+        </div>
+
+        <!-- Card Actions -->
         <div class="card-actions">
+          <button type="button" class="btn btn-primary btn-sm btn-view-study" data-id="${escapeHtml(p.id)}" id="viewStudy-${escapeHtml(p.id)}">
+            View Full Case Study
+          </button>
           ${p.isSimulator || p.hasWorkingModel ? `
-            <button type="button" class="btn btn-primary btn-sm btn-launch-model" id="launchModel-${escapeHtml(p.id)}" aria-label="Open Interactive Schema Studio for ${escapeHtml(p.title)}">
+            <button type="button" class="btn btn-secondary btn-sm btn-launch-model" id="launchModel-${escapeHtml(p.id)}" aria-label="Open Interactive Schema Studio for ${escapeHtml(p.title)}">
               Interactive Studio ↗
             </button>
           ` : p.liveUrl ? `
-            <a href="${escapeHtml(p.liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="launchModel-${escapeHtml(p.id)}" aria-label="Live Demo for ${escapeHtml(p.title)}">
+            <a href="${escapeHtml(p.liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" id="launchModel-${escapeHtml(p.id)}" aria-label="Live Demo for ${escapeHtml(p.title)}">
               Live Demo ↗
             </a>
           ` : ''}
-          <button type="button" class="btn ${p.isSimulator || p.hasWorkingModel || p.liveUrl ? 'btn-secondary' : 'btn-primary'} btn-sm btn-view-study" data-id="${escapeHtml(p.id)}" id="viewStudy-${escapeHtml(p.id)}">
-            View Case Study
-          </button>
           ${p.hasRepo ? `
-            <a href="${escapeHtml(p.github)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="View ${escapeHtml(p.title)} on GitHub">
-              GitHub ↗
+            <a href="${escapeHtml(p.github)}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm" aria-label="View ${escapeHtml(p.title)} on GitHub">
+              GitHub Repository ↗
             </a>
           ` : ''}
         </div>
